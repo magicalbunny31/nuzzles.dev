@@ -109,6 +109,13 @@
          .minecraft-skin {
             background-color: white;
          }
+
+         .disabled-minecraft-skin {
+            background-color: white;
+            background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url("/assets/background/spoiler.gif");
+            background-size: cover;
+            filter: brightness(75%);
+         }
       </style>
 
       <script>
@@ -130,11 +137,11 @@
             const buttonText = button.querySelector(`div`);
             buttonText.innerHTML = `<em>${buttonText.innerHTML}</em>`;
 
-            const [ content ] = document.getElementsByClassName(`tab-content`);
+            const [ content ] = document.getElementsByClassName(`tab-content-0`);
             for (const child of content.querySelectorAll(`div.content`))
                child.style.display = `none`;
 
-            const buttonContent = document.getElementById(`${buttonId}-content`);
+            const buttonContent = document.getElementById(`${buttonId}-content-0`);
             buttonContent.style.display = `block`;
          });
 
@@ -161,11 +168,62 @@
             const newButtonText = newButton.querySelector(`div`);
             newButtonText.innerHTML = `<em>${newButtonText.innerHTML}</em>`;
 
-            const [ content ] = document.getElementsByClassName(`tab-content`);
+            const [ content ] = document.getElementsByClassName(`tab-content-0`);
             for (const child of content.querySelectorAll(`div.content`))
                child.style.display = `none`;
 
-            const buttonContent = document.getElementById(`${newButtonId}-content`);
+            const buttonContent = document.getElementById(`${newButtonId}-content-0`);
+            buttonContent.style.display = `block`;
+         });
+
+         window.addEventListener(`load`, () => {
+            const hash = window.location.hash.slice(1);
+            const buttonId = [ `minecraft-skins`, `ears-minecraft-skins` ].includes(hash)
+               ? hash
+               : `minecraft-skins`;
+
+            const button = document.getElementById(buttonId);
+            button.classList.add(`disabled`);
+
+            const buttonText = button.querySelector(`div`);
+            buttonText.innerHTML = `<em>${buttonText.innerHTML}</em>`;
+
+            const [ content ] = document.getElementsByClassName(`tab-content-1`);
+            for (const child of content.querySelectorAll(`div.content`))
+               child.style.display = `none`;
+
+            const buttonContent = document.getElementById(`${buttonId}-content-1`);
+            buttonContent.style.display = `block`;
+         });
+
+         window.addEventListener(`hashchange`, hashChangeEvent => {
+            const oldHash = hashChangeEvent.oldURL.split(`#`).at(-1);
+            const oldButtonId = [ `minecraft-skins`, `ears-minecraft-skins` ].includes(oldHash)
+               ? oldHash
+               : `minecraft-skins`;
+
+            const oldButton = document.getElementById(oldButtonId);
+            oldButton.classList.remove(`disabled`);
+
+            const oldButtonText = oldButton.querySelector(`div`);
+            oldButtonText.innerHTML = `<strong>${oldButtonText.innerText}</strong>`;
+
+            const newHash = hashChangeEvent.newURL.split(`#`).at(-1);
+            const newButtonId = [ `minecraft-skins`, `ears-minecraft-skins` ].includes(newHash)
+               ? newHash
+               : `minecraft-skins`;
+
+            const newButton = document.getElementById(newButtonId);
+            newButton.classList.add(`disabled`);
+
+            const newButtonText = newButton.querySelector(`div`);
+            newButtonText.innerHTML = `<em>${newButtonText.innerHTML}</em>`;
+
+            const [ content ] = document.getElementsByClassName(`tab-content-1`);
+            for (const child of content.querySelectorAll(`div.content`))
+               child.style.display = `none`;
+
+            const buttonContent = document.getElementById(`${newButtonId}-content-1`);
             buttonContent.style.display = `block`;
          });
 
@@ -297,9 +355,9 @@
 
                      <hr/>
 
-                     <div class="tab-content">
+                     <div class="tab-content-0">
 
-                        <div class="content" id="2025-furry-art-content">
+                        <div class="content" id="2025-furry-art-content-0">
 
                            <div class="row">
                               <div class="column">
@@ -325,7 +383,7 @@
 
                         </div>
 
-                        <div class="content" id="2024-furry-art-content">
+                        <div class="content" id="2024-furry-art-content-0">
 
                            <div class="row">
                               <div class="column">
@@ -371,7 +429,7 @@
 
                         </div>
 
-                        <div class="content" id="2023-furry-art-content">
+                        <div class="content" id="2023-furry-art-content-0">
 
                            <div class="row">
                               <div class="column">
@@ -425,7 +483,7 @@
 
                         </div>
 
-                        <div class="content" id="2022-furry-art-content">
+                        <div class="content" id="2022-furry-art-content-0">
 
                            <div class="row">
                               <div class="column">
@@ -457,7 +515,7 @@
 
                         </div>
 
-                        <div class="content" id="2021-furry-art-content">
+                        <div class="content" id="2021-furry-art-content-0">
 
                            <div class="row">
                               <div class="column">
@@ -510,92 +568,410 @@
                         <li>do not use my art for your own things (like avatars, profile decorations, or role play) without permission from me</li>
                         <li>these are my own original works and they may not be used for anything regarding ai, including ai image training</li>
                         <li>
-                           these skins have been rendered using
-                           <a href="https://vzge.me" target="_blank">VZGE</a>
+                           all skins in this section have been rendered using
+                           <a href="https://vzge.me" target="_blank"><img class="emoji" src="/assets/logo/visage.png" alt="vzge logo" title="vzge" draggable="false"/> VZGE</a>
                            by
-                           <a href="https://unascribed.com" target="_blank">Una</a>
+                           <a href="https://unascribed.com" target="_blank"><img class="emoji" src="/assets/logo/unascribed.png" alt="unascribed logo" title="unascribed" draggable="false"/> Una</a>
                         </li>
                      </ul>
 
-                     <div class="row">
-                        <div class="column">
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                 <img class="border minecraft-skin" id="magicalbunny31_jax" src="/assets/minecraft-skin/magicalbunny31_jax_front.png" alt="a fox-wolf in a blue hoodie" title="magicalbunny31 (jax)" draggable="false" loading="lazy"/>
+                     <div class="tab-heading-container">
+
+                        <div class="tab-heading">
+                           <div class="corner-border tab-item" style="--border-colour: #d0c5c0;">
+                              <a class="border button" id="minecraft-skins" href="#minecraft-skins" style="--border-colour: #d0c5c0; --disabled-colour: #9d867b;" draggable="false">
+                                 <img class="emoji" src="/assets/logo/minecraft.png" alt="minecraft logo" title="minecraft" draggable="false"/>
+                                 <div>
+                                    <strong>default skins</strong>
+                                 </div>
                               </a>
                            </div>
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                 <img class="border minecraft-skin" id="actuallyhalowo_fox" src="/assets/minecraft-skin/actuallyhalowo_fox_front.png" alt="a pink fox" title="ActuallyHalowo (fox)" draggable="false" loading="lazy"/>
-                              </a>
-                           </div>
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">
-                                 <img class="border minecraft-skin" id="rubypawbs_quad" src="/assets/minecraft-skin/rubypawbs_quad_front.png" alt="an orange fox" title="rubypawbs (quad)" draggable="false" loading="lazy"/>
-                              </a>
-                           </div>
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/Aviation558.1" target="_blank">
-                                 <img class="border minecraft-skin" id="aviation558" src="/assets/minecraft-skin/aviation558_front.png" alt="an aviator in a lab coat with a glove" title="Aviation558" draggable="false" loading="lazy"/>
+                           <div class="corner-border tab-item" style="--border-colour: #edb816;">
+                              <a class="border button" id="ears-minecraft-skins" href="#ears-minecraft-skins" style="--border-colour: #edb816; --disabled-colour: #775b09;" draggable="false">
+                                 <img class="emoji" src="/assets/logo/ears.png" alt="ears logo" title="ears" draggable="false"/>
+                                 <div>
+                                    <strong>ears skins</strong>
+                                 </div>
                               </a>
                            </div>
                         </div>
-                        <div class="column">
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                 <img class="border minecraft-skin" id="magicalbunny31_jax_ears" src="/assets/minecraft-skin/magicalbunny31_jax_ears_front.png" alt="a fox-wolf in a blue hoodie with ears and a tail" title="magicalbunny31 (jax) (ears)" draggable="false" loading="lazy"/>
-                              </a>
+
+                     </div>
+
+                     <hr/>
+
+                     <div class="tab-content-1">
+
+                        <div class="content" id="minecraft-skins-content-1">
+
+                           <h2>
+                              <img class="emoji" src="/assets/minecraft-skin/head/magicalbunny31_folfo.png" alt="head of a fox-wolf with glasses and flowers" title="magicalbunny31 (folfo)" draggable="false" draggable="false"/>
+                              <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">magicalbunny31</a>
+                              (folfo)
+                           </h2>
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo" src="/assets/minecraft-skin/magicalbunny31_folfo_front.png" alt="a fox-wolf with brown markings" title="magicalbunny31 (folfo)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_maid" src="/assets/minecraft-skin/magicalbunny31_folfo_maid_front.png" alt="a fox-wolf in a maid dress" title="magicalbunny31 (folfo) (maid)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_hoodie" src="/assets/minecraft-skin/magicalbunny31_folfo_hoodie_front.png" alt="a fox-wolf in a blue hoodie with pink arm warmers" title="magicalbunny31 (folfo) (hoodie)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_pink_femboi" src="/assets/minecraft-skin/magicalbunny31_folfo_pink_femboi_front.png" alt="a fox-wolf in pink thigh highs and arm warmers" title="magicalbunny31 (folfo) (pink femboi)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_foxogen" src="/assets/minecraft-skin/magicalbunny31_folfo_foxogen_front.png" alt="a fox-wolf in an orange hoodie with black thigh highs" title="magicalbunny31 (folfo) (foxogen)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_black_femboi" src="/assets/minecraft-skin/magicalbunny31_folfo_black_femboi_front.png" alt="a fox-wolf in black thigh highs and arm warmers" title="magicalbunny31 (folfo) (black femboi)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_adventure" src="/assets/minecraft-skin/magicalbunny31_folfo_adventure_front.png" alt="a fox-wolf wearing: a brown sling, a black glove, and brown boots" title="magicalbunny31 (folfo) (adventure)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_blue_femboi" src="/assets/minecraft-skin/magicalbunny31_folfo_blue_femboi_front.png" alt="a fox-wolf in blue thigh highs and arm warmers" title="magicalbunny31 (folfo) (blue femboi)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
                            </div>
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                 <img class="border minecraft-skin" id="actuallyhalowo_fox_ears" src="/assets/minecraft-skin/actuallyhalowo_fox_ears_front.png" alt="a pink fox with a tail" title="ActuallyHalowo (fox) (ears)" draggable="false" loading="lazy"/>
-                              </a>
+
+                           <h2>
+                              <img class="emoji" src="/assets/minecraft-skin/head/magicalbunny31_deerie.png" alt="head of a deer" title="magicalbunny31 (deerie)" draggable="false" draggable="false"/>
+                              <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">magicalbunny31</a>
+                              (deerie)
+                           </h2>
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_deerie" src="/assets/minecraft-skin/magicalbunny31_deerie_front.png" alt="a deer in a red hoodie" title="magicalbunny31 (deerie)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column"></div>
+                              <div class="column"></div>
+                              <div class="column"></div>
                            </div>
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">
-                                 <img class="border minecraft-skin" id="rubypawbs_quad_ears" src="/assets/minecraft-skin/rubypawbs_quad_ears_front.png" alt="an orange fox with ears and a tail" title="rubypawbs (quad) (ears)" draggable="false" loading="lazy"/>
-                              </a>
+
+                           <h2>
+                              <img class="emoji" src="/assets/minecraft-skin/head/actuallyhalowo_fox.png" alt="head of a pink fox" title="ActuallyHalowo (fox)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="/assets/minecraft-skin/head/actuallyhalowo_visor.png" alt="head of a pink fox with a protogen visor" title="ActuallyHalowo (visor)" draggable="false" draggable="false"/>
+                              <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">ActuallyHalowo</a>
+                           </h2>
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox" src="/assets/minecraft-skin/actuallyhalowo_fox_front.png" alt="a pink fox" title="ActuallyHalowo (fox)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_pink" src="/assets/minecraft-skin/actuallyhalowo_fox_pink_front.png" alt="a pink fox in pink thigh highs and arm warmers" title="ActuallyHalowo (fox) (pink)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_pink" src="/assets/minecraft-skin/actuallyhalowo_visor_pink_front.png" alt="a pink fox with a protogen visor in pink thigh highs and arm warmers" title="ActuallyHalowo (visor) (pink)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_onesie" src="/assets/minecraft-skin/actuallyhalowo_fox_onesie_front.png" alt="a pink fox in a onesie" title="ActuallyHalowo (fox) (onesie)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_black" src="/assets/minecraft-skin/actuallyhalowo_fox_black_front.png" alt="a pink fox in black thigh highs and arm warmers" title="ActuallyHalowo (fox) (black)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_black" src="/assets/minecraft-skin/actuallyhalowo_visor_black_front.png" alt="a pink fox with a protogen visor in black thigh highs and arm warmers" title="ActuallyHalowo (visor) (black)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor" src="/assets/minecraft-skin/actuallyhalowo_visor_front.png" alt="a pink fox with a protogen visor" title="ActuallyHalowo (visor)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_blue" src="/assets/minecraft-skin/actuallyhalowo_fox_blue_front.png" alt="a pink fox in blue thigh highs and arm warmers" title="ActuallyHalowo (fox) (blue)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_blue" src="/assets/minecraft-skin/actuallyhalowo_visor_blue_front.png" alt="a pink fox with a protogen visor in blue thigh highs and arm warmers" title="ActuallyHalowo (visor) (blue)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_onesie" src="/assets/minecraft-skin/actuallyhalowo_visor_onesie_front.png" alt="a pink fox with a protogen visor in a onesie" title="ActuallyHalowo (visor) (onesie)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
                            </div>
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/wojtekhugo_.1" target="_blank">
-                                 <img class="border minecraft-skin" id="wojtekhugo_" src="/assets/minecraft-skin/wojtekhugo__front.png" alt="an expressionless person in black clothing with a black cap" title="wojtekhugo_" draggable="false" loading="lazy"/>
-                              </a>
+
+                           <h2>
+                              <img class="emoji" src="/assets/minecraft-skin/head/rubypawbs_quad.png" alt="head of an orange fox" title="rubypawbs (quad)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="/assets/minecraft-skin/head/rubypawbs_sona.png" alt="head of a white dragon-fox" title="rubypawbs (sona)" draggable="false" draggable="false"/>
+                              <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">rubypawbs</a>
+                           </h2>
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">
+                                       <img class="border minecraft-skin" id="rubypawbs_quad" src="/assets/minecraft-skin/rubypawbs_quad_front.png" alt="an orange fox" title="rubypawbs (quad)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">
+                                       <img class="border minecraft-skin" id="rubypawbs_sona" src="/assets/minecraft-skin/rubypawbs_sona_front.png" alt="a white dragon-fox" title="rubypawbs (sona)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column"></div>
+                              <div class="column"></div>
                            </div>
+
+                           <h2>
+                              <img class="emoji" src="/assets/minecraft-skin/head/aviation558.png" alt="head of an aviator in a lab coat" title="Aviation558" draggable="false" draggable="false"/>
+                              <img class="emoji" src="/assets/minecraft-skin/head/wojtekhugo_.png" alt="head of an expressionless person with a black cap" title="wojtekhugo_" draggable="false" draggable="false"/>
+                              everyone else
+                           </h2>
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/Aviation558.1" target="_blank">
+                                       <img class="border minecraft-skin" id="aviation558" src="/assets/minecraft-skin/aviation558_front.png" alt="an aviator in a lab coat with a glove" title="Aviation558" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/wojtekhugo_.1" target="_blank">
+                                       <img class="border minecraft-skin" id="wojtekhugo_" src="/assets/minecraft-skin/wojtekhugo__front.png" alt="an expressionless person in black clothing with a black cap" title="wojtekhugo_" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column"></div>
+                              <div class="column"></div>
+                           </div>
+
                         </div>
-                        <div class="column">
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                 <img class="border minecraft-skin" id="magicalbunny31_maid" src="/assets/minecraft-skin/magicalbunny31_maid_front.png" alt="a fox-wolf in a maid outfit" title="magicalbunny31 (maid)" draggable="false" loading="lazy"/>
-                              </a>
+
+                        <div class="content" id="ears-minecraft-skins-content-1">
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_ears_front.png" alt="a fox-wolf with brown markings" title="magicalbunny31 (folfo)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_maid_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_maid_ears_front.png" alt="a fox-wolf in a maid dress" title="magicalbunny31 (folfo) (maid)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_hoodie_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_hoodie_ears_front.png" alt="a fox-wolf in a blue hoodie with pink arm warmers" title="magicalbunny31 (folfo) (hoodie)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_pink_femboi_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_pink_femboi_ears_front.png" alt="a fox-wolf in pink thigh highs and arm warmers" title="magicalbunny31 (folfo) (pink femboi)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_foxogen_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_foxogen_ears_front.png" alt="a fox-wolf in an orange hoodie with black thigh highs" title="magicalbunny31 (folfo) (foxogen)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_black_femboi_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_black_femboi_ears_front.png" alt="a fox-wolf in black thigh highs and arm warmers" title="magicalbunny31 (folfo) (black femboi)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_adventure_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_adventure_ears_front.png" alt="a fox-wolf wearing: a brown sling, a black glove, and brown boots" title="magicalbunny31 (folfo) (adventure)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_blue_femboi_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_blue_femboi_ears_front.png" alt="a fox-wolf in blue thigh highs and arm warmers" title="magicalbunny31 (folfo) (blue femboi)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
                            </div>
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                 <img class="border minecraft-skin" id="actuallyhalowo_visor" src="/assets/minecraft-skin/actuallyhalowo_visor_front.png" alt="a pink fox with a protogen visor" title="ActuallyHalowo (visor)" draggable="false" loading="lazy"/>
-                              </a>
+
+                           <h2>
+                              <img class="emoji" src="/assets/minecraft-skin/head/magicalbunny31_deerie.png" alt="head of a deer" title="magicalbunny31 (deerie)" draggable="false" draggable="false"/>
+                              <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">magicalbunny31</a>
+                              (deerie)
+                           </h2>
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <img class="border disabled-minecraft-skin" id="magicalbunny31_deerie" src="/assets/minecraft-skin/magicalbunny31_deerie_front.png" alt="a deer in a red hoodie" title="magicalbunny31 (deerie)" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                              <div class="column"></div>
+                              <div class="column"></div>
+                              <div class="column"></div>
                            </div>
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">
-                                 <img class="border minecraft-skin" id="rubypawbs_sona" src="/assets/minecraft-skin/rubypawbs_sona_front.png" alt="a white dragon-fox" title="rubypawbs (sona)" draggable="false" loading="lazy"/>
-                              </a>
+
+                           <h2>
+                              <img class="emoji" src="/assets/minecraft-skin/head/actuallyhalowo_fox.png" alt="head of a pink fox" title="ActuallyHalowo (fox)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="/assets/minecraft-skin/head/actuallyhalowo_visor.png" alt="head of a pink fox with a protogen visor" title="ActuallyHalowo (visor)" draggable="false" draggable="false"/>
+                              <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">ActuallyHalowo</a>
+                           </h2>
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_ears" src="/assets/minecraft-skin/actuallyhalowo_fox_ears_front.png" alt="a pink fox" title="ActuallyHalowo (fox)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_fox_pink" src="/assets/minecraft-skin/actuallyhalowo_fox_pink_front.png" alt="a pink fox in pink thigh highs and arm warmers" title="ActuallyHalowo (fox) (pink)" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_visor_pink" src="/assets/minecraft-skin/actuallyhalowo_visor_pink_front.png" alt="a pink fox with a protogen visor in pink thigh highs and arm warmers" title="ActuallyHalowo (visor) (pink)" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_onesie_ears" src="/assets/minecraft-skin/actuallyhalowo_fox_onesie_ears_front.png" alt="a pink fox in a onesie" title="ActuallyHalowo (fox) (onesie)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_fox_black" src="/assets/minecraft-skin/actuallyhalowo_fox_black_front.png" alt="a pink fox in black thigh highs and arm warmers" title="ActuallyHalowo (fox) (black)" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_visor_black" src="/assets/minecraft-skin/actuallyhalowo_visor_black_front.png" alt="a pink fox with a protogen visor in black thigh highs and arm warmers" title="ActuallyHalowo (visor) (black)" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_ears" src="/assets/minecraft-skin/actuallyhalowo_visor_ears_front.png" alt="a pink fox with a protogen visor" title="ActuallyHalowo (visor)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_fox_blue" src="/assets/minecraft-skin/actuallyhalowo_fox_blue_front.png" alt="a pink fox in blue thigh highs and arm warmers" title="ActuallyHalowo (fox) (blue)" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_visor_blue" src="/assets/minecraft-skin/actuallyhalowo_visor_blue_front.png" alt="a pink fox with a protogen visor in blue thigh highs and arm warmers" title="ActuallyHalowo (visor) (blue)" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_onesie_ears" src="/assets/minecraft-skin/actuallyhalowo_visor_onesie_ears_front.png" alt="a pink fox with a protogen visor in a onesie" title="ActuallyHalowo (visor) (onesie)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
                            </div>
+
+                           <h2>
+                              <img class="emoji" src="/assets/minecraft-skin/head/rubypawbs_quad.png" alt="head of an orange fox" title="rubypawbs (quad)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="/assets/minecraft-skin/head/rubypawbs_sona.png" alt="head of a white dragon-fox" title="rubypawbs (sona)" draggable="false" draggable="false"/>
+                              <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">rubypawbs</a>
+                           </h2>
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">
+                                       <img class="border minecraft-skin" id="rubypawbs_quad_ears" src="/assets/minecraft-skin/rubypawbs_quad_ears_front.png" alt="an orange fox" title="rubypawbs (quad)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">
+                                       <img class="border minecraft-skin" id="rubypawbs_sona_ears" src="/assets/minecraft-skin/rubypawbs_sona_ears_front.png" alt="a white dragon-fox" title="rubypawbs (sona)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column"></div>
+                              <div class="column"></div>
+                           </div>
+
+                           <h2>
+                              <img class="emoji" src="/assets/minecraft-skin/head/aviation558.png" alt="head of an aviator in a lab coat" title="Aviation558" draggable="false" draggable="false"/>
+                              <img class="emoji" src="/assets/minecraft-skin/head/wojtekhugo_.png" alt="head of an expressionless person with a black cap" title="wojtekhugo_" draggable="false" draggable="false"/>
+                              everyone else
+                           </h2>
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <img class="border disabled-minecraft-skin" id="aviation558" src="/assets/minecraft-skin/aviation558_front.png" alt="an aviator in a lab coat with a glove" title="Aviation558" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <img class="border disabled-minecraft-skin" id="wojtekhugo_" src="/assets/minecraft-skin/wojtekhugo__front.png" alt="an expressionless person in black clothing with a black cap" title="wojtekhugo_" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                              <div class="column"></div>
+                              <div class="column"></div>
+                           </div>
+
                         </div>
-                        <div class="column">
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                 <img class="border minecraft-skin" id="magicalbunny31_deerie" src="/assets/minecraft-skin/magicalbunny31_deerie_front.png" alt="a deer in a red hoodie" title="magicalbunny31 (deerie)" draggable="false" loading="lazy"/>
-                              </a>
-                           </div>
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                 <img class="border minecraft-skin" id="actuallyhalowo_visor_ears" src="/assets/minecraft-skin/actuallyhalowo_visor_ears_front.png" alt="a pink fox with a protogen visor and a tail" title="ActuallyHalowo (visor) (ears)" draggable="false" loading="lazy"/>
-                              </a>
-                           </div>
-                           <div class="media-corner-border">
-                              <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">
-                                 <img class="border minecraft-skin" id="rubypawbs_sona_ears" src="/assets/minecraft-skin/rubypawbs_sona_ears_front.png" alt="a white dragon-fox with a tail" title="rubypawbs (sona) (ears)" draggable="false" loading="lazy"/>
-                              </a>
-                           </div>
-                        </div>
+
                      </div>
 
                   </div>
