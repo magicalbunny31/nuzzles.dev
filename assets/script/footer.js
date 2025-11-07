@@ -1854,7 +1854,14 @@ window.addEventListener(`load`, () => {
       `keep furry freaky`,
       `idk how to use this my paws are too big`,
       `fox meetup and you're not invited`,
-      `the gayest furry of them all ~`
+      `the gayest furry of them all ~`,
+      `if i let down my hair do i pass as a werefolf`,
+      `I'M GUNNA THRILL YOU TONIGHT`,
+      `really? on my favourite hoodie??`,
+      `say gex imminent`,
+      `i really do have a big tail that wags and stuff it's pawesome`,
+      `BALL SO HARD I'M GAY`,
+      `arfsolute banger`
    ];
 
    const text = texts[Math.floor(Math.random() * texts.length)];
