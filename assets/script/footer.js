@@ -1861,7 +1861,18 @@ window.addEventListener(`load`, () => {
       `say gex imminent`,
       `i really do have a big tail that wags and stuff it's pawesome`,
       `BALL SO HARD I'M GAY`,
-      `arfsolute banger`
+      `arfsolute banger`,
+      `THERE'S NO SOCKS LIKE HORSE SOCKS`,
+      `seven years in the furry fandom 🍰`,
+      `about your reward,,`,
+      `should my protogen be buffering this much`,
+      `the 14 werewolves did that to me`,
+      `i got furried for being fire`,
+      `cats with striped socks`,
+      `fuck my stupid faggot life`,
+      `oh no i have stupid paws and can't get away`,
+      `the power of plausible deniability: "oh, it's TOTALLY a pun~"`,
+      `WE MEET AGAIN, AS PROBABLY FORETOLD AT SOME POINT.`
    ];
 
    const text = texts[Math.floor(Math.random() * texts.length)];
