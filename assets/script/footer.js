@@ -1872,7 +1872,31 @@ window.addEventListener(`load`, () => {
       `fuck my stupid faggot life`,
       `oh no i have stupid paws and can't get away`,
       `the power of plausible deniability: "oh, it's TOTALLY a pun~"`,
-      `WE MEET AGAIN, AS PROBABLY FORETOLD AT SOME POINT.`
+      `WE MEET AGAIN, AS PROBABLY FORETOLD AT SOME POINT.`,
+      `now we know who opened the door for that werewolf`,
+      `hmm,, it appears that i can't stop staring,,`,
+      `lemme jingle that collar bell`,
+      `you've lost protobean privileges`,
+      `imagine if YOU were the one being stuffed for thanksgiving dinner`,
+      `giant internet fox`,
+      `it's the zootenial !`,
+      `it doesn't even deserve a joke... fuck sainsbury's`,
+      ` hope i've said 'i love you' enough~ ❤️`,
+      `OUT OF MY WAY GAY BOY`,
+      `my favourite british train is the rail replacement bus because you can't replace that`,
+      `IIII SEEE EVERRRYYYTHING !!!!!!!!!!!!!!!!!!!!!! THE WALLLLLS ARE MY FAVOURRRITE FLAAAAAAAVOURRRR WAAAAAAAAAAAAAAAAAHHHHHHHHHHHHH`,
+      `yet whatever awaits, i still create`,
+      `i swear the cat was right there it was going to jump`,
+      `BACK THEN I LISTENED TO UR VOICE 24/7 🎶🔥🎶🔥 WE WERE DANCING THRU IT ALL  👏👏 DANCING THRU IT ALL 👏👏`,
+      `*toys* just don't cut it anymore,,`,
+      `🦊 OH YEAH IT'S DEER SEASON TIME FOR ME TO FIND ME SOME DEER`,
+      `🦌 found u first lol`,
+      `🦊 THE DECOY ALWAYS WORKS      🦌W 🦌🦌WWA AA  🦌.🦌AAH🦌HHHHHHHHHH`,
+      `THAT'S A HUGE BURGER i'm so down and I'M SO HARD i'm just excited for food okai`,
+      `i will HUG you for warmth`,
+      `i grab the bad dragon and get a bunch of ceramic wrap..`,
+      `i get stronger every year. by stronger i mean hornier`,
+      `beat heartbreak forever`
    ];
 
    const text = texts[Math.floor(Math.random() * texts.length)];
