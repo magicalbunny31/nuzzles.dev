@@ -10,7 +10,7 @@
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-      <link rel="icon" href="/assets/emoji/mutant_standard/rabbit.webp" type="image/webp"/>
+      <link rel="icon" href="https://cdn.nuzzles.dev/emojis/mutant_standard/rabbit.webp" type="image/webp"/>
       <title>about 🐾</title>
 
       <meta name    ="theme-color"  content="#d6a4db"/>
@@ -61,14 +61,14 @@
       <script>
          const path = "about/index.html";
       </script>
-      <script src="/assets/script/cutie.js"></script>
-      <script src="/assets/script/footer.js"></script>
-      <script src="/assets/script/modal.js"></script>
+      <script src="/assets/scripts/cutie.js"></script>
+      <script src="/assets/scripts/footer.js"></script>
+      <script src="/assets/scripts/modal.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
       <script>
          window.addEventListener(`load`, async () => {
             const music = new Howl({
-               src: [ `https://files.catbox.moe/sc7fq0.ogg` ],
+               src: [ `https://cdn.nuzzles.dev/audio/music/2-33-am.ogg` ],
                autoplay: false,
                loop: true
             });
@@ -83,7 +83,7 @@
                   music.play(id);
                } else {
                   id = music.play();
-                  music.seek(20.625, id);
+                  music.once("play", () => music.seek(20.625, id), id);
                   hasStartedPlayback = true;
                };
             };
@@ -95,7 +95,7 @@
 
          window.addEventListener(`load`, async () => {
             const music = new Howl({
-               src: [ `https://files.catbox.moe/p9wfjk.wav` ],
+               src: [ `https://cdn.nuzzles.dev/games/super-animal-royale/emotes/audio/monkey-dance.wav` ],
                autoplay: false,
                loop: true
             });
@@ -106,7 +106,7 @@
             const sarFen = document.getElementById(`sar-fen`);
 
             sarFen.onmouseenter = async () => {
-               sarFen.src = `/assets/game/monkey_dance.webp`;
+               sarFen.src = `https://cdn.nuzzles.dev/games/super-animal-royale/emotes/animations/monkey_dance.webp`;
                if (hasStartedPlayback) {
                   music.play(id);
                } else {
@@ -116,7 +116,7 @@
             };
 
             sarFen.onmouseleave = () => {
-               sarFen.src = `/assets/game/idle.webp`;
+               sarFen.src = `https://cdn.nuzzles.dev/games/super-animal-royale/emotes/animations/idle.webp`;
                music.pause(id);
             };            
          });
@@ -142,15 +142,16 @@
                   <div class="large-border box">
 
                      <h1>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/speech_bubble_left.webp" alt="speech bubble left" title=":speech_bubble_left:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/speech_bubble_left.webp" alt="speech bubble left" title=":speech_bubble_left:" draggable="false"/>
                         who are you, magicalbunny31? 🐰🦊🐺🦌
                      </h1>
+
                      <ul>
                         <li>hello chat! call me bunny! <em>or magical if you're weird..</em></li>
                         <li>
-                           <a href="https://en.wikipedia.org/wiki/Pansexuality" target="_blank"><img class="emoji" src="/assets/emoji/mutant_standard/pansexual_flag.webp" alt="pansexual pride flag"  title=":pansexual_flag:"  draggable="false"/> pansexual</a>
+                           <a href="https://wikipedia.org/wiki/Non-binary_gender" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/nonbinary_flag.webp" alt="non-binary pride flag" title=":nonbinary_flag:" draggable="false"/> non-binary</a>
                            and
-                           <a href="https://en.wikipedia.org/wiki/Non-binary_gender" target="_blank"><img class="emoji" src="/assets/emoji/mutant_standard/nonbinary_flag.webp" alt="non-binary pride flag" title=":nonbinary_flag:" draggable="false"/> non-binary</a>
+                           <a href="https://wikipedia.org/wiki/Pansexuality" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/pansexual_flag.webp" alt="pansexual pride flag"  title=":pansexual_flag:" draggable="false"/> pansexual</a>
                            floofy internet furry
                         </li>
                         <li>
@@ -158,9 +159,9 @@
                         </li>
                         <li>
                            currently stretching my paws in
-                           <a href="https://en.wikipedia.org/wiki/South_West_England" target="_blank"><img class="emoji" src="/assets/emoji/twemoji/flag_gb.webp" alt="flag of the United Kingdom" title=":flag_gb:" draggable="false"/> south west england</a>
+                           <a href="https://wikipedia.org/wiki/South_West_England" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/flag_gb.webp" alt="flag of the United Kingdom" title=":flag_gb:" draggable="false"/> south west england</a>
                            and the
-                           <a href="https://en.wikipedia.org/wiki/Philippines" target="_blank"><img class="emoji" src="/assets/emoji/twemoji/flag_ph.webp" alt="flag of the Philippines" title=":flag_ph:" draggable="false"/> philippines</a>
+                           <a href="https://wikipedia.org/wiki/Philippines" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/flag_ph.webp" alt="flag of the Philippines" title=":flag_ph:" draggable="false"/> philippines</a>
                         </li>
                      </ul>
 
@@ -172,32 +173,35 @@
                   <div class="large-border box">
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
                         bunny the developer
                      </h2>
+
                      <ul>
                         <li>
-                           <a href="https://nodejs.org" target="_blank"><img class="emoji" src="/assets/logo/node.js.png" alt="node.js logo" title="node.js" draggable="false"/> node.js</a>
+                           <a href="https://nodejs.org" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/node.js.png" alt="node.js logo" title="node.js" draggable="false"/> node.js</a>
                            and
-                           <a href="https://www.python.org" target="_blank"><img class="emoji" src="/assets/logo/python.png" alt="python logo" title="python" draggable="false"/> python</a>
+                           <a href="https://www.python.org" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/python.png" alt="python logo" title="python" draggable="false"/> python</a>
                            since 2019
                         </li>
-                        <li>creator of the discord apps:</li>
-                        <ul>
-                           <li>
-                              <a href="/dev/fox-bot"><img class="emoji circle-border" src="/assets/avatar/fox_bot.webp" alt="fox bot's avatar" title="fox bot" draggable="false"/> fox bot</a>
-                              (<a href="https://discord.com/application-directory/964619726888239255" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> discord app directory</a>)
-                           </li>
-                           <li>
-                              <a href="/dev/bun"><img class="emoji circle-border" src="/assets/avatar/bun.webp" alt="bun's avatar" title="bun" draggable="false"/> bun</a>
-                           </li>
-                        </ul>
+                        <li>
+                           creator of the discord apps:
+                           <ul>
+                              <li>
+                                 <a href="/dev/fox-bot"><img class="emoji circle-border" src="https://cdn.nuzzles.dev/socials/discord/apps/avatars/fox_bot.webp" alt="fox bot's avatar" title="fox bot" draggable="false"/> fox bot</a>
+                                 (<a href="https://discord.com/application-directory/964619726888239255" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> discord app directory</a>)
+                              </li>
+                              <li>
+                                 <a href="/dev/bun"><img class="emoji circle-border" src="https://cdn.nuzzles.dev/socials/discord/apps/avatars/bun.webp" alt="bun's avatar" title="bun" draggable="false"/> bun</a>
+                              </li>
+                           </ul>
+                        </li>
                      </ul>
 
                      <div class="grid">
                         <div class="corner-border">
                            <a class="border large-button" href="/dev" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
                               <div>
                                  <strong>dev and apps</strong>
                               </div>
@@ -206,9 +210,10 @@
                      </div>
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
                         bunny the artist
                      </h2>
+
                      <ul>
                         <li>i draw furries. that's it. no other background in amateur art haha</li>
                         <li>
@@ -223,7 +228,7 @@
                      <div class="grid">
                         <div class="corner-border">
                            <a class="border large-button" href="/art" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
                               <div>
                                  <strong>art and commissions</strong>
                               </div>
@@ -232,9 +237,10 @@
                      </div>
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/airplane.webp" alt="airplane" title=":airplane:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/airplane.webp" alt="airplane" title=":airplane:" draggable="false"/>
                         bunny the aviation geek
                      </h2>
+
                      <ul>
                         <li>commercial aircraft, aviation logistics, and airport enjoyer</li>
                         <li>to be honest i just wanted a mini section on this so that people know i like my planes lmao</li>
@@ -242,7 +248,7 @@
 
                      <div class="grid">
                         <div class="media-corner-border">
-                           <img class="border" src="/assets/photograph/N542GP.webp" alt="Dassault Falcon 7X with registration N542GP at Southampton Airport" title="N542GP at Southampton Airport" draggable="false" loading="lazy"/>
+                           <img class="border" src="https://cdn.nuzzles.dev/irl/photographs/aviation/aeroplanes/N542GP.webp" alt="Dassault Falcon 7X with registration N542GP at Southampton Airport" title="N542GP at Southampton Airport" draggable="false" loading="lazy"/>
                         </div>
                      </div>
 
@@ -261,33 +267,36 @@
                <div class="large-corner-border">
                   <div class="large-border box">
 
-                     <img id="sar-fen" class="thumbnail" style="float: right; width: 7.5em;" src="/assets/game/idle.webp" draggable="false"/>
+                     <img id="sar-fen" class="thumbnail" style="float: right; width: 7.5em;" src="https://cdn.nuzzles.dev/games/super-animal-royale/emotes/animations/idle.webp" draggable="false"/>
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/arcade_stick.webp" alt="arcade stick" title=":arcade_stick:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/arcade_stick.webp" alt="arcade stick" title=":arcade_stick:" draggable="false"/>
                         i've seen you in games before..
                      </h2>
+
                      <ul>
                         <li>
                            you've probably seen me in the two games i play the most:
-                           <a href="https://animalroyale.com"><img class="emoji" src="/assets/logo/animal_royale.png" alt="super animal royale fox head" title="fox head" draggable="false"/> super animal royale</a>
+                           <a href="https://animalroyale.com" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/animal_royale.png" alt="super animal royale" title="super animal royale" draggable="false"/> super animal royale</a>
                            and
-                           <a href="https://www.roblox.com"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox</a>
+                           <a href="https://www.roblox.com" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox</a>
                         </li>
                      </ul>
 
                      <div class="desktop">
                         <div class="grid">
                            <div class="media-corner-border">
-                              <img class="border" src="/assets/game/fen_skill-issue_cute.webp" alt="left to right: a twilight-coloured fennec walking, holding a broadsword; a fennec creeping whilst holding a sniper rifle; a platinum fox dancing" title="(left to right) skill issue, fen, cute" draggable="false" loading="lazy"/>
+                              <img class="border" src="https://cdn.nuzzles.dev/games/super-animal-royale/characters.webp" alt="a fennec fox creep-walking rightwards whilst holding a candy-corn-coloured sniper rifle; a twilight-coloured fennec fox walking rightwards whilst holding a large dark broadsword; a platinum fox dancing; a kitsune mid-backwards-jump holding a bow and aiming towards the left; in the background behind some trees are a fennec fox in rebel clothing and an arctic fox in super animal world security forces clothing both in a crept state and holding an machine guns at each other" title="(left to right) fen, skill issue, cute, kit; (background, left to right) rebel fen, saw arc" draggable="false" loading="lazy"/>
                            </div>
                            <div class="media-corner-border">
-                              <img class="border" src="/assets/art/sar_fen_-_thumbnail.webp" alt="an anthropomorphic fennec fox - wearing a flower crown, a head bandaid, a blue scarf, and a duck floatie - holding an orange candy-corn inspired sniper rifle and aiming to the front and right side. in the background, more animals are falling from the sky, holding umbrellas, with a forest underneath. the top right of the image says the title of the game &quot;super animal royale&quot;" title="the fox is going to SHOOT YOU !!!!!1 🦊" draggable="false" loading="lazy"/>
+                              <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/sar_fen_-_thumbnail.webp" alt="an anthropomorphic fennec fox - wearing a flower crown, a head bandaid, a blue scarf, and a duck floatie - holding an orange candy-corn inspired sniper rifle and aiming to the front and right side. in the background, more animals are falling from the sky, holding umbrellas, with a forest underneath. the top right of the image says the title of the game &quot;super animal royale&quot;" title="the fox is going to SHOOT YOU !!!!!1 🦊" draggable="false" loading="lazy"/>
                            </div>
                         </div>
                         <div class="grid">
                            <em>
-                              (left to right) skill issue, fen, cute
+                              (left to right) fen, skill issue, cute, kit
+                              <br/>
+                              (background, left to right) rebel fen, saw arc
                            </em>
                            <em>
                               <a href="https://bsky.app/profile/magicalbunny31.nuzzles.dev/post/3lbt3n5vwhk25" target="_blank">the fox is going to SHOOT YOU !!!!!1 🦊</a>
@@ -299,13 +308,15 @@
                      <div class="mobile">
                         <div class="grid">
                            <div class="media-corner-border">
-                              <img class="border" src="/assets/game/fen_skill-issue_cute.webp" alt="left to right: a twilight-coloured fennec walking, holding a broadsword; a fennec creeping whilst holding a sniper rifle; a platinum fox dancing" title="(left to right) skill issue, fen, cute" draggable="false" loading="lazy"/>
+                              <img class="border" src="https://cdn.nuzzles.dev/games/super-animal-royale/characters.webp" alt="a fennec fox creep-walking rightwards whilst holding a candy-corn-coloured sniper rifle; a twilight-coloured fennec fox walking rightwards whilst holding a large dark broadsword; a platinum fox dancing; a kitsune mid-backwards-jump holding a bow and aiming towards the left; in the background behind some trees are a fennec fox in rebel clothing and an arctic fox in super animal world security forces clothing both in a crept state and holding an machine guns at each other" title="(left to right) fen, skill issue, cute, kit; (background, left to right) rebel fen, saw arc" draggable="false" loading="lazy"/>
                            </div>
                            <em>
-                              (left to right) skill issue, fen, cute
+                              (left to right) fen, skill issue, cute, kit
+                              <br/>
+                              (background, left to right) rebel fen, saw arc
                            </em>
                            <div class="media-corner-border">
-                              <img class="border" src="/assets/art/sar_fen_-_thumbnail.webp" alt="a fennec fox holding a sniper rifle" title="the fox is going to SHOOT YOU !!!!!1 🦊" draggable="false" loading="lazy"/>
+                              <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/sar_fen_-_thumbnail.webp" alt="a fennec fox holding a sniper rifle" title="the fox is going to SHOOT YOU !!!!!1 🦊" draggable="false" loading="lazy"/>
                            </div>
                            <em>
                               <a href="https://bsky.app/profile/magicalbunny31.nuzzles.dev/post/3lbt3n5vwhk25" target="_blank">the fox is going to SHOOT YOU !!!!!1 🦊</a>
@@ -317,10 +328,10 @@
                      <div class="grid" style="padding: 0.2em 0;">
                         <div class="corner-border" style="--border-colour: #6b74bb;">
                            <a class="border large-button" href="/royale.pet" target="_blank" style="--border-colour: #6b74bb;" draggable="false">
-                              <img class="emoji" src="/assets/logo/royale.pet.png" alt="royale.pet logo" title="royale.pet" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/royale.pet.png" alt="royale.pet logo" title="royale.pet" draggable="false"/>
                               <div>
                                  <strong>royale.pet</strong>
-                                 <br>
+                                 <br/>
                                  magicalbuwunny31
                               </div>
                            </a>
@@ -330,15 +341,15 @@
                      <div class="desktop">
                         <div class="grid">
                            <div class="media-corner-border">
-                              <img class="border" src="/assets/game/foxogen_shorke_derg.webp" alt="left to right: a fox-protogen sitting on the ground; a green shark leaning against a truss pillar; a dragon hanging off of a truss pillar" title="(left to right) foxogen, shorke, derg" draggable="false" loading="lazy"/>
+                              <img class="border" src="https://cdn.nuzzles.dev/games/roblox/characters.webp" alt="a fox-protogen and a dragon sitting on the ground holding paws both looking at a green shark hanging off of a truss pillar with one paw with a kobold mid-air pulling the shark off and a kitsune pulling the kobold on the ground" title="(left to right) foxogen, derg, shorke, kobo, kit" draggable="false" loading="lazy"/>
                            </div>
                            <div class="media-corner-border">
-                              <img class="border" src="/assets/art/fe2_foxogen_-_thumbnail.webp" alt="a roblox-style (blocky) fox-protogen on a zip-line, with Rustic Jungle in the background" title="fe2 foxogen 🦊" draggable="false" loading="lazy"/>
+                              <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2024/furry/sfw/fe2_foxogen_-_thumbnail.webp" alt="a roblox-style (blocky) fox-protogen on a zip-line, with Rustic Jungle in the background" title="fe2 foxogen 🦊" draggable="false" loading="lazy"/>
                            </div>
                         </div>
                         <div class="grid">
                            <em>
-                              (left to right) foxogen, shorke, derg
+                              (left to right) foxogen, derg, shorke, kobo, kit
                            </em>
                            <em>
                               fe2 foxogen 🦊
@@ -350,13 +361,13 @@
                      <div class="mobile">
                         <div class="grid">
                            <div class="media-corner-border">
-                              <img class="border" src="/assets/game/foxogen_shorke_derg.webp" alt="left to right: a fox-protogen sitting on the ground; a green shark leaning against a truss pillar; a dragon hanging off of a truss pillar" title="(left to right) foxogen, shorke, derg" draggable="false" loading="lazy"/>
+                              <img class="border" src="https://cdn.nuzzles.dev/games/roblox/characters.webp" alt="a fox-protogen and a dragon sitting on the ground holding paws both looking at a green shark hanging off of a truss pillar with one paw with a kobold mid-air pulling the shark off and a kitsune pulling the kobold on the ground" title="(left to right) foxogen, derg, shorke, kobo, kit" draggable="false" loading="lazy"/>
                            </div>
                            <em>
-                              (left to right) foxogen, shorke, derg
+                              (left to right) foxogen, derg, shorke, kobo, kit
                            </em>
                            <div class="media-corner-border">
-                              <img class="border" src="/assets/art/fe2_foxogen_-_thumbnail.webp" alt="a roblox-style (blocky) fox-protogen on a zip-line, with Rustic Jungle in the background" title="fe2 foxogen 🦊" draggable="false" loading="lazy"/>
+                              <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2024/furry/sfw/fe2_foxogen_-_thumbnail.webp" alt="a roblox-style (blocky) fox-protogen on a zip-line, with Rustic Jungle in the background" title="fe2 foxogen 🦊" draggable="false" loading="lazy"/>
                            </div>
                            <em>
                               fe2 foxogen 🦊
@@ -368,10 +379,10 @@
                      <div class="grid" style="padding-top: 0.2em;">
                         <div class="corner-border" style="--border-colour: #272930;">
                            <a class="border large-button" href="/roblox" target="_blank" style="--border-colour: #272930;" draggable="false">
-                              <img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/>
                               <div>
                                  <strong>roblox</strong>
-                                 <br>
+                                 <br/>
                                  @magicalbunny31
                               </div>
                            </a>
@@ -379,15 +390,16 @@
                      </div>
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/laptop.webp" alt="laptop" title=":laptop:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/laptop.webp" alt="laptop" title=":laptop:" draggable="false"/>
                         i've seen your youtube content!
                      </h2>
+
                      <ul>
                         <li>
                            yeah! i currently make
-                           <a href="https://www.roblox.com/games/738339342/Flood-Escape-2"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flood escape 2</a>
+                           <a href="https://www.roblox.com/games/738339342/Flood-Escape-2"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flood escape 2</a>
                            content (and hopefully
-                           <a href="https://animalroyale.com"><img class="emoji" src="/assets/logo/animal_royale.png" alt="super animal royale fox head" title="fox head" draggable="false"/> super animal royale</a>
+                           <a href="https://animalroyale.com"><img class="emoji" src="https://cdn.nuzzles.dev/logos/animal_royale.png" alt="super animal royale" title="super animal royale" draggable="false"/> super animal royale</a>
                            content soon)
                         </li>
                         <li>
@@ -398,7 +410,7 @@
                      <div class="grid">
                         <div class="corner-border">
                            <a class="border large-button" href="/games" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/gamepad.webp" alt="gamepad" title=":gamepad:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/gamepad.webp" alt="gamepad" title=":gamepad:" draggable="false"/>
                               <div>
                                  <strong>games</strong>
                               </div>
@@ -414,78 +426,89 @@
                   <div class="large-border box">
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/red_question_mark.webp" alt="red question mark" title=":red_question_mark:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/red_question_mark.webp" alt="red question mark" title=":red_question_mark:" draggable="false"/>
                         so why the name "magicalbunny31" exactly?
                      </h2>
+
                      <ul>
-                        <li>my username is two words plus a number, very original!</li>
-                        <ul>
-                           <li>
-                              i have a hunch that this format was slightly inspired by
-                              <a href="https://www.animaljam.com" target="_blank"><img class="emoji" src="/assets/logo/animal_jam.png" alt="animal jam logo" title="animal jam" draggable="false"/> animal jam</a>
-                              because of the way the animal names are chosen
-                           </li>
-                        </ul>
-                        <li>i thought of the words "magic" and "bunny" and the number "31"</li>
-                        <ul>
-                           <li>
-                              <code>magic</code> idk why i thought of this word
-                           </li>
-                           <li>
-                              <code>bunny</code> i love bunnies! i studied their anatomy a lot
-                           </li>
-                           <li>
-                              <code>31</code> originally i thought of 13 because my cake day is march 13, though because 13 was kinda considered unlucky in some contexts i reversed it to 31 lol
-                           </li>
-                        </ul>
+                        <li>
+                           my username is two words plus a number, very original!
+                           <ul>
+                              <li>
+                                 i have a hunch that this format was slightly inspired by
+                                 <a href="https://www.animaljam.com" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/animal_jam.png" alt="animal jam logo" title="animal jam" draggable="false"/> animal jam</a>
+                                 because of the way the animal names are chosen
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           i thought of the words "magic" and "bunny" and the number "31"
+                           <ul>
+                              <li>
+                                 <code>magic</code> idk why i thought of this word
+                              </li>
+                              <li>
+                                 <code>bunny</code> i love bunnies! i studied their anatomy a lot
+                              </li>
+                              <li>
+                                 <code>31</code> originally i thought of 13 because my cake day is march 13, though because 13 was kinda considered unlucky in some contexts i reversed it to 31 lol
+                              </li>
+                           </ul>
+                        </li>
                         <li>
                            "magicbunny31" didn't sound good though, so i rounded it to "magicalbunny31" and that's where we are today
+                           <ul>
+                              <li>since coming out as a furry, i also go by the name "fluffycinnabunfolf"</li>
+                           </ul>
                         </li>
-                        <ul>
-                           <li>since coming out as a furry, i also go by the name "fluffycinnabunfolf"</li>
-                        </ul>
                      </ul>
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/thought_bubble.webp" alt="thought bubble" title=":thought_bubble:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/thought_bubble.webp" alt="thought bubble" title=":thought_bubble:" draggable="false"/>
                         bunny, fox, wolf, deer....choose one already!
                      </h2>
+
                      <ul>
-                        <li>🐰 bunnies were my original favourite animal, i read books about them loads when i was very young</li>
-                        <ul>
-                           <li>i even care for a few lionhead bunnies!</li>
-                        </ul>
-                        <li>🦊 after joining the furry fandom, i have been taken in by all the cute fluffy foxes; loving them ever since</li>
-                        <ul>
-                           <li>"bunny you are OBSESSED with foxes"</li>
-                        </ul>
+                        <li>
+                           🐰 bunnies were my original favourite animal, i read books about them loads when i was very young
+                           <ul>
+                              <li>i even care for a few lionhead bunnies!</li>
+                           </ul>
+                        </li>
+                        <li>
+                           🦊 after joining the furry fandom, i have been taken in by all the cute fluffy foxes; loving them ever since
+                           <ul>
+                              <li>"bunny you are OBSESSED with foxes"</li>
+                           </ul>
+                        </li>
                         <li>
                            🐺 my original fursona was a emo feral wolf, probably inspired by
                            <a href="https://www.roblox.com/games/1204965839/Wolves-Life-3" target="_blank">
-                              <img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/>
                               wolves life 3
                            </a>
+                           <ul>
+                              <li>
+                                 it then matured to being the
+                                 <a href="https://wikifur.com/wiki/Folf" target="_blank">folf</a>
+                                 we all know and love today (me !!)
+                              </li>
+                           </ul>
                         </li>
-                        <ul>
-                           <li>
-                              it then matured to being the
-                              <a href="https://en.wikifur.com/wiki/Folf" target="_blank">folf</a>
-                              we all know and love today (me !!)
-                           </li>
-                        </ul>
                         <li>
                            🦌 during the winter months in the northern hemisphere (december to february), i become a
                            <a href="/about/deerie">deer</a>
+                           <ul>
+                              <li>this was just an excuse for me to have another oc</li>
+                           </ul>
                         </li>
-                        <ul>
-                           <li>this was just an excuse for me to have another oc</li>
-                        </ul>
                      </ul>
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/furry_pride.webp" alt="rainbow paw" title=":furry_pride:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/furry_pride.webp" alt="rainbow paw" title=":furry_pride:" draggable="false"/>
                         how long have you been in the furry fandom?
                      </h2>
+
                      <ul>
                         <li>
                            i sold my soul to the furry devil back at
@@ -498,10 +521,11 @@
                      </ul>
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/fox.webp" alt="fox" title=":fox:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/fox.webp" alt="fox" title=":fox:" draggable="false"/>
                         <a href="/bun-daily-fox" target="_blank">bun's daily fox 🦊🐾</a>?
                         what's that?
                      </h2>
+
                      <ul>
                         <li>
                            it's a place where i've been posting foxes (with captions) every day since
@@ -512,72 +536,78 @@
                         </li>
                         <li>
                            i post these in the
-                           <a href="/discord" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> bunny furfest</a>
+                           <a href="/discord" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> bunny furfest</a>
                            discord server and the
-                           <a href="/bun-daily-fox" target="_blank"><img class="emoji" src="/assets/logo/telegram.png" alt="telegram logo" title="telegram" draggable="false"/> @bundailyfox</a>
+                           <a href="/bun-daily-fox" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/telegram.png" alt="telegram logo" title="telegram" draggable="false"/> @bundailyfox</a>
                            telegram channel
                         </li>
                         <li>
                            i was inspired by
-                           <a href="https://twitter.com/blepfox" target="_blank"><img class="emoji" src="/assets/logo/twitter.png" alt="twitter logo" title="twitter" draggable="false"/> @BlepFox</a>
+                           <a href="https://twitter.com/blepfox" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/twitter.png" alt="twitter logo" title="twitter" draggable="false"/> @BlepFox</a>
                            saying
                            <a href="https://twitter.com/BlepFox/status/1333775948899082241" target="_blank">foxcember</a>
                            as well as their
-                           <a href="https://twitter.com/DailyArcticFox" target="_blank"><img class="emoji" src="/assets/logo/twitter.png" alt="twitter logo" title="twitter" draggable="false"/> @DailyArcticFox</a>
+                           <a href="https://twitter.com/DailyArcticFox" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/twitter.png" alt="twitter logo" title="twitter" draggable="false"/> @DailyArcticFox</a>
                            twitter account
                         </li>
                      </ul>
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/phone.webp" alt="phone" title=":phone:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/phone.webp" alt="phone" title=":phone:" draggable="false"/>
                         why are you always idle on discord?
                      </h2>
+
                      <ul>
                         <li>many years ago, probably back in 2018, i found that some people liked to keep with same online status</li>
-                        <li>so....i swiped this idea! i chose idle because.. uhm, i forgor</li>
-                        <ul>
-                           <li>
-                              <em>but it stuck with me so now i am idle</em>
-                           </li>
-                        </ul>
-                        <li>here are what my statuses actually represent:</li>
-                        <ul>
-                           <li>
-                              <img class="emoji" src="/assets/emoji/discord/online.png" alt="online" title=":online:" draggable="false"/>
-                              <code>online</code>
-                              i never set my status to this....if you see my status set as this then either something is seriously wrong with me or discord is just buggin'
-                           </li>
-                           <li>
-                              <img class="emoji" src="/assets/emoji/discord/idle.png" alt="idle" title=":idle:" draggable="false"/>
-                              <code>idle</code>
-                              i have (or had) discord open! doesn't mean i will respond to you instantly, though..
-                           </li>
-                           <li>
-                              <img class="emoji" src="/assets/emoji/discord/dnd.png" alt="dnd" title=":dnd:" draggable="false"/>
-                              <code>do not disturb</code>
-                              just want some quiet time....still feel free to message me! i really just won't respond instantly~
-                           </li>
-                           <li>
-                              <img class="emoji" src="/assets/emoji/discord/offline.png" alt="offline" title=":offline:" draggable="false"/>
-                              <code>offline</code>
-                              i am not using discord
-                           </li>
-                        </ul>
+                        <li>
+                           so....i swiped this idea! i chose idle because.. uhm, i forgor
+                           <ul>
+                              <li>
+                                 <em>but it stuck with me so now i am idle</em>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           here are what my statuses actually represent:
+                           <ul>
+                              <li>
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/discord/online.png" alt="online" title=":online:" draggable="false"/>
+                                 <code>online</code>
+                                 i never set my status to this....if you see my status set as this then either something is seriously wrong with me or discord is just buggin'
+                              </li>
+                              <li>
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/discord/idle.png" alt="idle" title=":idle:" draggable="false"/>
+                                 <code>idle</code>
+                                 i have (or had) discord open! doesn't mean i will respond to you instantly, though..
+                              </li>
+                              <li>
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/discord/dnd.png" alt="dnd" title=":dnd:" draggable="false"/>
+                                 <code>do not disturb</code>
+                                 just want some quiet time....still feel free to message me! i really just won't respond instantly~
+                              </li>
+                              <li>
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/discord/offline.png" alt="offline" title=":offline:" draggable="false"/>
+                                 <code>offline</code>
+                                 i am not using discord
+                              </li>
+                           </ul>
+                        </li>
                      </ul>
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/curled_page.webp" alt="curled page" title=":curled_page:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/curled_page.webp" alt="curled page" title=":curled_page:" draggable="false"/>
                         why do your custom statuses change so often?
                      </h2>
+
                      <ul>
                         <li>
                            these are the random quotes that i think of
                            <s>and steal</s>
                            throughout the day
+                           <ul>
+                              <li>i list these all in a discord channel somewhere: effectively putting them in a queue to be used</li>
+                           </ul>
                         </li>
-                        <ul>
-                           <li>i list these all in a discord channel somewhere: effectively putting them in a queue to be used</li>
-                        </ul>
                         <li>
                            i (aim to) change my custom status every day at midnight
                            <a href="https://time.is/United_Kingdom" target="_blank">uk time</a>
@@ -585,28 +615,29 @@
                         </li>
                         <li>
                            at the bottom of each page on this website
-                           (<a href="/"><img class="emoji" src="/assets/emoji/mutant_standard/furry_pride.webp" alt="rainbow paw" title=":furry_pride:" draggable="false"/> nuzzles.dev</a>),
+                           (<a href="/"><img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/furry_pride.webp" alt="rainbow paw" title=":furry_pride:" draggable="false"/> nuzzles.dev</a>),
                            you can find some rainbow text..
+                           <ul>
+                              <li>these are my past (and sometimes future) custom statuses!</li>
+                              <li>a random one is chosen when the page loads</li>
+                              <li>alternatively, you can click on it to cycle through more statuses</li>
+                              <li>
+                                 you can find the script containing all of the available statuses
+                                 <a href="/assets/scripts/footer.js" target="_blank">here</a>~
+                              </li>
+                           </ul>
                         </li>
-                        <ul>
-                           <li>these are my past (and sometimes future) custom statuses!</li>
-                           <li>a random one is chosen when the page loads</li>
-                           <li>alternatively, you can click on it to cycle through more statuses</li>
-                           <li>
-                              you can find the script containing all of the available statuses
-                              <a href="/assets/script/footer.js" target="_blank">here</a>~
-                           </li>
-                        </ul>
                      </ul>
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/station.webp" alt="station" title=":station:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/station.webp" alt="station" title=":station:" draggable="false"/>
                         you're a railfan and a bus enthusiast too, right?
                      </h2>
+
                      <ul>
                         <li>
                            yeah! and it was all
-                           <a href="https://halodev.games" target="_blank"><img class="emoji" src="/assets/logo/halodev_games.png" alt="halodev games logo" title="halodev games" draggable="false"/> ActuallyHalowo</a>
+                           <a href="https://halodev.games" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/halodev_games.png" alt="halodev games logo" title="halodev games" draggable="false"/> ActuallyHalowo</a>
                            (also known as the cutie)'s fault
                         </li>
                      </ul>
@@ -614,10 +645,10 @@
                      <div class="desktop">
                         <div class="grid">
                            <div class="media-corner-border">
-                              <img class="border" src="/assets/photograph/444_038.webp" alt="British Rail Class 444 (038) from South Western Railway &quot;Desiro&quot; approaching Poole railway station" title="444 038 approaching Poole" draggable="false" loading="lazy"/>
+                              <img class="border" src="https://cdn.nuzzles.dev/irl/photographs/railway/trains/444_038.webp" alt="British Rail Class 444 (038) from South Western Railway &quot;Desiro&quot; approaching Poole railway station" title="444 038 approaching Poole" draggable="false" loading="lazy"/>
                            </div>
                            <div class="media-corner-border">
-                              <img class="border" src="/assets/photograph/HF66_CEA.webp" alt="ADL Enviro400 MMC with registration HF66 CEA from morebus in UNIBUS Teal livery at Kinson Library" title="HF66 CEA at Kinson Library" draggable="false" loading="lazy"/>
+                              <img class="border" src="https://cdn.nuzzles.dev/irl/photographs/buses/HF66_CEA.webp" alt="ADL Enviro400 MMC with registration HF66 CEA from morebus in UNIBUS Teal livery at Kinson Library" title="HF66 CEA at Kinson Library" draggable="false" loading="lazy"/>
                            </div>
                            <em>
                               <a href="https://www.southwesternrailway.com/travelling-with-us/our-trains/class-444-desiro" target="_blank">444 038</a>
@@ -635,7 +666,7 @@
                      <div class="mobile">
                         <div class="grid">
                            <div class="media-corner-border">
-                              <img class="border" src="/assets/photograph/444_038.webp" alt="British Rail Class 444 (038) from South Western Railway &quot;Desiro&quot; approaching Poole railway station" title="444 038 approaching Poole" draggable="false" loading="lazy"/>
+                              <img class="border" src="https://cdn.nuzzles.dev/irl/photographs/railway/trains/444_038.webp" alt="British Rail Class 444 (038) from South Western Railway &quot;Desiro&quot; approaching Poole railway station" title="444 038 approaching Poole" draggable="false" loading="lazy"/>
                            </div>
                            <em>
                               <a href="https://www.southwesternrailway.com/travelling-with-us/our-trains/class-444-desiro" target="_blank">444 038</a>
@@ -643,7 +674,7 @@
                               <a href="https://www.nationalrail.co.uk/stations/poole" target="_blank">Poole</a>
                            </em>
                            <div class="media-corner-border">
-                              <img class="border" src="/assets/photograph/HF66_CEA.webp" alt="ADL Enviro400 MMC with registration HF66 CEA from morebus in UNIBUS Teal livery at Kinson Library" title="HF66 CEA at Kinson Library" draggable="false" loading="lazy"/>
+                              <img class="border" src="https://cdn.nuzzles.dev/irl/photographs/buses/HF66_CEA.webp" alt="ADL Enviro400 MMC with registration HF66 CEA from morebus in UNIBUS Teal livery at Kinson Library" title="HF66 CEA at Kinson Library" draggable="false" loading="lazy"/>
                            </div>
                            <em>
                               <a href="https://bustimes.org/vehicles/wdbc-sq-1625" target="_blank">HF66 CEA</a>
@@ -661,13 +692,14 @@
                   <div class="large-border box">
 
                      <div class="media-corner-border">
-                        <img class="border thumbnail" src="/assets/what/whar.webp" alt="mannequin holding a question mark with the text &quot;whar&quot; (sic) over it" title="whar?" draggable="false"/>
+                        <img class="border thumbnail" src="https://cdn.nuzzles.dev/memes/whar.webp" alt="mannequin holding a question mark with the text &quot;whar&quot; (sic) over it" title="whar?" draggable="false"/>
                      </div>
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/rabbit.webp" alt="rabbit" title=":rabbit:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/rabbit.webp" alt="rabbit" title=":rabbit:" draggable="false"/>
                         i thought i clicked on "what's a bunny?"
                      </h2>
+
                      <ul>
                         <li>..fair, you can probably find out more below</li>
                      </ul>
@@ -675,10 +707,10 @@
                      <div class="grid">
                         <div class="corner-border" style="--border-colour: #000000;">
                            <a class="border large-button" href="https://wikipedia.org/wiki/Rabbit" target="_blank" style="--border-colour: #000000;" draggable="false">
-                              <img class="emoji" src="/assets/logo/wikipedia.png" alt="wikipedia logo" title="wikipedia" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/wikipedia.png" alt="wikipedia logo" title="wikipedia" draggable="false"/>
                               <div>
                                  <strong>wikipedia</strong>
-                                 <br>
+                                 <br/>
                                  Rabbit
                               </div>
                            </a>
@@ -701,50 +733,65 @@
                      <div class="list">
                         <div class="corner-border">
                            <a class="border button" href="/" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/world_map.webp" alt="world map" title=":world_map:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/world_map.webp" alt="world map" title=":world_map:" draggable="false"/>
                               <strong>homepage</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button disabled" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/sparkles.webp" alt="sparkles" title=":sparkles:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/sparkles.webp" alt="sparkles" title=":sparkles:" draggable="false"/>
                               <em><strong>what's a bunny?</strong></em> ✨
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/dev" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
                               <strong>dev and apps</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/art" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
                               <strong>art and commissions</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/games" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/gamepad.webp" alt="gamepad" title=":gamepad:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/gamepad.webp" alt="gamepad" title=":gamepad:" draggable="false"/>
                               <strong>games</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/bun-daily-fox" target="_blank" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/fox.webp" alt="fox" title=":fox:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/fox.webp" alt="fox" title=":fox:" draggable="false"/>
                               <strong>bun's daily fox 🦊🐾</strong>
                            </a>
                         </div>
                         <div class="corner-border">
+                           <a class="border button" id="cutie" draggable="false">
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/no.webp" alt="no entry" title=":no:" draggable="false"/>
+                              <strong>don't click this ,,</strong>
+                           </a>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+
+               <div class="large-corner-border">
+                  <div class="large-border box">
+
+                     <div class="list">
+                        <div class="corner-border">
                            <a class="border button" href="/about/deerie" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/deer_with_antlers.webp" alt="deer with antlers" title=":deer_with_antlers:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/deer_with_antlers.webp" alt="deer with antlers" title=":deer_with_antlers:" draggable="false"/>
                               <strong>become deer</strong>
                            </a>
                         </div>
                         <div class="corner-border">
-                           <a class="border button" id="cutie" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/no.webp" alt="no entry" title=":no:" draggable="false"/>
-                              <strong>don't click this ,,</strong>
+                           <a class="border button" href="/about/characters" draggable="false">
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/2_busts_in_silhouette.webp" alt="2 busts in silhouette" title=":2_busts_in_silhouette:" draggable="false"/>
+                              <strong>characters</strong>
                            </a>
                         </div>
                      </div>
@@ -766,13 +813,13 @@
                <div class="large-border box">
 
 
-                  <img id="tutel" style="width: 3em; float: right;" src="/assets/emoji/mutant_standard/turtle.webp" draggable="false"/>
+                  <img id="tutel" style="width: 3em; float: right;" src="https://cdn.nuzzles.dev/emojis/mutant_standard/turtle.webp" draggable="false"/>
 
 
                   <div class="info">
                      <p>
                         <a class="footer-item" id="splash"></a>
-                        <br>
+                        <br/>
                         <a class="footer-item modal-button" id="info">info</a>
                         |
                         <a class="footer-item modal-button" id="attribution">attribution</a>

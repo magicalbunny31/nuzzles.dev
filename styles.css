@@ -52,7 +52,7 @@ body {
    -o-animation: background 33s linear infinite;
    animation: background 33s linear infinite;
    background-attachment: fixed;
-   background-image: url("/assets/background/background.png");
+   background-image: url("https://cdn.nuzzles.dev/backgrounds/background.png");
    background-repeat: repeat;
 }
 
@@ -61,28 +61,28 @@ body {
 /* font */
 
 @font-face {
-   src: url("/assets/font/Ubuntu-Regular.ttf");
+   src: url("https://cdn.nuzzles.dev/fonts/ubuntu/regular.ttf");
    font-family: "Ubuntu";
    font-size: normal;
    font-weight: normal;
 }
 
 @font-face {
-   src: url("/assets/font/Ubuntu-Bold.ttf");
+   src: url("https://cdn.nuzzles.dev/fonts/ubuntu/bold.ttf");
    font-family: "Ubuntu";
    font-size: large;
    font-weight: bold;
 }
 
 @font-face {
-   src: url("/assets/font/UbuntuMono-Regular.ttf");
+   src: url("https://cdn.nuzzles.dev/fonts/ubuntu_mono/regular.ttf");
    font-family: "Ubuntu Mono";
    font-size: normal;
    font-weight: normal;
 }
 
 @font-face {
-   src: url("/assets/font/Russell-Square-Regular.ttf");
+   src: url("https://cdn.nuzzles.dev/fonts/russell_square/regular.ttf");
    font-family: "Russell Square";
    font-size: normal;
    font-weight: normal;
@@ -157,13 +157,13 @@ time {
 
 *:hover > .popup:not(#magicalbunny31-button-popup) {
    display: inline;
-   visibility: visible;
    width: max-content;
+   visibility: visible;
 }
 
 .corner-border:has(> .button:hover), .corner-border:has(> .large-button:hover:not(#email)), .media-corner-border:has(> a:hover) {
-   scale: 110%;
    filter: brightness(90%);
+   scale: 110%;
 }
 
 a:link:not(.button, .large-button, .footer-item), a:visited:not(.button, .large-button, .footer-item) {
@@ -518,6 +518,23 @@ img, video {
 .thumbnail {
    position: relative;
    width: 10em;
+}
+
+.secondary-thumbnail {
+   clear: right;
+   margin-top: 1em !important;
+}
+
+.banner:not(.thumbnail) {
+   margin-top: 1em;
+}
+
+.thumbnail.banner {
+   width: 20em;
+}
+
+figure {
+   margin: 0;
 }
 
 a img {

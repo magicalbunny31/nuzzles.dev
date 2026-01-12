@@ -1,2 +1,5 @@
 # 💻 vscode
 .vscode/*
+
+# cdn-only pages
+/__cdn-only

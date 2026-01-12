@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+
+
+<html>
+
+
+   <head>
+
+
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+      <link rel="icon" href="https://cdn.nuzzles.dev/emojis/mutant_standard/2_busts_in_silhouette.webp" type="image/webp"/>
+      <title>characters 🐾</title>
+
+      <meta name    ="theme-color"  content="#d6a4db"/>
+      <meta property="og:site_name" content="nuzzles.dev/about/characters"/>
+      <meta name    ="title"        content="characters 🐾"/>
+      <meta name    ="description"/>
+      <meta property="og:image"/>
+
+      <meta property="og:type"  content="website"/>
+      <meta property="og:url"   content="https://nuzzles.dev/about/characters"/>
+      <meta name    ="language" content="en-gb"/>
+      <meta name    ="keywords"/>
+
+      <link rel="stylesheet" type="text/css" href="/styles.css"/>
+      <style>
+         .mobile figure {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+         }
+
+         .mobile figure .media-corner-border {
+            width: 50%;
+         }
+
+         .subtext {
+            clear: right;
+            float: right;
+            margin-top: 0.5em;
+            width: 14em;
+         }
+
+         .grid {
+            row-gap: 0;
+         }
+
+         .grid.about-character-section:nth-child(1) {
+            display: flex;
+         }
+
+         .grid.about-character-section:nth-child(2) {
+            flex: 1 1 0;
+            width: 0;
+         }
+
+         .about li span {
+            font-size: 0.85em;
+            font-style: italic;
+         }
+      </style>
+
+      <script>
+         const path = "about/characters.html";
+      </script>
+      <script src="/assets/scripts/cutie.js"></script>
+      <script src="/assets/scripts/footer.js"></script>
+      <script src="/assets/scripts/modal.js"></script>
+      <script>
+         window.addEventListener(`load`, () => {
+            const hash = window.location.hash.slice(1);
+            const buttonId = [ `deerie` ].includes(hash)
+               ? hash
+               : `folfo`;
+
+            const button = document.getElementById(buttonId);
+            button.classList.add(`disabled`);
+
+            const buttonText = button.querySelector(`div`);
+            buttonText.innerHTML = `<em>${buttonText.innerHTML}</em>`;
+
+            const [ content ] = document.getElementsByClassName(`tab-content-0`);
+            for (const child of content.querySelectorAll(`div.content`))
+               child.style.display = `none`;
+
+            const buttonContent = document.getElementById(`${buttonId}-content-0`);
+            buttonContent.style.display = `block`;
+         });
+
+         window.addEventListener(`hashchange`, hashChangeEvent => {
+            const oldHash = hashChangeEvent.oldURL.split(`#`).at(-1);
+            const oldButtonId = [ `deerie` ].includes(oldHash)
+               ? oldHash
+               : `folfo`;
+
+            const oldButton = document.getElementById(oldButtonId);
+            oldButton.classList.remove(`disabled`);
+
+            const oldButtonText = oldButton.querySelector(`div`);
+            oldButtonText.innerHTML = `<strong>${oldButtonText.innerText}</strong>`;
+
+            const newHash = hashChangeEvent.newURL.split(`#`).at(-1);
+            const newButtonId = [ `deerie` ].includes(newHash)
+               ? newHash
+               : `folfo`;
+
+            const newButton = document.getElementById(newButtonId);
+            newButton.classList.add(`disabled`);
+
+            const newButtonText = newButton.querySelector(`div`);
+            newButtonText.innerHTML = `<em>${newButtonText.innerHTML}</em>`;
+
+            const [ content ] = document.getElementsByClassName(`tab-content-0`);
+            for (const child of content.querySelectorAll(`div.content`))
+               child.style.display = `none`;
+
+            const buttonContent = document.getElementById(`${newButtonId}-content-0`);
+            buttonContent.style.display = `block`;
+         });
+      </script>
+
+
+   </head>
+
+
+   <body>
+
+
+      <div class="centre">
+
+
+         <section>
+   
+   
+            <article>
+
+
+               <div class="large-corner-border">
+                  <div class="large-border box">
+
+                     <h1>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/2_busts_in_silhouette.webp" alt="2 busts in silhouette" title=":2_busts_in_silhouette:" draggable="false"/>
+                        characters
+                     </h1>
+
+                     <ul>
+                        <li>
+                           i don't really take myself
+                           <em>too</em>
+                           seriously to make a page about all my characters..
+                        </li>
+                        <li>BUT if i did have a page: here it is!</li>
+                        <li>
+                           i won't detail characters on this page from games i play, like
+                           <a href="https://animalroyale.com" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/animal_royale.png" alt="super animal royale" title="super animal royale" draggable="false"/> super animal royale</a>
+                           or
+                           <a href="https://www.roblox.com" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox</a>
+                        </li>
+                     </ul>
+
+                     <h2>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/sparkles.webp" alt="sparkles" title=":sparkles:" draggable="false"/>
+                        the main cast
+                     </h2>
+
+                     <div class="tab-heading-container">
+
+                        <div class="tab-heading">
+                           <div class="corner-border tab-item">
+                              <a class="border button" id="folfo" href="#folfo" style="--disabled-colour: #808080;" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/fox.webp" alt="fox" title=":fox:" draggable="false"/>
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/wolf.webp" alt="wolf" title=":wolf:" draggable="false"/>
+                                 <div>
+                                    <strong>folfo</strong>
+                                 </div>
+                              </a>
+                           </div>
+                           <div class="corner-border tab-item">
+                              <a class="border button" id="deerie" href="#deerie" style="--disabled-colour: #808080;" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/deer_with_antlers.webp" alt="deer with antlers" title=":deer_with_antlers:" draggable="false"/>
+                                 <div>
+                                    <strong>deerie</strong>
+                                 </div>
+                              </a>
+                           </div>
+                        </div>
+
+                     </div>
+
+                     <hr/>
+
+                     <div class="tab-content-0">
+
+                        <div class="content" id="folfo-content-0">
+
+                           <div class="desktop">
+                              <figure>
+                                 <div class="media-corner-border">
+                                    <img class="border thumbnail" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/eepy.webp" alt="a sleepy fox-wolf standing, holding a mug saying &quot;#4 folf&quot;" title="just a bit eepy 💤" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <figcaption class="info subtext">
+                                    <em>adhd; severely blind; wears glasses with tape; has flowers in hair</em>
+                                 </figcaption>
+                              </figure>
+                           </div>
+
+                           <div class="mobile">
+                              <figure>
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/eepy.webp" alt="a sleepy fox-wolf standing, holding a mug saying &quot;#4 folf&quot;" title="just a bit eepy 💤" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <figcaption class="info">
+                                    <em>adhd; severely blind; wears glasses with tape; has flowers in hair</em>
+                                 </figcaption>
+                              </figure>
+                           </div>
+
+                           <div class="grid about-character-section">
+
+                              <div>
+                                 <h3>
+                                    about
+                                 </h3>
+                                 <ul class="about">
+                                    <li>
+                                       <span><u>name</u>:</span>
+                                       jax
+                                    </li>
+                                    <li>
+                                       <span><u>pronouns</u>:</span>
+                                       they/them
+                                    </li>
+                                    <li>
+                                       <span><u>gender</u>:</span>
+                                       <a href="https://wikipedia.org/wiki/Non-binary_gender" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/nonbinary_flag.webp" alt="non-binary pride flag" title=":nonbinary_flag:" draggable="false"/> non-binary</a>
+                                    </li>
+                                    <li>
+                                       <span><u>species</u>:</span>
+                                       <a href="https://wikifur.com/wiki/Folf" target="_blank">folf</a>
+                                       (<a href="https://wikipedia.org/wiki/Wolf" target="_blank">grey wolf</a>
+                                       /
+                                       <a href="https://wikipedia.org/wiki/Corsac_fox" target="_blank">corsac fox</a>)
+                                    </li>
+                                    <li>
+                                       <span><u>sexuality</u>:</span>
+                                       <a href="https://wikipedia.org/wiki/Pansexuality" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/pansexual_flag.webp" alt="pansexual pride flag"  title=":pansexual_flag:" draggable="false"/> pansexual</a>
+                                    </li>
+                                    <li>
+                                       <span><u>height</u>:</span>
+                                       180 cm / 5'11"
+                                    </li>
+                                    <li>
+                                       <span><u>personality</u>:</span>
+                                       <a href="https://www.16personalities.com/intj-personality" target="_blank">INTJ</a>-T
+                                    </li>
+                                    <li>
+                                       <span><u>cake day</u>:</span>
+                                       <time datetime="3-13">13 March</time>
+                                    </li>
+                                 </ul>
+                              </div>
+
+                              <div>
+                                 <h3>
+                                    likes
+                                 </h3>
+                                 <ul>
+                                    <li>
+                                       <a href="#deerie">
+                                          <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/deer_with_antlers.webp" alt="deer with antlers" title=":deer_with_antlers:" draggable="false"/>
+                                          deerie
+                                       </a>
+                                    </li>
+                                    <li>
+                                       <a href="https://wikipedia.org/wiki/Carabao_mango" target="_blank">carabao mangoes</a>
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/boykisser/drool.webp" alt="boykisser drool" title=":bkdrool:" draggable="false"/>
+                                    </li>
+                                    <li>
+                                       <a href="https://wikipedia.org/wiki/Sinigang" target="_blank">sinigang na baboy</a>
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/boykisser/drool.webp" alt="boykisser drool" title=":bkdrool:" draggable="false"/>
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/boykisser/drool.webp" alt="boykisser drool" title=":bkdrool:" draggable="false"/>
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/boykisser/drool.webp" alt="boykisser drool" title=":bkdrool:" draggable="false"/>
+                                    </li>
+                                    <li>
+                                       <a href="https://knowyourmeme.com/memes/technologia" target="_blank">technology</a>
+                                    </li>
+                                 </ul>
+                                 <h3>
+                                    dislikes
+                                 </h3>
+                                 <ul>
+                                    <li>
+                                       loud noises
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/boykisser/shy.webp" alt="boykisser shy" title=":bkshy:" draggable="false"/>
+                                    </li>
+                                    <li>
+                                       socialising
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/boykisser/shy.webp" alt="boykisser shy" title=":bkshy:" draggable="false"/>
+                                    </li>
+                                    <li>
+                                       being wrong
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/boykisser/angry.webp" alt="boykisser angry" title=":bkangry:" draggable="false"/>
+                                    </li>
+                                 </ul>
+                              </div>
+
+                           </div>
+
+                        </div>
+
+                        <div class="content" id="deerie-content-0">
+
+                           <div class="desktop">
+                              <figure>
+                                 <div class="media-corner-border">
+                                    <img class="border thumbnail" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/flustered_deerie.webp" alt="a blushing deer looking to the side" title="flustered deerie 🦌" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <figcaption class="info subtext">
+                                    <em>sheds antlers every spring; doormat; lost keys to collar</em>
+                                 </figcaption>
+                              </figure>
+                           </div>
+
+                           <div class="mobile">
+                              <figure>
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/flustered_deerie.webp" alt="a blushing deer looking to the side" title="flustered deerie 🦌" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <figcaption class="info">
+                                    <em>sheds antlers every spring; doormat; lost keys to collar</em>
+                                 </figcaption>
+                              </figure>
+                           </div>
+
+                           <div class="grid about-character-section">
+
+                              <div>
+                                 <h3>
+                                    about
+                                 </h3>
+                                 <ul class="about">
+                                    <li>
+                                       <span><u>name</u>:</span>
+                                       deerie
+                                    </li>
+                                    <li>
+                                       <span><u>pronouns</u>:</span>
+                                       he/they
+                                    </li>
+                                    <li>
+                                       <span><u>gender</u>:</span>
+                                       <a href="https://wikipedia.org/wiki/Non-binary#Demigender" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/demiguy_flag.webp" alt="demiboy pride flag" title=":demiguy_flag:" draggable="false"/> demiboy</a>
+                                    </li>
+                                    <li>
+                                       <span><u>species</u>:</span>
+                                       <a href="https://wikipedia.org/wiki/Roe_deer" target="_blank">roe deer</a>
+                                    </li>
+                                    <li>
+                                       <span><u>sexuality</u>:</span>
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/omnisexual_flag.webp" alt="omnisexual pride flag" title=":omnisexual_flag:" draggable="false"/> omnisexual
+                                    </li>
+                                    <li>
+                                       <span><u>height</u>:</span>
+                                       170 cm / 5'7"
+                                    </li>
+                                    <li>
+                                       <span><u>personality</u>:</span>
+                                       <a href="https://www.16personalities.com/enfp-personality" target="_blank">ENFP</a>-T
+                                    </li>
+                                    <li>
+                                       <span><u>cake day</u>:</span>
+                                       <time datetime="3-13">13 March</time>
+                                    </li>
+                                 </ul>
+                              </div>
+
+                              <div>
+                                 <h3>
+                                    likes
+                                 </h3>
+                                 <ul>
+                                    <li>
+                                       <a href="#folfo">
+                                          <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/fox.webp" alt="fox" title=":fox:" draggable="false"/>
+                                          <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/wolf.webp" alt="wolf" title=":wolf:" draggable="false"/>
+                                          folfo
+                                       </a>
+                                    </li>
+                                    <li>
+                                       showing off
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/boykisser/pet.webp" alt="boykisser pat" title=":bkpet:" draggable="false"/>
+                                    </li>
+                                    <li>
+                                       being loud and chaotic
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/boykisser/hai.webp" alt="boykisser hi" title=":bkhai:" draggable="false"/>
+                                    </li>
+                                 </ul>
+                                 <h3>
+                                    dislikes
+                                 </h3>
+                                 <ul>
+                                    <li>
+                                       being rushed
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/boykisser/angry.webp" alt="boykisser angry" title=":bkangry:" draggable="false"/>
+                                    </li>
+                                    <li>
+                                       arguing
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/boykisser/shy.webp" alt="boykisser shy" title=":bkshy:" draggable="false"/>
+                                    </li>
+                                 </ul>
+                              </div>
+
+                           </div>
+
+                        </div>
+
+                     </div>
+
+                  </div>
+               </div>
+
+
+            </article>
+
+
+            <nav>
+
+
+               <div class="large-corner-border navigator">
+                  <div class="large-border box">
+
+                     <div class="list">
+                        <div class="corner-border">
+                           <a class="border button" href="/" draggable="false">
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/world_map.webp" alt="world map" title=":world_map:" draggable="false"/>
+                              <strong>homepage</strong>
+                           </a>
+                        </div>
+                        <div class="corner-border">
+                           <a class="border button" href="/about" draggable="false">
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/sparkles.webp" alt="sparkles" title=":sparkles:" draggable="false"/>
+                              <strong>what's a bunny?</strong>
+                           </a>
+                        </div>
+                        <div class="corner-border">
+                           <a class="border button disabled" draggable="false">
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/2_busts_in_silhouette.webp" alt="2 busts in silhouette" title=":2_busts_in_silhouette:" draggable="false"/>
+                              <em><strong>characters</strong></em> ✨
+                           </a>
+                        </div>
+                        <div class="corner-border">
+                           <a class="border button" id="cutie" draggable="false">
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/no.webp" alt="no entry" title=":no:" draggable="false"/>
+                              <strong>don't click this ,,</strong>
+                           </a>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+
+
+            </nav>
+
+
+         </section>
+
+
+         <footer>
+
+
+            <div class="large-corner-border">
+               <div class="large-border box">
+
+
+                  <div class="info">
+                     <p>
+                        <a class="footer-item" id="splash"></a>
+                        <br/>
+                        <a class="footer-item modal-button" id="info">info</a>
+                        |
+                        <a class="footer-item modal-button" id="attribution">attribution</a>
+                        |
+                        <a class="footer-item" id="page-sauce" target="_blank">page sauce</a>
+                        |
+                        🐰🦊🐺🦌
+                     </p>
+                  </div>
+
+
+               </div>
+            </div>
+
+
+         </footer>
+
+
+      </div>
+
+
+   </body>
+
+
+</html>

@@ -10,7 +10,7 @@
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-      <link rel="icon" href="/assets/emoji/mutant_standard/artist_palette.webp" type="image/webp"/>
+      <link rel="icon" href="https://cdn.nuzzles.dev/emojis/mutant_standard/artist_palette.webp" type="image/webp"/>
       <title>art and commissions 🐾</title>
 
       <meta name    ="theme-color"  content="#d6a4db"/>
@@ -36,6 +36,26 @@
             flex-direction: column;
             flex: 25%;
             gap: 0.2em;
+         }
+
+         @-webkit-keyframes fade {
+            0%   { opacity:  0%; }
+            100% { opacity: 75%; }
+         }
+         
+         @-moz-keyframes fade {
+            0%   { opacity:  0%; }
+            100% { opacity: 75%; }
+         }
+         
+         @-o-keyframes fade {
+            0%   { opacity:  0%; }
+            100% { opacity: 75%; }
+         }
+         
+         @keyframes fade {
+            0%   { opacity:  0%; }
+            100% { opacity: 75%; }
          }
 
          @-webkit-keyframes spin {
@@ -93,17 +113,44 @@
             100% { scale: 1; }
          }
 
-         #blender-default-cube {
-            position: sticky;
+         .media-corner-border:has(.slideshow), .media-corner-border a:has(.slideshow), .media-corner-border:has(.time-lapse), .media-corner-border a:has(.time-lapse) {
+            display: grid;
+            grid-template-areas: "stack";
+            width: fit-content;
+         }
+
+         .media-corner-border .slideshow, .media-corner-border .time-lapse {
+            grid-area: stack;
+            height: auto;
+            opacity: 0;
+            pointer-events: none;
+            width: 100%;
+         }
+
+         .media-corner-border .slideshow {
+            transition: opacity 0s linear 1.5s;
+            z-index: 1;
+         }
+
+         .media-corner-border .slideshow.slideshow-default {
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 1.5s ease-in-out 0s;
             z-index: 2;
          }
 
-         #blender-default-cube:hover {
-            -webkit-animation: spin 0.125s linear infinite, scale 1s infinite;
-            -moz-animation: spin 0.125s linear infinite, scale 1s infinite;
-            -ms-animation: spin 0.125s linear infinite, scale 1s infinite;
-            -o-animation: spin 0.125s linear infinite, scale 1s infinite;
-            animation: spin 0.125s linear infinite, scale 1s infinite;
+         .media-corner-border:has(> a:hover) {
+            z-index: 3; /* slideshows use `z-index`s of 1-2 */
+         }
+
+         .media-corner-border:hover .time-lapse.time-lapse-default {
+            opacity: 0;
+            pointer-events: auto;
+         }
+
+         .media-corner-border .time-lapse.time-lapse-default, .media-corner-border:hover .time-lapse {
+            opacity: 1;
+            pointer-events: auto;
          }
 
          .minecraft-skin {
@@ -112,22 +159,53 @@
 
          .disabled-minecraft-skin {
             background-color: white;
-            background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url("/assets/background/spoiler.gif");
+            background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url("https://cdn.nuzzles.dev/backgrounds/spoiler.gif");
             background-size: cover;
             filter: brightness(75%);
+         }
+
+         #bleach {
+            position: sticky;
+            z-index: 2;
+         }
+
+         #bleach:hover {
+            -webkit-animation: spin 0.125s linear infinite, scale 1s infinite;
+            -moz-animation: spin 0.125s linear infinite, scale 1s infinite;
+            -ms-animation: spin 0.125s linear infinite, scale 1s infinite;
+            -o-animation: spin 0.125s linear infinite, scale 1s infinite;
+            animation: spin 0.125s linear infinite, scale 1s infinite;
+         }
+
+         #bleach-background {
+            -webkit-animation: fade 30s linear;
+            -moz-animation: fade 30s linear;
+            -o-animation: fade 30s linear;
+            animation: fade 30s linear;
+            background-clip: padding-box;
+            display: none;
+            left: 50%;
+            position: fixed;
+            min-width: 100%;
+            min-height: 100%;
+            opacity: 75%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 102%;
+            z-index: 1;
          }
       </style>
 
       <script>
          const path = "art/index.html";
       </script>
-      <script src="/assets/script/cutie.js"></script>
-      <script src="/assets/script/footer.js"></script>
-      <script src="/assets/script/modal.js"></script>
+      <script src="/assets/scripts/cutie.js"></script>
+      <script src="/assets/scripts/footer.js"></script>
+      <script src="/assets/scripts/modal.js"></script>
       <script>
          window.addEventListener(`load`, () => {
             const hash = window.location.hash.slice(1);
-            const buttonId = [ `2024-furry-art`, `2023-furry-art`, `2022-furry-art`, `2021-furry-art` ].includes(hash)
+            const buttonId = [ `2024-furry-art`, `2023-furry-art`, `2022-furry-art`, `2021-furry-art`, `2020-furry-art`, `2019-furry-art` ].includes(hash)
                ? hash
                : `2025-furry-art`;
 
@@ -147,7 +225,7 @@
 
          window.addEventListener(`hashchange`, hashChangeEvent => {
             const oldHash = hashChangeEvent.oldURL.split(`#`).at(-1);
-            const oldButtonId = [ `2024-furry-art`, `2023-furry-art`, `2022-furry-art`, `2021-furry-art` ].includes(oldHash)
+            const oldButtonId = [ `2024-furry-art`, `2023-furry-art`, `2022-furry-art`, `2021-furry-art`, `2020-furry-art`, `2019-furry-art` ].includes(oldHash)
                ? oldHash
                : `2025-furry-art`;
 
@@ -158,7 +236,7 @@
             oldButtonText.innerHTML = `<strong>${oldButtonText.innerText}</strong>`;
 
             const newHash = hashChangeEvent.newURL.split(`#`).at(-1);
-            const newButtonId = [ `2024-furry-art`, `2023-furry-art`, `2022-furry-art`, `2021-furry-art` ].includes(newHash)
+            const newButtonId = [ `2024-furry-art`, `2023-furry-art`, `2022-furry-art`, `2021-furry-art`, `2020-furry-art`, `2019-furry-art` ].includes(newHash)
                ? newHash
                : `2025-furry-art`;
 
@@ -178,9 +256,9 @@
 
          window.addEventListener(`load`, () => {
             const hash = window.location.hash.slice(1);
-            const buttonId = [ `minecraft-skins`, `ears-minecraft-skins` ].includes(hash)
+            const buttonId = [ `2021-miscellaneous-art`, `2020-miscellaneous-art` ].includes(hash)
                ? hash
-               : `minecraft-skins`;
+               : `2025-miscellaneous-art`;
 
             const button = document.getElementById(buttonId);
             button.classList.add(`disabled`);
@@ -193,6 +271,57 @@
                child.style.display = `none`;
 
             const buttonContent = document.getElementById(`${buttonId}-content-1`);
+            buttonContent.style.display = `block`;
+         });
+
+         window.addEventListener(`hashchange`, hashChangeEvent => {
+            const oldHash = hashChangeEvent.oldURL.split(`#`).at(-1);
+            const oldButtonId = [ `2021-miscellaneous-art`, `2020-miscellaneous-art` ].includes(oldHash)
+               ? oldHash
+               : `2025-miscellaneous-art`;
+
+            const oldButton = document.getElementById(oldButtonId);
+            oldButton.classList.remove(`disabled`);
+
+            const oldButtonText = oldButton.querySelector(`div`);
+            oldButtonText.innerHTML = `<strong>${oldButtonText.innerText}</strong>`;
+
+            const newHash = hashChangeEvent.newURL.split(`#`).at(-1);
+            const newButtonId = [ `2021-miscellaneous-art`, `2020-miscellaneous-art` ].includes(newHash)
+               ? newHash
+               : `2025-miscellaneous-art`;
+
+            const newButton = document.getElementById(newButtonId);
+            newButton.classList.add(`disabled`);
+
+            const newButtonText = newButton.querySelector(`div`);
+            newButtonText.innerHTML = `<em>${newButtonText.innerHTML}</em>`;
+
+            const [ content ] = document.getElementsByClassName(`tab-content-1`);
+            for (const child of content.querySelectorAll(`div.content`))
+               child.style.display = `none`;
+
+            const buttonContent = document.getElementById(`${newButtonId}-content-1`);
+            buttonContent.style.display = `block`;
+         });
+
+         window.addEventListener(`load`, () => {
+            const hash = window.location.hash.slice(1);
+            const buttonId = [ `minecraft-skins`, `ears-minecraft-skins` ].includes(hash)
+               ? hash
+               : `minecraft-skins`;
+
+            const button = document.getElementById(buttonId);
+            button.classList.add(`disabled`);
+
+            const buttonText = button.querySelector(`div`);
+            buttonText.innerHTML = `<em>${buttonText.innerHTML}</em>`;
+
+            const [ content ] = document.getElementsByClassName(`tab-content-2`);
+            for (const child of content.querySelectorAll(`div.content`))
+               child.style.display = `none`;
+
+            const buttonContent = document.getElementById(`${buttonId}-content-2`);
             buttonContent.style.display = `block`;
          });
 
@@ -219,11 +348,11 @@
             const newButtonText = newButton.querySelector(`div`);
             newButtonText.innerHTML = `<em>${newButtonText.innerHTML}</em>`;
 
-            const [ content ] = document.getElementsByClassName(`tab-content-1`);
+            const [ content ] = document.getElementsByClassName(`tab-content-2`);
             for (const child of content.querySelectorAll(`div.content`))
                child.style.display = `none`;
 
-            const buttonContent = document.getElementById(`${newButtonId}-content-1`);
+            const buttonContent = document.getElementById(`${newButtonId}-content-2`);
             buttonContent.style.display = `block`;
          });
 
@@ -232,11 +361,43 @@
             for (const element of minecraftSkins) {
                const id = element.id;
                element.onmouseenter = () => {
-                  element.src = `/assets/minecraft-skin/${id}_back.png`;
+                  element.src = `https://cdn.nuzzles.dev/games/minecraft/skins/${id}_back.webp`;
                };
                element.onmouseleave = () => {
-                  element.src = `/assets/minecraft-skin/${id}_front.png`;
+                  element.src = `https://cdn.nuzzles.dev/games/minecraft/skins/${id}_front.webp`;
                };
+            };
+         });
+
+         window.addEventListener(`load`, () => {
+            const mediaCornerBorders = document.getElementsByClassName(`media-corner-border`);
+            for (const element of mediaCornerBorders) {
+               // prevents me from being bad and making a slideshow of length 1
+               const images = element.getElementsByTagName(`img`);
+               if (images.length < 2)
+                  continue;
+
+               let currentIndex = 0;
+               setInterval(() => {
+                  images[currentIndex].classList.remove(`slideshow-default`);
+                  currentIndex = (currentIndex + 1) % images.length;
+                  images[currentIndex].classList.add(`slideshow-default`);
+               }, 3000 + 1500); // 3 seconds showing + 1.5 seconds transition
+            };
+         });
+
+         window.addEventListener(`load`, () => {
+            const bleachMusic = document.getElementById(`bleach-music`);
+            bleachMusic.volume = 0.5;
+            const bleachBackground = document.getElementById(`bleach-background`);
+            const bleach = document.getElementById(`bleach`);
+            bleach.onmouseenter = _event => {
+               bleachMusic.play();
+               bleachBackground.style.display = `block`;
+            };
+            bleach.onmouseleave = _event => {
+               bleachMusic.pause();
+               bleachBackground.style.display = `none`;
             };
          });
       </script>
@@ -246,6 +407,12 @@
 
 
    <body>
+
+
+      <img id="bleach-background" src="https://cdn.nuzzles.dev/miscellaneous/fire.webp"></img>
+
+
+      <audio id="bleach-music" src="https://cdn.nuzzles.dev/audio/music/organic.mp3" hidden loop preload="auto"></audio>
 
 
       <div class="centre">
@@ -261,21 +428,22 @@
                   <div class="large-border box">
 
                      <h1>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/moneybag.webp" alt="moneybag" title=":moneybag:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/moneybag.webp" alt="moneybag" title=":moneybag:" draggable="false"/>
                         commission info
                      </h1>
+
                      <ul>
                         <li>i take art commissions on a case-by-case basis!</li>
                         <li>
-                           send me a message on <a href="/discord"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> discord</a>
+                           send me a message on <a href="/discord"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> discord</a>
                            or
-                           <a href="/telegram"><img class="emoji" src="/assets/logo/telegram.png" alt="telegram logo" title="telegram" draggable="false"/> telegram</a>
+                           <a href="/telegram"><img class="emoji" src="https://cdn.nuzzles.dev/logos/telegram.png" alt="telegram logo" title="telegram" draggable="false"/> telegram</a>
                            so we can discuss about it~
                         </li>
                         <li>i may do request art from time to time, you've gots to be someone i've interacted with and known of for a while to get that privilege!</li>
                         <li>
                            looking for my developer commissions instead? please see
-                           <a href="/dev"><img class="emoji" src="/assets/emoji/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/> dev and apps</a>!
+                           <a href="/dev"><img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/> dev and apps</a>!
                         </li>
                      </ul>
 
@@ -287,9 +455,10 @@
                   <div class="large-border box">
 
                      <h1>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
                         examples of my work (furry art)
                      </h1>
+
                      <ul>
                         <li>
                            <strong>
@@ -300,9 +469,9 @@
                         <li>these are my own original works and they may not be used for anything regarding ai, including ai image training</li>
                         <li>
                            some artwork may have external links to when i posted them to
-                           <a href="/bluesky"><img class="emoji" src="/assets/logo/bluesky.png" alt="bluesky logo" title="bluesky" draggable="false"/> bluesky</a>
+                           <a href="/bluesky"><img class="emoji" src="https://cdn.nuzzles.dev/logos/bluesky.png" alt="bluesky logo" title="bluesky" draggable="false"/> bluesky</a>
                            or
-                           <a href="https://twitter.com/magicalbunny31"><img class="emoji" src="/assets/logo/twitter.png" alt="twitter logo" title="twitter" draggable="false"/> twitter</a>~
+                           <a href="https://twitter.com/magicalbunny31"><img class="emoji" src="https://cdn.nuzzles.dev/logos/twitter.png" alt="twitter logo" title="twitter" draggable="false"/> twitter</a>~
                         </li>
                      </ul>
 
@@ -311,7 +480,7 @@
                         <div class="tab-heading">
                            <div class="corner-border tab-item">
                               <a class="border button" id="2025-furry-art" href="#2025-furry-art" style="--disabled-colour: #808080;" draggable="false">
-                                 <img class="emoji" src="/assets/emoji/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
                                  <div>
                                     <strong>2025</strong>
                                  </div>
@@ -319,7 +488,7 @@
                            </div>
                            <div class="corner-border tab-item">
                               <a class="border button" id="2024-furry-art" href="#2024-furry-art" style="--disabled-colour: #808080;" draggable="false">
-                                 <img class="emoji" src="/assets/emoji/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
                                  <div>
                                     <strong>2024</strong>
                                  </div>
@@ -327,7 +496,7 @@
                            </div>
                            <div class="corner-border tab-item">
                               <a class="border button" id="2023-furry-art" href="#2023-furry-art" style="--disabled-colour: #808080;" draggable="false">
-                                 <img class="emoji" src="/assets/emoji/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
                                  <div>
                                     <strong>2023</strong>
                                  </div>
@@ -335,7 +504,7 @@
                            </div>
                            <div class="corner-border tab-item">
                               <a class="border button" id="2022-furry-art" href="#2022-furry-art" style="--disabled-colour: #808080;" draggable="false">
-                                 <img class="emoji" src="/assets/emoji/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
                                  <div>
                                     <strong>2022</strong>
                                  </div>
@@ -343,9 +512,25 @@
                            </div>
                            <div class="corner-border tab-item">
                               <a class="border button" id="2021-furry-art" href="#2021-furry-art" style="--disabled-colour: #808080;" draggable="false">
-                                 <img class="emoji" src="/assets/emoji/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
                                  <div>
                                     <strong>2021</strong>
+                                 </div>
+                              </a>
+                           </div>
+                           <div class="corner-border tab-item">
+                              <a class="border button" id="2020-furry-art" href="#2020-furry-art" style="--disabled-colour: #808080;" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
+                                 <div>
+                                    <strong>2020</strong>
+                                 </div>
+                              </a>
+                           </div>
+                           <div class="corner-border tab-item">
+                              <a class="border button" id="2019-furry-art" href="#2019-furry-art" style="--disabled-colour: #808080;" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
+                                 <div>
+                                    <strong>2019</strong>
                                  </div>
                               </a>
                            </div>
@@ -362,20 +547,29 @@
                            <div class="row">
                               <div class="column">
                                  <div class="media-corner-border">
-                                    <a href="https://bsky.app/profile/magicalbunny31.nuzzles.dev/post/3lti7yybphs2u" target="_blank">
-                                       <img class="border" src="/assets/art/halowo_bust.webp" alt="a cropped icon bust of a pink-and-white-furred fox with with a glowing pink protogen visor looking at the viewer." title="halowo bust 🤖" draggable="false" loading="lazy"/>
+                                    <a href="https://bsky.app/profile/magicalbunny31.nuzzles.dev/post/3maz6tmubr22z" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2025/furry/sfw/thigh_highs_+_arm_warmers.webp" alt="half-body portrait of a pink-and-white-furred fox with with a glowing pink protogen visor wearing striped blue and white thigh highs and arm warmers and an oversized collar with a large gold bell, posing with arms crossed and looking at the viewer." title="thigh highs + arm warmers ✨" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="https://bsky.app/profile/magicalbunny31.nuzzles.dev/post/3lhp5vzm3m22i" target="_blank">
-                                       <img class="border" src="/assets/art/sharkace.webp" alt="a grey shark with blue and pink heterochromia eyes wearing a distinctive outfit including a fish-print collared crop top, tan shoulder bag, black skirt with light-coloured sparkles, a purple collar, ski goggles, and a mini crown. they are striking a pose at the viewer with sparkles." title="sharkace 🦈" draggable="false" loading="lazy"/>
+                                    <a href="https://bsky.app/profile/magicalbunny31.nuzzles.dev/post/3lti7vdnqmk2u" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2025/furry/sfw/cuddles.webp" alt="a grey fox-wolf and a pink fox laying down and cuddling with each other, looking into each other's eyes. the pink fox is looking flustered at the grey fox-wolf." title="cuddles 💕" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
-                                    <a href="https://bsky.app/profile/magicalbunny31.nuzzles.dev/post/3lti7vdnqmk2u" target="_blank">
-                                       <img class="border" src="/assets/art/cuddles.webp" alt="a grey fox-wolf and a pink fox laying down and cuddling with each other, looking into each other's eyes. the pink fox is looking flustered at the grey fox-wolf." title="cuddles 💕" draggable="false" loading="lazy"/>
+                                    <img class="border slideshow slideshow-default" src="https://cdn.nuzzles.dev/artworks/digital/2025/furry/sfw/paws_paws_paws_(folfo_mewo).webp" alt="a white cat's footpaws with fishnets in the face and handpaws of a blushing grey fox-wolf" title="paws paws paws (folfo/mewo) 🐾" draggable="false" loading="lazy"/>
+                                    <img class="border slideshow" src="https://cdn.nuzzles.dev/artworks/digital/2025/furry/sfw/paws_paws_paws_(mewo_folfo).webp" alt="a grey fox-wolf's footpaws in the face and handpaws of a blushing white cat" title="paws paws paws (mewo/folfo) 🐾" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://bsky.app/profile/magicalbunny31.nuzzles.dev/post/3lti7yybphs2u" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2025/furry/sfw/halowo_bust.webp" alt="a cropped icon bust of a pink-and-white-furred fox with with a glowing pink protogen visor looking at the viewer." title="halowo bust 🤖" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://bsky.app/profile/magicalbunny31.nuzzles.dev/post/3lhp5vzm3m22i" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2025/furry/sfw/sharkace.webp" alt="a grey shark with blue and pink heterochromia eyes wearing a distinctive outfit including a fish-print collared crop top, tan shoulder bag, black skirt with light-coloured sparkles, a purple collar, ski goggles, and a mini crown. they are striking a pose at the viewer with sparkles." title="sharkace 🦈" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
@@ -389,40 +583,41 @@
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://bsky.app/profile/magicalbunny31.nuzzles.dev/post/3ld7u3wtd2c2j" target="_blank">
-                                       <img class="border" src="/assets/art/love_messages.webp" alt="a brown deer wearing a ripped red hoodie, a draped santa hat, and neon bracelets laying on a patterned blanket. he is hugging a pillow whilst holding a phone and staring intently at it. two yellow hearts are emitted from the phone." title="love messages 💕" draggable="false" loading="lazy"/>
+                                       <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2024/furry/sfw/love_messages.webp" alt="a brown deer wearing a ripped red hoodie, a draped santa hat, and neon bracelets laying on a patterned blanket. he is hugging a pillow whilst holding a phone and staring intently at it. two yellow hearts are emitted from the phone." title="love messages 💕" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/side_folfo_(howloween).webp" alt="a fox-wolf looking to the right at night" title="side folfo (howloween) 🌕" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2024/furry/sfw/silly.webp" alt="a grey fox-wolf with their tongue out holding the bell of a pink fox with a protogen visor" title="silly 🔔" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://bsky.app/profile/magicalbunny31.nuzzles.dev/post/3l6pqbosqfj2b" target="_blank">
-                                       <img class="border" src="/assets/art/blizzard.webp" alt="a blue snow-cat with glasses and a pastel hoodie sucking on a lollipop" title="blizzard ❄️" draggable="false" loading="lazy"/>
+                                       <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2024/furry/sfw/blizzard.webp" alt="a blue snow-cat with glasses and a pastel hoodie sucking on a lollipop" title="blizzard ❄️" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/fe2_foxogen_-_thumbnail.webp" alt="a roblox-style (blocky) fox-protogen on a zip-line, with Rustic Jungle in the background" title="fe2 foxogen 🦊" draggable="false" loading="lazy"/>
-                                 </div>
-                                 <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/fe2_derg_-_thumbnail.webp" alt="a roblox-style (blocky) dragon jumping, with Forsaken Era in the background" title="fe2 derg 🐲" draggable="false" loading="lazy"/>
+                                    <a href="https://twitter.com/magicalbunny31/status/1793805344424030210" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2024/furry/sfw/bunnified.webp" alt="a bunny looking at the side and facing the front of the viewer" title="bunnified 🐰" draggable="false" loading="lazy"/>
+                                    </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://bsky.app/profile/magicalbunny31.nuzzles.dev/post/3lc6krc6jgc25" target="_blank">
-                                       <img class="border" src="/assets/art/rubypawbs.webp" alt="a white kemono dragon with a fox body sitting down with their right leg hanging over their left leg, wearing: some red thigh highs, some red arm warmers, a crimson scarf, and a crimson-red-ivory nekomata witch hat with tags and bells dangling. they are wearing black glasses; have long grey hair tufts with grey fur patterns; and have an extruding long fluffy tail." title="rubypawbs 🐾" draggable="false" loading="lazy"/>
+                                       <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2024/furry/sfw/rubypawbs.webp" alt="a white kemono dragon with a fox body sitting down with their right leg hanging over their left leg, wearing: some red thigh highs, some red arm warmers, a crimson scarf, and a crimson-red-ivory nekomata witch hat with tags and bells dangling. they are wearing black glasses; have long grey hair tufts with grey fur patterns; and have an extruding long fluffy tail." title="rubypawbs 🐾" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/side_folfo.webp" alt="a fox-wolf looking to the right" title="side folfo ➡️" draggable="false" loading="lazy"/>
+                                    <img class="border slideshow slideshow-default" src="https://cdn.nuzzles.dev/artworks/digital/2024/furry/sfw/side_folfo.webp" alt="bust of a fox-wolf looking to the right" title="side folfo ➡️" draggable="false" loading="lazy"/>
+                                    <img class="border slideshow" src="https://cdn.nuzzles.dev/artworks/digital/2024/furry/sfw/side_folfo_(howloween).webp" alt="a fox-wolf looking to the right at night" title="side folfo (howloween) 🌕" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/aceydia.webp" alt="a grey and purple kitsune-lynx hybrid looking forwards" title="aceydia 🎀" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2024/furry/sfw/aceydia.webp" alt="a grey and purple kitsune-lynx hybrid looking forwards" title="aceydia 🎀" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="https://twitter.com/magicalbunny31/status/1793805344424030210" target="_blank">
-                                       <img class="border" src="/assets/art/bunnified.webp" alt="a bunny looking at the side and facing the front of the viewer" title="bunnified 🐰" draggable="false" loading="lazy"/>
-                                    </a>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2024/furry/sfw/fe2_foxogen_-_thumbnail.webp" alt="a roblox-style (blocky) fox-protogen on a zip-line, with Rustic Jungle in the background" title="fe2 foxogen 🦊" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2024/furry/sfw/fe2_derg_-_thumbnail.webp" alt="a roblox-style (blocky) dragon jumping, with Forsaken Era in the background" title="fe2 derg 🐲" draggable="false" loading="lazy"/>
                                  </div>
                               </div>
                            </div>
@@ -435,48 +630,52 @@
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://twitter.com/magicalbunny31/status/1741314411602567564" target="_blank">
-                                       <img class="border" src="/assets/art/flustered_deerie.webp" alt="a blushing deer looking to the side" title="flustered deerie 🦌" draggable="false" loading="lazy"/>
+                                       <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/flustered_deerie.webp" alt="a blushing deer looking to the side" title="flustered deerie 🦌" draggable="false" loading="lazy"/>
                                     </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/currency_shopkeepers.webp" alt="busts of a grey-fox wolf with a yellow scarf, a protogen with a collar and a big bell, a yellow dragon with a yellow top hat and gold scarf, and a brown deer with a collar and a big bell" title="currency shopkeepers 🏪" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://bsky.app/profile/magicalbunny31.nuzzles.dev/post/3lbt3n5vwhk25" target="_blank">
-                                       <img class="border" src="/assets/art/sar_fen_-_thumbnail.webp" alt="an anthropomorphic fennec fox - wearing a flower crown, a head bandaid, a blue scarf, and a duck floatie - holding an orange candy-corn inspired sniper rifle and aiming to the front and right side. in the background, more animals are falling from the sky, holding umbrellas, with a forest underneath. the top right of the image says the title of the game &quot;super animal royale&quot;" title="the fox is going to SHOOT YOU !!!!!1 🦊" draggable="false" loading="lazy"/>
+                                       <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/sar_fen_-_thumbnail.webp" alt="an anthropomorphic fennec fox - wearing a flower crown, a head bandaid, a blue scarf, and a duck floatie - holding an orange candy-corn inspired sniper rifle and aiming to the front and right side. in the background, more animals are falling from the sky, holding umbrellas, with a forest underneath. the top right of the image says the title of the game &quot;super animal royale&quot;" title="the fox is going to SHOOT YOU !!!!!1 🦊" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/blue_toaster.webp" alt="a black-furred protogen with a blue cone hat" title="blue toaster 🍞" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/blue_toaster.webp" alt="a black-furred protogen with a blue cone hat" title="blue toaster 🍞" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://twitter.com/magicalbunny31/status/1659366077866835968" target="_blank">
-                                       <img class="border" src="/assets/art/scarf.webp" alt="a fox-wolf looking up, scarf blowing in the wind" title="scarf~ 🧣" draggable="false" loading="lazy"/>
+                                       <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/scarf.webp" alt="a fox-wolf looking up, scarf blowing in the wind" title="scarf~ 🧣" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/flower_folf.webp" alt="a smiling fox-wolf" title="flower folf 🌸" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/zzz.webp" alt="a sketch page of various doodles: a protogen, a fox-wolf and a protogen on a sofa under a blanket, a protogen clinging onto a fox-wolf, a sniper rifle" title="zzz 📝" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/cambxtty.webp" alt="a smiling pale fox, with one eye open" title="cambxtty 🧢" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/deerie_situation.webp" alt="an open-mouth deer looking back at the viewer" draggable="false" title="deerie situation 🎄" loading="lazy"/>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://twitter.com/magicalbunny31/status/1717033827426525444" target="_blank">
-                                       <img class="border" src="/assets/art/eepy.webp" alt="a sleepy fox-wolf standing, holding a mug saying &quot;#4 folf&quot;" title="just a bit eepy 💤" draggable="false" loading="lazy"/>
+                                       <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/eepy.webp" alt="a sleepy fox-wolf standing, holding a mug saying &quot;#4 folf&quot;" title="just a bit eepy 💤" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/lemons.webp" alt="a yellow fox looking at the viewer" title="lemons 🍋" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/lemons.webp" alt="a yellow fox looking at the viewer" title="lemons 🍋" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://twitter.com/magicalbunny31/status/1666843506478907393" target="_blank">
-                                       <img class="border" src="/assets/art/cutie.webp" alt="a smiling protogen sitting down" title="cutie 💜" draggable="false" loading="lazy"/>
+                                       <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/cutie.webp" alt="a smiling protogen sitting down" title="cutie 💜" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/zzz.webp" alt="a sketch page of various doodles: a protogen, a fox-wolf and a protogen on a sofa under a blanket, a protogen clinging onto a fox-wolf, a sniper rifle" title="zzz 📝" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/flower_folf.webp" alt="a smiling fox-wolf" title="flower folf 🌸" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/deerie_situation.webp" alt="an open-mouth deer looking back at the viewer" draggable="false" title="deerie situation 🎄" loading="lazy"/>
+                                    <img class="border slideshow slideshow-default" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/cambxtty.webp" alt="a smiling pale fox, with one eye open" title="cambxtty 🧢" draggable="false" loading="lazy"/>
+                                    <img class="border slideshow" src="https://cdn.nuzzles.dev/artworks/digital/2023/furry/sfw/cambxtty_pride.webp" alt="a smiling pale fox, with one eye open, and a gay pride flag background" title="cambxtty 🧢" draggable="false" loading="lazy"/>
                                  </div>
                               </div>
                            </div>
@@ -488,27 +687,36 @@
                            <div class="row">
                               <div class="column">
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/ashy.webp" alt="a red-coloured fox holding a bat" title="ashy 🦊" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2022/furry/sfw/ashy.webp" alt="a red-coloured fox holding a bat" title="ashy 🦊" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/halowo.webp" alt="a happy standing protogen" title="halowo 🏳️‍⚧️" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2022/furry/sfw/halowo.webp" alt="a happy standing protogen" title="halowo 🏳️‍⚧️" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/folfie_2022.webp" alt="a fox-wolf with their tongue out" title="folfie 2022 ✨" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2022/furry/sfw/saw_vs_rebellion_thumbnail.webp" alt="an arctic fox wearing dark camouflage uniform with a harness, holding gear branded with super animal world and pointing an assault rifle to the left. a fennec fox wearing rags with a combat belt, holding gear branded with the super animal super resistance and holding an assault rifle to the right; back-to-back with the arctic fox. in the background, more animals are falling from the sky, holding umbrellas, with a forest underneath. the top left of the image says the title of the game &quot;super animal royale&quot;" title="saw vs rebellion 🎌" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2022/furry/sfw/folfie_sketch.webp" alt="a fox-wolf looking to the side" title="folfie sketch 🐺" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2022/furry/sfw/folfie_2022.webp" alt="a fox-wolf with their tongue out" title="folfie 2022 ✨" draggable="false" loading="lazy"/>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/blep.webp" alt="a smiling fox-wolf, with their eyes closed and tongue out" title="blep 👅" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2022/furry/sfw/blep.webp" alt="a smiling fox-wolf, with their eyes closed and tongue out" title="blep 👅" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/owo_jaxy.webp" alt="a seductive fox-wolf laying down" title="owo jaxy 🛏️" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2022/furry/sfw/owo_jaxy.webp" alt="a seductive fox-wolf laying down" title="owo jaxy 🛏️" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <video class="border" src="/assets/art/outro.mp4" title="outro 🌃" draggable="false" autoplay loop muted></video>
+                                    <video class="border" src="https://cdn.nuzzles.dev/artworks/digital/2022/furry/sfw/outro.mp4" title="outro 🌃" draggable="false" autoplay loop muted></video>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/folfie_sketch.webp" alt="a fox-wolf looking to the side" title="folfie sketch 🐺" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2022/furry/sfw/sniper_fen_v3.webp" alt="a half-body sketch of a smirking fennec fox with a flower crown and duck floatie, holding a sniper rifle, with one leg up" title="sniper fen (v3) 💥" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2022/furry/sfw/sniper_fen_2022.webp" alt="a half-body stern fennec fox with a flower crown and duck floatie, holding a sniper rifle" title="sniper fen (2022) 💥" draggable="false" loading="lazy"/>
                                  </div>
                               </div>
                            </div>
@@ -520,26 +728,175 @@
                            <div class="row">
                               <div class="column">
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/deerie_2021.webp" alt="a deer with a neutral expression" title="deerie 2021 🎄" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2021/furry/sfw/deerie_2021.webp" alt="a deer with a neutral expression" title="deerie 2021 🎄" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/shook.webp" alt="a shocked fox-wolf" title="shook 💫" draggable="false" loading="lazy"/>
-                                 </div>
-                                 <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/deerie_bust.webp" alt="a bust of a deer" title="deerie bust 🦌" draggable="false" loading="lazy"/>
+                                    <a href="https://twitter.com/magicalbunny31/status/1429522920083185671" target="_blank">
+                                       <video class="border time-lapse" src="https://cdn.nuzzles.dev/artworks/digital/2021/furry/sfw/sniper_fen_timelapse_15s.mp4" title="outro 🌃" draggable="false" autoplay loop muted></video>
+                                       <img class="border time-lapse time-lapse-default" src="https://cdn.nuzzles.dev/artworks/digital/2021/furry/sfw/sniper_fen.webp" alt="a fennec fox holding a sniper rifle pointed to the ground" title="sniper fen 🔫" draggable="false" loading="lazy"/>
+                                    </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/spook_shook.webp" alt="a shocked fox-wolf at night" title="spook shook 🌕" draggable="false" loading="lazy"/>
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2021/furry/sfw/bun_and_fox_kit.webp" alt="a standing bunny and a fox" title="bun and fox kit 🐰🐾" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border" src="/assets/art/bun_and_fox_kit.webp" alt="a standing bunny and a fox" title="bun and fox kit 🐰🐾" draggable="false" loading="lazy"/>
+                                    <img class="border slideshow slideshow-default" src="https://cdn.nuzzles.dev/artworks/digital/2021/furry/sfw/shook.webp" alt="a shocked fox-wolf" title="shook 💫" draggable="false" loading="lazy"/>
+                                    <img class="border slideshow" src="https://cdn.nuzzles.dev/artworks/digital/2021/furry/sfw/spook_shook.webp" alt="a shocked fox-wolf at night" title="spook shook 🌕" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="https://twitter.com/magicalbunny31/status/1429522920083185671" target="_blank">
-                                       <img class="border" src="/assets/art/sniper_fen.webp" alt="a fennec fox holding a sniper rifle pointed to the ground" title="sniper fen 🔫" draggable="false" loading="lazy"/>
-                                    </a>
+                                    <video class="border" src="https://cdn.nuzzles.dev/artworks/digital/2021/furry/sfw/intro_2021.webm" title="intro 🏙️" draggable="false" autoplay loop muted></video>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2021/furry/sfw/deerie_bust.webp" alt="a bust of a deer" title="deerie bust 🦌" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                           </div>
+
+                        </div>
+
+                        <div class="content" id="2020-furry-art-content-0">
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2020/furry/sfw/another_feral.webp" alt="bust of a grey wolf" title="another feral 🐺" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2020/furry/sfw/asleep.webp" alt="an animated sketch of a sleeping fox-wolf behind a laptop with a drawing tablet connected to it" title="asleep 💤" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2020/furry/sfw/fireworks.webp" alt="a grey fox-wolf wearing a maroon shirt and grey shorts sitting next to a grey bunny with pink and purple hair wearing a yellow hoodie and grey offwhite sweatpants. both are sitting on the edge of a grassy cliff that leads to a highlighted sea with multiple recreational boats. they are looking up to the dark blue sky with multiple fireworks in the background and a shaded cityscape in the distance." title="fireworks 🎆" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2020/furry/sfw/feral_sitting.webp" alt="an orange feral fox with tipped-black front paw and white-furred chest, sitting upright on the ground" title="feral sitting 🦊" draggable="false" loading="lazy"/>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2020/furry/sfw/sitting_together.webp" alt="back-view of a medium-sized dark brown hyena and a large golden tiger who are both sitting down and gazing into each other. their arms go off frame in a way that suggests that they are holding paw. in the background is a blurry mountainous area." title="sitting together 💗" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                           </div>
+
+                        </div>
+
+                        <div class="content" id="2019-furry-art-content-0">
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2019/furry/sfw/christmas_2019.webp" alt="a brown deer wearing a brown collar with a tiny gold bell, a flannel shirt, and a squarish belt. a string of multicoloured christmas lights are tangled in one of their antlers and draping to their raised hoof and arm. a santa hat is hanging on their other antler" title="christmas 2019 🎄" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                              <div class="column">
+                              </div>
+                           </div>
+
+                        </div>
+
+                     </div>
+
+                  </div>
+               </div>
+
+
+               <div class="large-corner-border">
+                  <div class="large-border box">
+
+                     <h1>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
+                        examples of my work (miscellaneous art)
+                     </h1>
+
+                     <ul>
+                        <li>
+                           <strong>
+                              if for whatever reason you're going to repost my art, please credit me "magicalbunny31" and link back the source!
+                           </strong>
+                        </li>
+                        <li>do not use my art for your own things (like avatars, profile decorations, or role play) without permission from me</li>
+                        <li>these are my own original works and they may not be used for anything regarding ai, including ai image training</li>
+                     </ul>
+
+                     <div class="tab-heading-container">
+
+                        <div class="tab-heading">
+                           <div class="corner-border tab-item">
+                              <a class="border button" id="2025-miscellaneous-art" href="#2025-miscellaneous-art" style="--disabled-colour: #808080;" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
+                                 <div>
+                                    <strong>2025</strong>
+                                 </div>
+                              </a>
+                           </div>
+                           <div class="corner-border tab-item">
+                              <a class="border button" id="2021-miscellaneous-art" href="#2021-miscellaneous-art" style="--disabled-colour: #808080;" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
+                                 <div>
+                                    <strong>2021</strong>
+                                 </div>
+                              </a>
+                           </div>
+                           <div class="corner-border tab-item">
+                              <a class="border button" id="2020-miscellaneous-art" href="#2020-miscellaneous-art" style="--disabled-colour: #808080;" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
+                                 <div>
+                                    <strong>2020</strong>
+                                 </div>
+                              </a>
+                           </div>
+                        </div>
+
+                     </div>
+
+                     <hr/>
+
+                     <div class="tab-content-1">
+
+                        <div class="content" id="2025-miscellaneous-art-content-1">
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2025/miscellaneous/bunnys_foxes_1024x258.webp" alt="a banner with fox protogen in the front and many minecraft foxes making up the background. faded stars overly the banner and fox stamps cover the remaining background, with a stretched image of a tired fox-wolf covering the remaining background" title="bunny's foxes (1024x258) 🦊" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2025/miscellaneous/bunnys_foxes_1920x1080.webp" alt="a full high-definition banner with fox protogen in the front and many minecraft foxes making up the background. faded stars overly the banner and fox stamps cover the remaining background, with a stretched image of a tired fox-wolf covering the remaining background" title="bunny's foxes (1920x1080) 🦊" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                           </div>
+
+                        </div>
+
+                        <div class="content" id="2021-miscellaneous-art-content-1">
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2021/miscellaneous/boop_animation.webp" alt="a sketch animation of a paw pushing a brick off a shelf" title="boop animation 👉🧱" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                              <div class="column">
+                              </div>
+                           </div>
+
+                        </div>
+
+                        <div class="content" id="2020-miscellaneous-art-content-1">
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2020/miscellaneous/australia_bushfires.webp" alt="a dark burned forest on fire with flames in the foreground with a shadowed kangaroo standing amidst the fires, emitting black particles" title="australia bushfires 🔥" draggable="false" loading="lazy"/>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <img class="border" src="https://cdn.nuzzles.dev/artworks/digital/2020/miscellaneous/tree.webp" alt="a sketch of a deciduous tree with a blue grid background" title="tree 🌳" draggable="false" loading="lazy"/>
                                  </div>
                               </div>
                            </div>
@@ -556,9 +913,10 @@
                   <div class="large-border box">
 
                      <h1>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false" draggable="false"/>
                         examples of my work (minecraft skins)
                      </h1>
+
                      <ul>
                         <li>
                            <strong>
@@ -569,9 +927,9 @@
                         <li>these are my own original works and they may not be used for anything regarding ai, including ai image training</li>
                         <li>
                            all skins in this section have been rendered using
-                           <a href="https://vzge.me" target="_blank"><img class="emoji" src="/assets/logo/visage.png" alt="vzge logo" title="vzge" draggable="false"/> VZGE</a>
+                           <a href="https://vzge.me" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/visage.png" alt="vzge logo" title="vzge" draggable="false"/> VZGE</a>
                            by
-                           <a href="https://unascribed.com" target="_blank"><img class="emoji" src="/assets/logo/unascribed.png" alt="unascribed logo" title="unascribed" draggable="false"/> Una</a>
+                           <a href="https://unascribed.com" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/unascribed.png" alt="unascribed logo" title="unascribed" draggable="false"/> Una</a>
                         </li>
                      </ul>
 
@@ -580,7 +938,7 @@
                         <div class="tab-heading">
                            <div class="corner-border tab-item" style="--border-colour: #d0c5c0;">
                               <a class="border button" id="minecraft-skins" href="#minecraft-skins" style="--border-colour: #d0c5c0; --disabled-colour: #9d867b;" draggable="false">
-                                 <img class="emoji" src="/assets/logo/minecraft.png" alt="minecraft logo" title="minecraft" draggable="false"/>
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/logos/minecraft.png" alt="minecraft logo" title="minecraft" draggable="false"/>
                                  <div>
                                     <strong>default skins</strong>
                                  </div>
@@ -588,7 +946,7 @@
                            </div>
                            <div class="corner-border tab-item" style="--border-colour: #edb816;">
                               <a class="border button" id="ears-minecraft-skins" href="#ears-minecraft-skins" style="--border-colour: #edb816; --disabled-colour: #775b09;" draggable="false">
-                                 <img class="emoji" src="/assets/logo/ears.png" alt="ears logo" title="ears" draggable="false"/>
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/logos/ears.png" alt="ears logo" title="ears" draggable="false"/>
                                  <div>
                                     <strong>ears skins</strong>
                                  </div>
@@ -600,12 +958,12 @@
 
                      <hr/>
 
-                     <div class="tab-content-1">
+                     <div class="tab-content-2">
 
-                        <div class="content" id="minecraft-skins-content-1">
+                        <div class="content" id="minecraft-skins-content-2">
 
                            <h2>
-                              <img class="emoji" src="/assets/minecraft-skin/head/magicalbunny31_folfo.png" alt="head of a fox-wolf with glasses and flowers" title="magicalbunny31 (folfo)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/magicalbunny31_folfo.webp" alt="head of a fox-wolf with glasses and flowers" title="magicalbunny31 (folfo)" draggable="false" draggable="false"/>
                               <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">magicalbunny31</a>
                               (folfo)
                            </h2>
@@ -614,55 +972,55 @@
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo" src="/assets/minecraft-skin/magicalbunny31_folfo_front.png" alt="a fox-wolf with brown markings" title="magicalbunny31 (folfo)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_front.webp" alt="a fox-wolf with brown markings" title="magicalbunny31 (folfo)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_maid" src="/assets/minecraft-skin/magicalbunny31_folfo_maid_front.png" alt="a fox-wolf in a maid dress" title="magicalbunny31 (folfo) (maid)" draggable="false" loading="lazy"/>
-                                    </a>
-                                 </div>
-                              </div>
-                              <div class="column">
-                                 <div class="media-corner-border">
-                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_hoodie" src="/assets/minecraft-skin/magicalbunny31_folfo_hoodie_front.png" alt="a fox-wolf in a blue hoodie with pink arm warmers" title="magicalbunny31 (folfo) (hoodie)" draggable="false" loading="lazy"/>
-                                    </a>
-                                 </div>
-                                 <div class="media-corner-border">
-                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_pink_femboi" src="/assets/minecraft-skin/magicalbunny31_folfo_pink_femboi_front.png" alt="a fox-wolf in pink thigh highs and arm warmers" title="magicalbunny31 (folfo) (pink femboi)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_maid" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_maid_front.webp" alt="a fox-wolf in a maid dress" title="magicalbunny31 (folfo) (maid)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_foxogen" src="/assets/minecraft-skin/magicalbunny31_folfo_foxogen_front.png" alt="a fox-wolf in an orange hoodie with black thigh highs" title="magicalbunny31 (folfo) (foxogen)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_hoodie" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_hoodie_front.webp" alt="a fox-wolf in a blue hoodie with pink arm warmers" title="magicalbunny31 (folfo) (hoodie)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_black_femboi" src="/assets/minecraft-skin/magicalbunny31_folfo_black_femboi_front.png" alt="a fox-wolf in black thigh highs and arm warmers" title="magicalbunny31 (folfo) (black femboi)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_pink_femboi" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_pink_femboi_front.webp" alt="a fox-wolf in pink thigh highs and arm warmers" title="magicalbunny31 (folfo) (pink femboi)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_adventure" src="/assets/minecraft-skin/magicalbunny31_folfo_adventure_front.png" alt="a fox-wolf wearing: a brown sling, a black glove, and brown boots" title="magicalbunny31 (folfo) (adventure)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_foxogen" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_foxogen_front.webp" alt="a fox-wolf in an orange hoodie with black thigh highs" title="magicalbunny31 (folfo) (foxogen)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_blue_femboi" src="/assets/minecraft-skin/magicalbunny31_folfo_blue_femboi_front.png" alt="a fox-wolf in blue thigh highs and arm warmers" title="magicalbunny31 (folfo) (blue femboi)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_black_femboi" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_black_femboi_front.webp" alt="a fox-wolf in black thigh highs and arm warmers" title="magicalbunny31 (folfo) (black femboi)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_adventure" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_adventure_front.webp" alt="a fox-wolf wearing: a brown sling, a black glove, and brown boots" title="magicalbunny31 (folfo) (adventure)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_blue_femboi" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_blue_femboi_front.webp" alt="a fox-wolf in blue thigh highs and arm warmers" title="magicalbunny31 (folfo) (blue femboi)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                            </div>
 
                            <h2>
-                              <img class="emoji" src="/assets/minecraft-skin/head/magicalbunny31_deerie.png" alt="head of a deer" title="magicalbunny31 (deerie)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/magicalbunny31_deerie.webp" alt="head of a deer" title="magicalbunny31 (deerie)" draggable="false" draggable="false"/>
                               <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">magicalbunny31</a>
                               (deerie)
                            </h2>
@@ -671,7 +1029,7 @@
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_deerie" src="/assets/minecraft-skin/magicalbunny31_deerie_front.png" alt="a deer in a red hoodie" title="magicalbunny31 (deerie)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="magicalbunny31_deerie" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_deerie_front.webp" alt="a deer in a red hoodie" title="magicalbunny31 (deerie)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
@@ -681,8 +1039,8 @@
                            </div>
 
                            <h2>
-                              <img class="emoji" src="/assets/minecraft-skin/head/actuallyhalowo_fox.png" alt="head of a pink fox" title="ActuallyHalowo (fox)" draggable="false" draggable="false"/>
-                              <img class="emoji" src="/assets/minecraft-skin/head/actuallyhalowo_visor.png" alt="head of a pink fox with a protogen visor" title="ActuallyHalowo (visor)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/actuallyhalowo_fox.webp" alt="head of a pink fox" title="ActuallyHalowo (fox)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/actuallyhalowo_visor.webp" alt="head of a pink fox with a protogen visor" title="ActuallyHalowo (visor)" draggable="false" draggable="false"/>
                               <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">ActuallyHalowo</a>
                            </h2>
 
@@ -690,66 +1048,66 @@
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_fox" src="/assets/minecraft-skin/actuallyhalowo_fox_front.png" alt="a pink fox" title="ActuallyHalowo (fox)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_fox_front.webp" alt="a pink fox" title="ActuallyHalowo (fox)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_pink" src="/assets/minecraft-skin/actuallyhalowo_fox_pink_front.png" alt="a pink fox in pink thigh highs and arm warmers" title="ActuallyHalowo (fox) (pink)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_pink" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_fox_pink_front.webp" alt="a pink fox in pink thigh highs and arm warmers" title="ActuallyHalowo (fox) (pink)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_pink" src="/assets/minecraft-skin/actuallyhalowo_visor_pink_front.png" alt="a pink fox with a protogen visor in pink thigh highs and arm warmers" title="ActuallyHalowo (visor) (pink)" draggable="false" loading="lazy"/>
-                                    </a>
-                                 </div>
-                              </div>
-                              <div class="column">
-                                 <div class="media-corner-border">
-                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_onesie" src="/assets/minecraft-skin/actuallyhalowo_fox_onesie_front.png" alt="a pink fox in a onesie" title="ActuallyHalowo (fox) (onesie)" draggable="false" loading="lazy"/>
-                                    </a>
-                                 </div>
-                                 <div class="media-corner-border">
-                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_black" src="/assets/minecraft-skin/actuallyhalowo_fox_black_front.png" alt="a pink fox in black thigh highs and arm warmers" title="ActuallyHalowo (fox) (black)" draggable="false" loading="lazy"/>
-                                    </a>
-                                 </div>
-                                 <div class="media-corner-border">
-                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_black" src="/assets/minecraft-skin/actuallyhalowo_visor_black_front.png" alt="a pink fox with a protogen visor in black thigh highs and arm warmers" title="ActuallyHalowo (visor) (black)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_pink" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_visor_pink_front.webp" alt="a pink fox with a protogen visor in pink thigh highs and arm warmers" title="ActuallyHalowo (visor) (pink)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_visor" src="/assets/minecraft-skin/actuallyhalowo_visor_front.png" alt="a pink fox with a protogen visor" title="ActuallyHalowo (visor)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_onesie" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_fox_onesie_front.webp" alt="a pink fox in a onesie" title="ActuallyHalowo (fox) (onesie)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_blue" src="/assets/minecraft-skin/actuallyhalowo_fox_blue_front.png" alt="a pink fox in blue thigh highs and arm warmers" title="ActuallyHalowo (fox) (blue)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_black" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_fox_black_front.webp" alt="a pink fox in black thigh highs and arm warmers" title="ActuallyHalowo (fox) (black)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_blue" src="/assets/minecraft-skin/actuallyhalowo_visor_blue_front.png" alt="a pink fox with a protogen visor in blue thigh highs and arm warmers" title="ActuallyHalowo (visor) (blue)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_black" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_visor_black_front.webp" alt="a pink fox with a protogen visor in black thigh highs and arm warmers" title="ActuallyHalowo (visor) (black)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_onesie" src="/assets/minecraft-skin/actuallyhalowo_visor_onesie_front.png" alt="a pink fox with a protogen visor in a onesie" title="ActuallyHalowo (visor) (onesie)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_visor_front.webp" alt="a pink fox with a protogen visor" title="ActuallyHalowo (visor)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_blue" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_fox_blue_front.webp" alt="a pink fox in blue thigh highs and arm warmers" title="ActuallyHalowo (fox) (blue)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_blue" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_visor_blue_front.webp" alt="a pink fox with a protogen visor in blue thigh highs and arm warmers" title="ActuallyHalowo (visor) (blue)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_onesie" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_visor_onesie_front.webp" alt="a pink fox with a protogen visor in a onesie" title="ActuallyHalowo (visor) (onesie)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                            </div>
 
                            <h2>
-                              <img class="emoji" src="/assets/minecraft-skin/head/rubypawbs_quad.png" alt="head of an orange fox" title="rubypawbs (quad)" draggable="false" draggable="false"/>
-                              <img class="emoji" src="/assets/minecraft-skin/head/rubypawbs_sona.png" alt="head of a white dragon-fox" title="rubypawbs (sona)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/rubypawbs_quad.webp" alt="head of an orange fox" title="rubypawbs (quad)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/rubypawbs_sona.webp" alt="head of a white dragon-fox" title="rubypawbs (sona)" draggable="false" draggable="false"/>
                               <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">rubypawbs</a>
                            </h2>
 
@@ -757,14 +1115,14 @@
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">
-                                       <img class="border minecraft-skin" id="rubypawbs_quad" src="/assets/minecraft-skin/rubypawbs_quad_front.png" alt="an orange fox" title="rubypawbs (quad)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="rubypawbs_quad" src="https://cdn.nuzzles.dev/games/minecraft/skins/rubypawbs_quad_front.webp" alt="an orange fox" title="rubypawbs (quad)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">
-                                       <img class="border minecraft-skin" id="rubypawbs_sona" src="/assets/minecraft-skin/rubypawbs_sona_front.png" alt="a white dragon-fox" title="rubypawbs (sona)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="rubypawbs_sona" src="https://cdn.nuzzles.dev/games/minecraft/skins/rubypawbs_sona_front.webp" alt="a white dragon-fox" title="rubypawbs (sona)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
@@ -773,8 +1131,8 @@
                            </div>
 
                            <h2>
-                              <img class="emoji" src="/assets/minecraft-skin/head/aviation558.png" alt="head of an aviator in a lab coat" title="Aviation558" draggable="false" draggable="false"/>
-                              <img class="emoji" src="/assets/minecraft-skin/head/wojtekhugo_.png" alt="head of an expressionless person with a black cap" title="wojtekhugo_" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/aviation558.webp" alt="head of an aviator in a lab coat" title="Aviation558" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/wojtekhugo_.webp" alt="head of an expressionless person with a black cap" title="wojtekhugo_" draggable="false" draggable="false"/>
                               everyone else
                            </h2>
 
@@ -782,14 +1140,14 @@
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/Aviation558.1" target="_blank">
-                                       <img class="border minecraft-skin" id="aviation558" src="/assets/minecraft-skin/aviation558_front.png" alt="an aviator in a lab coat with a glove" title="Aviation558" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="aviation558" src="https://cdn.nuzzles.dev/games/minecraft/skins/aviation558_front.webp" alt="an aviator in a lab coat with a glove" title="Aviation558" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/wojtekhugo_.1" target="_blank">
-                                       <img class="border minecraft-skin" id="wojtekhugo_" src="/assets/minecraft-skin/wojtekhugo__front.png" alt="an expressionless person in black clothing with a black cap" title="wojtekhugo_" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="wojtekhugo_" src="https://cdn.nuzzles.dev/games/minecraft/skins/wojtekhugo__front.webp" alt="an expressionless person in black clothing with a black cap" title="wojtekhugo_" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
@@ -799,61 +1157,67 @@
 
                         </div>
 
-                        <div class="content" id="ears-minecraft-skins-content-1">
+                        <div class="content" id="ears-minecraft-skins-content-2">
+
+                           <h2>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/magicalbunny31_folfo.webp" alt="head of a fox-wolf with glasses and flowers" title="magicalbunny31 (folfo)" draggable="false" draggable="false"/>
+                              <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">magicalbunny31</a>
+                              (folfo)
+                           </h2>
 
                            <div class="row">
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_ears_front.png" alt="a fox-wolf with brown markings" title="magicalbunny31 (folfo)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_ears_front.webp" alt="a fox-wolf with brown markings" title="magicalbunny31 (folfo)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_maid_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_maid_ears_front.png" alt="a fox-wolf in a maid dress" title="magicalbunny31 (folfo) (maid)" draggable="false" loading="lazy"/>
-                                    </a>
-                                 </div>
-                              </div>
-                              <div class="column">
-                                 <div class="media-corner-border">
-                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_hoodie_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_hoodie_ears_front.png" alt="a fox-wolf in a blue hoodie with pink arm warmers" title="magicalbunny31 (folfo) (hoodie)" draggable="false" loading="lazy"/>
-                                    </a>
-                                 </div>
-                                 <div class="media-corner-border">
-                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_pink_femboi_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_pink_femboi_ears_front.png" alt="a fox-wolf in pink thigh highs and arm warmers" title="magicalbunny31 (folfo) (pink femboi)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_maid_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_maid_ears_front.webp" alt="a fox-wolf in a maid dress" title="magicalbunny31 (folfo) (maid)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_foxogen_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_foxogen_ears_front.png" alt="a fox-wolf in an orange hoodie with black thigh highs" title="magicalbunny31 (folfo) (foxogen)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_hoodie_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_hoodie_ears_front.webp" alt="a fox-wolf in a blue hoodie with pink arm warmers" title="magicalbunny31 (folfo) (hoodie)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_black_femboi_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_black_femboi_ears_front.png" alt="a fox-wolf in black thigh highs and arm warmers" title="magicalbunny31 (folfo) (black femboi)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_pink_femboi_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_pink_femboi_ears_front.webp" alt="a fox-wolf in pink thigh highs and arm warmers" title="magicalbunny31 (folfo) (pink femboi)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_adventure_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_adventure_ears_front.png" alt="a fox-wolf wearing: a brown sling, a black glove, and brown boots" title="magicalbunny31 (folfo) (adventure)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_foxogen_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_foxogen_ears_front.webp" alt="a fox-wolf in an orange hoodie with black thigh highs" title="magicalbunny31 (folfo) (foxogen)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
-                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_blue_femboi_ears" src="/assets/minecraft-skin/magicalbunny31_folfo_blue_femboi_ears_front.png" alt="a fox-wolf in blue thigh highs and arm warmers" title="magicalbunny31 (folfo) (blue femboi)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_black_femboi_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_black_femboi_ears_front.webp" alt="a fox-wolf in black thigh highs and arm warmers" title="magicalbunny31 (folfo) (black femboi)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_adventure_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_adventure_ears_front.webp" alt="a fox-wolf wearing: a brown sling, a black glove, and brown boots" title="magicalbunny31 (folfo) (adventure)" draggable="false" loading="lazy"/>
+                                    </a>
+                                 </div>
+                                 <div class="media-corner-border">
+                                    <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">
+                                       <img class="border minecraft-skin" id="magicalbunny31_folfo_blue_femboi_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_folfo_blue_femboi_ears_front.webp" alt="a fox-wolf in blue thigh highs and arm warmers" title="magicalbunny31 (folfo) (blue femboi)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                            </div>
 
                            <h2>
-                              <img class="emoji" src="/assets/minecraft-skin/head/magicalbunny31_deerie.png" alt="head of a deer" title="magicalbunny31 (deerie)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/magicalbunny31_deerie.webp" alt="head of a deer" title="magicalbunny31 (deerie)" draggable="false" draggable="false"/>
                               <a href="https://namemc.com/profile/magicalbunny31.1" target="_blank">magicalbunny31</a>
                               (deerie)
                            </h2>
@@ -861,7 +1225,7 @@
                            <div class="row">
                               <div class="column">
                                  <div class="media-corner-border">
-                                    <img class="border disabled-minecraft-skin" id="magicalbunny31_deerie" src="/assets/minecraft-skin/magicalbunny31_deerie_front.png" alt="a deer in a red hoodie" title="magicalbunny31 (deerie)" draggable="false" loading="lazy"/>
+                                    <img class="border disabled-minecraft-skin" id="magicalbunny31_deerie" src="https://cdn.nuzzles.dev/games/minecraft/skins/magicalbunny31_deerie_front.webp" alt="a deer in a red hoodie" title="magicalbunny31 (deerie)" draggable="false" loading="lazy"/>
                                  </div>
                               </div>
                               <div class="column"></div>
@@ -870,8 +1234,8 @@
                            </div>
 
                            <h2>
-                              <img class="emoji" src="/assets/minecraft-skin/head/actuallyhalowo_fox.png" alt="head of a pink fox" title="ActuallyHalowo (fox)" draggable="false" draggable="false"/>
-                              <img class="emoji" src="/assets/minecraft-skin/head/actuallyhalowo_visor.png" alt="head of a pink fox with a protogen visor" title="ActuallyHalowo (visor)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/actuallyhalowo_fox.webp" alt="head of a pink fox" title="ActuallyHalowo (fox)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/actuallyhalowo_visor.webp" alt="head of a pink fox with a protogen visor" title="ActuallyHalowo (visor)" draggable="false" draggable="false"/>
                               <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">ActuallyHalowo</a>
                            </h2>
 
@@ -879,54 +1243,54 @@
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_ears" src="/assets/minecraft-skin/actuallyhalowo_fox_ears_front.png" alt="a pink fox" title="ActuallyHalowo (fox)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_fox_ears_front.webp" alt="a pink fox" title="ActuallyHalowo (fox)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_fox_pink" src="/assets/minecraft-skin/actuallyhalowo_fox_pink_front.png" alt="a pink fox in pink thigh highs and arm warmers" title="ActuallyHalowo (fox) (pink)" draggable="false" loading="lazy"/>
+                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_fox_pink" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_fox_pink_front.webp" alt="a pink fox in pink thigh highs and arm warmers" title="ActuallyHalowo (fox) (pink)" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_visor_pink" src="/assets/minecraft-skin/actuallyhalowo_visor_pink_front.png" alt="a pink fox with a protogen visor in pink thigh highs and arm warmers" title="ActuallyHalowo (visor) (pink)" draggable="false" loading="lazy"/>
+                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_visor_pink" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_visor_pink_front.webp" alt="a pink fox with a protogen visor in pink thigh highs and arm warmers" title="ActuallyHalowo (visor) (pink)" draggable="false" loading="lazy"/>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_onesie_ears" src="/assets/minecraft-skin/actuallyhalowo_fox_onesie_ears_front.png" alt="a pink fox in a onesie" title="ActuallyHalowo (fox) (onesie)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="actuallyhalowo_fox_onesie_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_fox_onesie_ears_front.webp" alt="a pink fox in a onesie" title="ActuallyHalowo (fox) (onesie)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_fox_black" src="/assets/minecraft-skin/actuallyhalowo_fox_black_front.png" alt="a pink fox in black thigh highs and arm warmers" title="ActuallyHalowo (fox) (black)" draggable="false" loading="lazy"/>
+                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_fox_black" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_fox_black_front.webp" alt="a pink fox in black thigh highs and arm warmers" title="ActuallyHalowo (fox) (black)" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_visor_black" src="/assets/minecraft-skin/actuallyhalowo_visor_black_front.png" alt="a pink fox with a protogen visor in black thigh highs and arm warmers" title="ActuallyHalowo (visor) (black)" draggable="false" loading="lazy"/>
+                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_visor_black" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_visor_black_front.webp" alt="a pink fox with a protogen visor in black thigh highs and arm warmers" title="ActuallyHalowo (visor) (black)" draggable="false" loading="lazy"/>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_ears" src="/assets/minecraft-skin/actuallyhalowo_visor_ears_front.png" alt="a pink fox with a protogen visor" title="ActuallyHalowo (visor)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_visor_ears_front.webp" alt="a pink fox with a protogen visor" title="ActuallyHalowo (visor)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_fox_blue" src="/assets/minecraft-skin/actuallyhalowo_fox_blue_front.png" alt="a pink fox in blue thigh highs and arm warmers" title="ActuallyHalowo (fox) (blue)" draggable="false" loading="lazy"/>
+                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_fox_blue" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_fox_blue_front.webp" alt="a pink fox in blue thigh highs and arm warmers" title="ActuallyHalowo (fox) (blue)" draggable="false" loading="lazy"/>
                                  </div>
                                  <div class="media-corner-border">
-                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_visor_blue" src="/assets/minecraft-skin/actuallyhalowo_visor_blue_front.png" alt="a pink fox with a protogen visor in blue thigh highs and arm warmers" title="ActuallyHalowo (visor) (blue)" draggable="false" loading="lazy"/>
+                                    <img class="border disabled-minecraft-skin" id="actuallyhalowo_visor_blue" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_visor_blue_front.webp" alt="a pink fox with a protogen visor in blue thigh highs and arm warmers" title="ActuallyHalowo (visor) (blue)" draggable="false" loading="lazy"/>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/ActuallyHalowo.1" target="_blank">
-                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_onesie_ears" src="/assets/minecraft-skin/actuallyhalowo_visor_onesie_ears_front.png" alt="a pink fox with a protogen visor in a onesie" title="ActuallyHalowo (visor) (onesie)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="actuallyhalowo_visor_onesie_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/actuallyhalowo_visor_onesie_ears_front.webp" alt="a pink fox with a protogen visor in a onesie" title="ActuallyHalowo (visor) (onesie)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                            </div>
 
                            <h2>
-                              <img class="emoji" src="/assets/minecraft-skin/head/rubypawbs_quad.png" alt="head of an orange fox" title="rubypawbs (quad)" draggable="false" draggable="false"/>
-                              <img class="emoji" src="/assets/minecraft-skin/head/rubypawbs_sona.png" alt="head of a white dragon-fox" title="rubypawbs (sona)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/rubypawbs_quad.webp" alt="head of an orange fox" title="rubypawbs (quad)" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/rubypawbs_sona.webp" alt="head of a white dragon-fox" title="rubypawbs (sona)" draggable="false" draggable="false"/>
                               <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">rubypawbs</a>
                            </h2>
 
@@ -934,14 +1298,14 @@
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">
-                                       <img class="border minecraft-skin" id="rubypawbs_quad_ears" src="/assets/minecraft-skin/rubypawbs_quad_ears_front.png" alt="an orange fox" title="rubypawbs (quad)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="rubypawbs_quad_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/rubypawbs_quad_ears_front.webp" alt="an orange fox" title="rubypawbs (quad)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
                                     <a href="https://namemc.com/profile/rubypawbs.1" target="_blank">
-                                       <img class="border minecraft-skin" id="rubypawbs_sona_ears" src="/assets/minecraft-skin/rubypawbs_sona_ears_front.png" alt="a white dragon-fox" title="rubypawbs (sona)" draggable="false" loading="lazy"/>
+                                       <img class="border minecraft-skin" id="rubypawbs_sona_ears" src="https://cdn.nuzzles.dev/games/minecraft/skins/rubypawbs_sona_ears_front.webp" alt="a white dragon-fox" title="rubypawbs (sona)" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
@@ -950,20 +1314,20 @@
                            </div>
 
                            <h2>
-                              <img class="emoji" src="/assets/minecraft-skin/head/aviation558.png" alt="head of an aviator in a lab coat" title="Aviation558" draggable="false" draggable="false"/>
-                              <img class="emoji" src="/assets/minecraft-skin/head/wojtekhugo_.png" alt="head of an expressionless person with a black cap" title="wojtekhugo_" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/aviation558.webp" alt="head of an aviator in a lab coat" title="Aviation558" draggable="false" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/games/minecraft/skins/heads/wojtekhugo_.webp" alt="head of an expressionless person with a black cap" title="wojtekhugo_" draggable="false" draggable="false"/>
                               everyone else
                            </h2>
 
                            <div class="row">
                               <div class="column">
                                  <div class="media-corner-border">
-                                    <img class="border disabled-minecraft-skin" id="aviation558" src="/assets/minecraft-skin/aviation558_front.png" alt="an aviator in a lab coat with a glove" title="Aviation558" draggable="false" loading="lazy"/>
+                                    <img class="border disabled-minecraft-skin" id="aviation558" src="https://cdn.nuzzles.dev/games/minecraft/skins/aviation558_front.webp" alt="an aviator in a lab coat with a glove" title="Aviation558" draggable="false" loading="lazy"/>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
-                                    <img class="border disabled-minecraft-skin" id="wojtekhugo_" src="/assets/minecraft-skin/wojtekhugo__front.png" alt="an expressionless person in black clothing with a black cap" title="wojtekhugo_" draggable="false" loading="lazy"/>
+                                    <img class="border disabled-minecraft-skin" id="wojtekhugo_" src="https://cdn.nuzzles.dev/games/minecraft/skins/wojtekhugo__front.webp" alt="an expressionless person in black clothing with a black cap" title="wojtekhugo_" draggable="false" loading="lazy"/>
                                  </div>
                               </div>
                               <div class="column"></div>
@@ -990,49 +1354,43 @@
                      <div class="list">
                         <div class="corner-border">
                            <a class="border button" href="/" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/world_map.webp" alt="world map" title=":world_map:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/world_map.webp" alt="world map" title=":world_map:" draggable="false"/>
                               <strong>homepage</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/about" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/sparkles.webp" alt="sparkles" title=":sparkles:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/sparkles.webp" alt="sparkles" title=":sparkles:" draggable="false"/>
                               <strong>what's a bunny?</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/dev" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
                               <strong>dev and apps</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button disabled" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
                               <em><strong>art and commissions</strong></em> ✨
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/games" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/gamepad.webp" alt="gamepad" title=":gamepad:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/gamepad.webp" alt="gamepad" title=":gamepad:" draggable="false"/>
                               <strong>games</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/bun-daily-fox" target="_blank" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/fox.webp" alt="fox" title=":fox:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/fox.webp" alt="fox" title=":fox:" draggable="false"/>
                               <strong>bun's daily fox 🦊🐾</strong>
                            </a>
                         </div>
                         <div class="corner-border">
-                           <a class="border button" href="/about/deerie" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/deer_with_antlers.webp" alt="deer with antlers" title=":deer_with_antlers:" draggable="false"/>
-                              <strong>become deer</strong>
-                           </a>
-                        </div>
-                        <div class="corner-border">
                            <a class="border button" id="cutie" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/no.webp" alt="no entry" title=":no:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/no.webp" alt="no entry" title=":no:" draggable="false"/>
                               <strong>don't click this ,,</strong>
                            </a>
                         </div>
@@ -1040,6 +1398,22 @@
 
                   </div>
                </div>
+
+               <div class="large-corner-border">
+                  <div class="large-border box">
+
+                     <div class="list">
+                        <div class="corner-border">
+                           <a class="border button" href="/art/ref-sheet" draggable="false">
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/bust_in_silhouette.webp" alt="bust in silhouette" title=":bust_in_silhouette:" draggable="false"/>
+                              <strong>ref sheet</strong>
+                           </a>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+
 
             </nav>
 
@@ -1055,14 +1429,14 @@
 
 
                   <a href="https://metalzone.straw.page" target="_blank">
-                     <img id="blender-default-cube" style="float: right; width: 3em" src="/assets/what/blender_default_cube.png" draggable="false"/>
+                     <img id="bleach" style="float: right; width: 3em" src="https://cdn.nuzzles.dev/friends/bleach.webp" draggable="false"/>
                   </a>
 
 
                   <div class="info">
                      <p>
                         <a class="footer-item" id="splash"></a>
-                        <br>
+                        <br/>
                         <a class="footer-item modal-button" id="info">info</a>
                         |
                         <a class="footer-item modal-button" id="attribution">attribution</a>

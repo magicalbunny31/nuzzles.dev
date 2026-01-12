@@ -10,14 +10,14 @@
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-      <link rel="icon" href="/assets/emoji/twemoji/water_wave.webp" type="image/webp"/>
+      <link rel="icon" href="https://cdn.nuzzles.dev/emojis/twemoji/water_wave.webp" type="image/webp"/>
       <title>flooded area bot 🌊</title>
 
       <meta name    ="theme-color"  content="#4de94c"/>
       <meta property="og:site_name" content="nuzzles.dev/dev/flooded-area-bot"/>
       <meta name    ="title"        content="flooded area bot 🌊"/>
       <meta name    ="description"  content="flooded area community's discord bot"/>
-      <meta property="og:image"     content="https://nuzzles.dev/assets/avatar/flooded_area_bot.webp"/>
+      <meta property="og:image"     content="https://cdn.nuzzles.dev/socials/discord/apps/avatars/flooded_area_bot.webp"/>
 
       <meta property="og:type"  content="website"/>
       <meta property="og:url"   content="https://nuzzles.dev/dev/flooded-area-bot"/>
@@ -53,15 +53,15 @@
       <script>
          const path = "dev/flooded-area-bot/index.html";
       </script>
-      <script src="/assets/script/cutie.js"></script>
-      <script src="/assets/script/footer.js"></script>
-      <script src="/assets/script/modal.js"></script>
+      <script src="/assets/scripts/cutie.js"></script>
+      <script src="/assets/scripts/footer.js"></script>
+      <script src="/assets/scripts/modal.js"></script>
       <script>
          window.addEventListener(`load`, () => {
             const hash = window.location.hash.slice(1);
-            const buttonId = [ `images-flooded-area-moderation` ].includes(hash)
+            const buttonId = [ `media-flooded-area-moderation` ].includes(hash)
                ? hash
-               : `images-flooded-area-bot`;
+               : `media-flooded-area-bot`;
 
             const button = document.getElementById(buttonId);
             button.classList.add(`disabled`);
@@ -79,9 +79,9 @@
 
          window.addEventListener(`hashchange`, hashChangeEvent => {
             const oldHash = hashChangeEvent.oldURL.split(`#`).at(-1);
-            const oldButtonId = [ `images-flooded-area-moderation` ].includes(oldHash)
+            const oldButtonId = [ `media-flooded-area-moderation` ].includes(oldHash)
                ? oldHash
-               : `images-flooded-area-bot`;
+               : `media-flooded-area-bot`;
 
             const oldButton = document.getElementById(oldButtonId);
             oldButton.classList.remove(`disabled`);
@@ -90,9 +90,9 @@
             oldButtonText.innerHTML = `<strong>${oldButtonText.innerText}</strong>`;
 
             const newHash = hashChangeEvent.newURL.split(`#`).at(-1);
-            const newButtonId = [ `images-flooded-area-moderation` ].includes(newHash)
+            const newButtonId = [ `media-flooded-area-moderation` ].includes(newHash)
                ? newHash
-               : `images-flooded-area-bot`;
+               : `media-flooded-area-bot`;
 
             const newButton = document.getElementById(newButtonId);
             newButton.classList.add(`disabled`);
@@ -129,38 +129,39 @@
                   <div class="large-border box">
 
                      <div class="media-corner-border">
-                        <img class="border thumbnail" src="/assets/avatar/flooded_area_bot.webp" alt="flooded area bot's avatar" title="flooded area bot" draggable="false"/>
+                        <img class="border thumbnail" src="https://cdn.nuzzles.dev/socials/discord/apps/avatars/flooded_area_bot.webp" alt="flooded area bot's avatar" title="flooded area bot" draggable="false"/>
                      </div>
 
                      <h1>
-                        <img class="emoji" src="/assets/emoji/twemoji/water_wave.webp" alt="water wave" title=":water_wave:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/water_wave.webp" alt="water wave" title=":water_wave:" draggable="false"/>
                         flooded area bot 🌊
                      </h1>
+
                      <p>flooded area community's discord bot</p>
 
                      <div class="grid" id="introduction-buttons">
                         <div class="corner-border">
                            <a class="border large-button" href="/dev#flooded-area-bot-and-flooded-area-moderation" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
                               <div>
                                  <strong>dev and apps</strong>
                                  <br/>
-                                 <img class="emoji circle-border inline-button-emoji" src="/assets/avatar/flooded_area_bot.webp" alt="flooded area bot's avatar" title="flooded area bot" draggable="false"/>
+                                 <img class="emoji circle-border inline-button-emoji" src="https://cdn.nuzzles.dev/socials/discord/apps/avatars/flooded_area_bot.webp" alt="flooded area bot's avatar" title="flooded area bot" draggable="false"/>
                                  flooded area bot and
-                                 <img class="emoji circle-border inline-button-emoji" src="/assets/avatar/flooded_area_moderation.webp" alt="flooded area moderation's avatar" title="flooded area moderation" draggable="false"/>
+                                 <img class="emoji circle-border inline-button-emoji" src="https://cdn.nuzzles.dev/socials/discord/apps/avatars/flooded_area_moderation.webp" alt="flooded area moderation's avatar" title="flooded area moderation" draggable="false"/>
                                  flooded area moderation
                               </div>
                            </a>
                         </div>
                      </div>
 
-                     <div class="media-corner-border" id="banner-border" style="margin-top: 1em;">
-                        <img class="border"  src="/assets/banner/flooded_area_bot.webp" alt="an ocean of water background with blocky parts floating and meteors falling" title="flooded area bot" draggable="false" loading="lazy"/>
+                     <div class="media-corner-border banner" id="banner-border">
+                        <img class="border"  src="https://cdn.nuzzles.dev/socials/discord/apps/banners/flooded_area_bot.webp" alt="an ocean of water background with blocky parts floating and meteors falling" title="flooded area bot" draggable="false" loading="lazy"/>
                      </div>
 
                      <p style="font-size: 0.75em; margin-top: 0.75em;">
                         bot avatar and banner by
-                        <a href="https://twitter.com/hi_itsBlizzard" target="_blank"><img class="emoji" src="/assets/logo/twitter.png" alt="twitter logo" title="twitter" draggable="false"/> @hi_itsBlizzard</a>
+                        <a href="https://twitter.com/hi_itsBlizzard" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/twitter.png" alt="twitter logo" title="twitter" draggable="false"/> @hi_itsBlizzard</a>
                      </p>
 
                   </div>
@@ -173,78 +174,91 @@
                      <h2>
                         Overview
                      </h2>
+
                      <p>
                         flooded area bot 🌊 is an app dedicated to the
-                        <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>!
+                        <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>!
                      </p>
 
                      <h3>
                         🎟️ tickets system
                      </h3>
+
                      <ul>
-                        <li>an in-house ticketing system for dealing with player reports!</li>
-                        <ul>
-                           <li>
-                              it utilises threads for easier management for the
-                              <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
-                              staff
-                           </li>
-                        </ul>
-                        <li>📣 report a player</li>
-                        <ul>
-                           <li>
-                              a way for people to create player reports for those who break the rules in
-                              <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
-                           </li>
-                           <li>pre-report questions to determine if a reason a player is reporting is valid as well as to confirm that a report is made in good faith</li>
-                           <li>checks to make sure inputted usernames are real roblox players</li>
-                           <li>forcing evidence to be sent alongside a report before it can be submitted</li>
-                        </ul>
-                        <li>🔨 appeal an in-game ban</li>
-                        <ul>
-                           <li>
-                              a way for people to appeal their
-                              <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
-                              game bans
-                           </li>
-                           <li>pre-appeal questions to confirm that a ban appeal is being created on the basis of a wrongful ban and not as a begging statement</li>
-                           <li>checks to make sure the inputted username is a real roblox player</li>
-                           <li>fields for further reasoning for a ban appeal</li>
-                        </ul>
-                        <li>📬 send mod mail to server staff</li>
-                        <ul>
-                           <li>
-                              a way for people to privately talk with the
-                              <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
-                              staff regarding most things about the server
-                           </li>
-                           <li>pre-submission questions to direct people to existing resources which may help them</li>
-                        </ul>
+                        <li>
+                           an in-house ticketing system for dealing with player reports!
+                           <ul>
+                              <li>
+                                 it utilises threads for easier management for the
+                                 <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
+                                 staff
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           📣 report a player
+                           <ul>
+                              <li>
+                                 a way for people to create player reports for those who break the rules in
+                                 <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
+                              </li>
+                              <li>pre-report questions to determine if a reason a player is reporting is valid as well as to confirm that a report is made in good faith</li>
+                              <li>checks to make sure inputted usernames are real roblox players</li>
+                              <li>forcing evidence to be sent alongside a report before it can be submitted</li>
+                           </ul>
+                        </li>
+                        <li>
+                           🔨 appeal an in-game ban
+                           <ul>
+                              <li>
+                                 a way for people to appeal their
+                                 <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
+                                 game bans
+                              </li>
+                              <li>pre-appeal questions to confirm that a ban appeal is being created on the basis of a wrongful ban and not as a begging statement</li>
+                              <li>checks to make sure the inputted username is a real roblox player</li>
+                              <li>fields for further reasoning for a ban appeal</li>
+                           </ul>
+                        </li>
+                        <li>
+                           📬 send mod mail to server staff
+                           <ul>
+                              <li>
+                                 a way for people to privately talk with the
+                                 <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
+                                 staff regarding most things about the server
+                              </li>
+                              <li>pre-submission questions to direct people to existing resources which may help them</li>
+                           </ul>
+                        </li>
                      </ul>
 
                      <h3>
                         ✨ kinda fun stuff..?
                      </h3>
+
                      <ul>
                         <li>
                            a non-random levelling system for you to flex how much time you've wasted in the
-                           <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
+                           <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
+                           <ul>
+                              <li>preventing message spam experience abuse: allowing 1 experience to be gained every 5 seconds</li>
+                              <li>includes leaderboards to further compare your levels to other server members</li>
+                           </ul>
                         </li>
-                        <ul>
-                           <li>preventing message spam experience abuse: allowing 1 experience to be gained every 5 seconds</li>
-                           <li>includes leaderboards to further compare your levels to other server members</li>
-                        </ul>
-                        <li>a simple currency system</li>
-                        <ul>
-                           <li>
-                              a weekly stalk market, heavily inspired by the
-                              <a href="https://nookipedia.com/wiki/Stalk_Market" target="_blank">stalk market in the animal crossing series</a>
-                           </li>
-                           <li>
-                              a showcase of people's old currency achievements,
-                              <a href="#what-flooded-area-bot-started-off-as">as those features as they have since been retired</a>
-                           </li>
-                        </ul>
+                        <li>
+                           a simple currency system
+                           <ul>
+                              <li>
+                                 a weekly stalk market, heavily inspired by the
+                                 <a href="https://nookipedia.com/wiki/Stalk_Market" target="_blank">stalk market in the animal crossing series</a>
+                              </li>
+                              <li>
+                                 a showcase of people's old currency achievements,
+                                 <a href="#what-flooded-area-bot-started-off-as">as those features as they have since been retired</a>
+                              </li>
+                           </ul>
+                        </li>
                         <li>
                            a music player, for those
                            <em>
@@ -252,141 +266,141 @@
                               <span style="font-size: 0.75em">[sic]</span>
                               tunes
                            </em>
-                        </li>
-                        <ul>
-                           <li>
-                              <em>
-                                 "sweat tunes" refers to the original
-                                 <a href="https://www.roblox.com/games/12931809343/Flooded-Area-CLASSIC" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area (classic)</a>'s
-                                 flavour text of the music player part, which was "sweat tunes, don't ask" - that itself in reference to the poor spelling of
-                                 <a href="https://www.roblox.com/users/137767563/profile" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> @welololol</a>
-                                 found throughout the game
-                              </em>
-                           </li>
-                           <li>
-                              join a voice channel and start listening to the
-                              <a href="https://create.roblox.com/docs/sound/assets" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox audio assets</a>
-                              which play in
-                              <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
-                              but from the
-                              <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
-                              instead~
-                           </li>
-                        </ul>
-                        <li>
-                           question of the day
-                        </li>
-                        <ul>
-                           <li>
-                              people submit their questions of the day where the
-                              <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
-                              staff can approve or disapprove before being sent to the queue of questions to send
-                           </li>
-                           <li>submissions include the question and an optional a discussion thread and/or reaction choices</li>
-                        </ul>
-                        <li>
-                           server "votekicks"
-                        </li>
-                        <ul>
-                           <li>
-                              inspired by votekicking in
-                              <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>,
-                              a person can start a "votekick" on another person
-                           </li>
-                           <li>
-                              up to four people can vote where if a votekick successfully reaches its required votes, the votekicked user is put on
-                              <a href="https://support.discord.com/hc/en-us/articles/4413305239191-Time-Out-FAQ" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> time-out</a>
-                           </li>
-                        </ul>
-                        <li>
-                           america
-                        </li>
-                        <ul>
-                           <li>
-                              inspired by the, uhm, 
-                              <a href="https://flooded-area-official.fandom.com/wiki/American_Flag" target="_blank"><img class="emoji" src="/assets/logo/fandom.png" alt="fandom logo" title="fandom" draggable="false"/> american flag</a>
-                              part in
-                              <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
-                           </li>
-                           <li>on command invocation, the app responds with "america" as well as a counter of how many times it has been used</li>
-                           <li>
-                              there are different types of
-                              <img class="emoji" src="/assets/emoji/discord/slash_command.png" alt="slash command" title=":slash_command:" draggable="false"/>
-                              <strong>/america</strong>
-                              each with their own probabilities of appearing:
-                           </li>
                            <ul>
                               <li>
-                                 <img class="emoji" src="/assets/emoji/twemoji/flag_us.webp" alt="flag of the United States" title=":flag_us:" draggable="false"/>
-                                 <code>america</code>:
-                                 85%
-                              </li>
-                              <ul>
-                                 <li>
-                                    <img class="emoji" src="/assets/emoji/twemoji/flag_us.webp" alt="flag of the United States" title=":flag_us:" draggable="false"/>:
-                                    40%
-                                 </li>
-                                 <li>
-                                    <img class="emoji" src="/assets/emoji/flooded_area/american_flag.webp" alt="american flag" title=":american_flag:" draggable="false"/>:
-                                    40%
-                                 </li>
-                                 <li>
-                                    <img class="emoji" src="/assets/emoji/flooded_area/pride_flag.webp" alt="pride flag" title=":pride_flag:" draggable="false"/>:
-                                    20%
-                                 </li>
-                              </ul>
-                              <li>
-                                 <img class="emoji" src="/assets/emoji/twemoji/water_wave.webp" alt="water wave" title=":water_wave:" draggable="false"/>
-                                 <code>flood</code>:
-                                 5%
+                                 <em>
+                                    "sweat tunes" refers to the original
+                                    <a href="https://www.roblox.com/games/12931809343/Flooded-Area-CLASSIC" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area (classic)</a>'s
+                                    flavour text of the music player part, which was "sweat tunes, don't ask" - that itself in reference to the poor spelling of
+                                    <a href="https://www.roblox.com/users/137767563/profile" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> @welololol</a>
+                                    found throughout the game
+                                 </em>
                               </li>
                               <li>
-                                 <img class="emoji" src="/assets/emoji/twemoji/satellite.webp" alt="satellite" title=":satellite:" draggable="false"/>
-                                 <code>space</code>:
-                                 5%
-                              </li>
-                              <li>
-                                 <img class="emoji" src="/assets/emoji/pulexart/happ.png" alt="smiling fox" title=":happ:" draggable="false"/>
-                                 <code>furry</code>:
-                                 4%
-                              </li>
-                              <ul>
-                                 <li>
-                                    <em>
-                                       this probability is increased to 50% for confirmed furries in the
-                                       <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
-                                       (other probabilities balance out to create the other 50%)
-                                    </em>
-                                 </li>
-                              </ul>
-                              <li>
-                                 <img class="emoji" src="/assets/emoji/twemoji/flag_us_flipped.webp" alt="flag of the United States (flipped)" title=":flag_us_flipped:" draggable="false"/>
-                                 <code>flipped</code>:
-                                 0.9%
-                              </li>
-                              <li>
-                                 <img class="emoji" src="/assets/emoji/twemoji/sparkles.webp" alt="sparkles" title=":sparkles:" draggable="false"/>
-                                 <code>rare</code>:
-                                 0.09%
-                              </li>
-                              <li>
-                                 <img class="emoji" src="/assets/emoji/twemoji/glowing_star.webp" alt="glowing star" title=":glowing_star:" draggable="false"/>
-                                 <code>rarer</code>:
-                                 0.009%
-                              </li>
-                              <li>
-                                 <img class="emoji" src="/assets/emoji/twemoji/flag_gb.webp" alt="flag of the United Kingdom" title=":flag_gb:" draggable="false"/>
-                                 <code>british</code>:
-                                 0.001%
+                                 join a voice channel and start listening to the
+                                 <a href="https://create.roblox.com/docs/sound/assets" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox audio assets</a>
+                                 which play in
+                                 <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
+                                 but from the
+                                 <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
+                                 instead~
                               </li>
                            </ul>
-                        </ul>
+                        </li>
+                        <li>
+                           question of the day
+                           <ul>
+                              <li>
+                                 people submit their questions of the day where the
+                                 <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
+                                 staff can approve or disapprove before being sent to the queue of questions to send
+                              </li>
+                              <li>submissions include the question and an optional a discussion thread and/or reaction choices</li>
+                           </ul>
+                        </li>
+                        <li>
+                           server "votekicks"
+                           <ul>
+                              <li>
+                                 inspired by votekicking in
+                                 <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>,
+                                 a person can start a "votekick" on another person
+                              </li>
+                              <li>
+                                 up to four people can vote where if a votekick successfully reaches its required votes, the votekicked user is put on
+                                 <a href="https://support.discord.com/hc/en-us/articles/4413305239191-Time-Out-FAQ" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> time-out</a>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           america
+                           <ul>
+                              <li>
+                                 inspired by the, uhm, 
+                                 <a href="https://flooded-area-official.fandom.com/wiki/American_Flag" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/fandom.png" alt="fandom logo" title="fandom" draggable="false"/> american flag</a>
+                                 part in
+                                 <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
+                              </li>
+                              <li>on command invocation, the app responds with "america" as well as a counter of how many times it has been used</li>
+                              <li>
+                                 there are different types of
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/discord/slash_command.png" alt="slash command" title=":slash_command:" draggable="false"/>
+                                 <strong>/america</strong>
+                                 each with their own probabilities of appearing:
+                                 <ul>
+                                    <li>
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/flag_us.webp" alt="flag of the United States" title=":flag_us:" draggable="false"/>
+                                       <code>america</code>:
+                                       85%
+                                       <ul>
+                                          <li>
+                                             <img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/flag_us.webp" alt="flag of the United States" title=":flag_us:" draggable="false"/>:
+                                             40%
+                                          </li>
+                                          <li>
+                                             <img class="emoji" src="https://cdn.nuzzles.dev/emojis/flooded_area/american_flag.webp" alt="american flag" title=":american_flag:" draggable="false"/>:
+                                             40%
+                                          </li>
+                                          <li>
+                                             <img class="emoji" src="https://cdn.nuzzles.dev/emojis/flooded_area/pride_flag.webp" alt="pride flag" title=":pride_flag:" draggable="false"/>:
+                                             20%
+                                          </li>
+                                       </ul>
+                                    </li>
+                                    <li>
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/water_wave.webp" alt="water wave" title=":water_wave:" draggable="false"/>
+                                       <code>flood</code>:
+                                       5%
+                                    </li>
+                                    <li>
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/satellite.webp" alt="satellite" title=":satellite:" draggable="false"/>
+                                       <code>space</code>:
+                                       5%
+                                    </li>
+                                    <li>
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/pulexart/happ.png" alt="smiling fox" title=":happ:" draggable="false"/>
+                                       <code>furry</code>:
+                                       4%
+                                       <ul>
+                                          <li>
+                                             <em>
+                                                this probability is increased to 50% for confirmed furries in the
+                                                <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
+                                                (other probabilities balance out to create the other 50%)
+                                             </em>
+                                          </li>
+                                       </ul>
+                                    </li>
+                                    <li>
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/flag_us_flipped.webp" alt="flag of the United States (flipped)" title=":flag_us_flipped:" draggable="false"/>
+                                       <code>flipped</code>:
+                                       0.9%
+                                    </li>
+                                    <li>
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/sparkles.webp" alt="sparkles" title=":sparkles:" draggable="false"/>
+                                       <code>rare</code>:
+                                       0.09%
+                                    </li>
+                                    <li>
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/glowing_star.webp" alt="glowing star" title=":glowing_star:" draggable="false"/>
+                                       <code>rarer</code>:
+                                       0.009%
+                                    </li>
+                                    <li>
+                                       <img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/flag_gb.webp" alt="flag of the United Kingdom" title=":flag_gb:" draggable="false"/>
+                                       <code>british</code>:
+                                       0.001%
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
                      </ul>
 
                      <div class="grid">
                         <div class="corner-border" style="--border-colour: #171515;">
                            <a class="border large-button" href="https://github.com/magicalbunny31/flooded-area-bot/blob/main/interactions/chat-input/america.js#L33-L83" target="_blank" style="--border-colour: #171515;" draggable="false">
-                              <img class="emoji" src="/assets/logo/github.png" alt="github logo" title="github" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/github.png" alt="github logo" title="github" draggable="false"/>
                               <div>
                                  <strong>github</strong>
                                  <br/>
@@ -396,7 +410,7 @@
                         </div>
                         <div class="corner-border" style="--border-colour: #000000;">
                            <a class="border large-button" href="https://wikipedia.org/wiki/The_Star-Spangled_Banner" target="_blank" style="--border-colour: #000000;" draggable="false">
-                              <img class="emoji" src="/assets/logo/wikipedia.png" alt="wikipedia logo" title="wikipedia" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/wikipedia.png" alt="wikipedia logo" title="wikipedia" draggable="false"/>
                               <div>
                                  <strong>wikipedia</strong>
                                  <br/>
@@ -409,68 +423,75 @@
                      <h3>
                         🎮 game information
                      </h3>
+
                      <ul>
-                        <li>viewing game statistics</li>
-                        <ul>
-                           <li>
-                              using the
-                              <a href="https://devforum.roblox.com/t/all-of-robloxs-apis/2290645" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox web api</a>s,
-                              flooded area bot 🌊 fetches and stores game data for 24 hours and aggregating results in a graphical format for people to observe
-                           </li>
-                           <li>game data includes:</li>
+                        <li>
+                           viewing game statistics
                            <ul>
-                              <li>current players</li>
-                              <li>favourites</li>
-                              <li>total visits</li>
-                              <li>votes</li>
+                              <li>
+                                 using the
+                                 <a href="https://devforum.roblox.com/t/all-of-robloxs-apis/2290645" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox web api</a>s,
+                                 flooded area bot 🌊 fetches and stores game data for 24 hours and aggregating results in a graphical format for people to observe
+                              </li>
+                              <li>game data includes:</li>
+                              <ul>
+                                 <li>current players</li>
+                                 <li>favourites</li>
+                                 <li>total visits</li>
+                                 <li>votes</li>
+                              </ul>
                            </ul>
-                        </ul>
-                        <li>viewing game information</li>
-                        <ul>
-                           <li>
-                              part ids contains categorised lists of each part in
-                              <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
-                              and their id, primarily used for: spawning parts in
-                              <a href="https://www.roblox.com/games/14675161177/Flooded-Area-Sandbox" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area endless</a>,
-                              <a href="https://www.roblox.com/game-pass/156810132/Private-Server-ADMIN-PANEL" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> (private server) mod/admin panel</a>,
-                              or just out of plain curiosity
-                           </li>
-                           <li>
-                              map ids contains categorised lists of each map in
-                              <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
-                              and their id, primarily used for queuing maps with the <a href="https://www.roblox.com/game-pass/156810132/Private-Server-ADMIN-PANEL" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> (private server) mod/admin panel</a>
-                           </li>
-                           <li>
-                              the music list contains categorised lists of each music that plays in
-                              <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
-                              as well as their links in the
-                              <a href="https://create.roblox.com/docs/sound/assets" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox audio assets</a>
-                           </li>
-                        </ul>
-                        <li>searching the flooded area wiki</li>
-                        <ul>
-                           <li>
-                              using the
-                              <a href="https://www.mediawiki.org/wiki/API:Main_page" target="_blank">mediawiki api</a>
-                              and some basic
-                              <a href="https://wikipedia.org/wiki/Web_scraping" target="_blank"><img class="emoji" src="/assets/logo/wikipedia.png" alt="wikipedia logo" title="wikipedia" draggable="false"/> web scraping</a>,
-                              information from the
-                              <a href="https://flooded-area-official.fandom.com/wiki/Flooded_Area_Official_Wiki" target="_blank"><img class="emoji" src="/assets/logo/fandom.png" alt="fandom logo" title="fandom" draggable="false"/> flooded area wiki</a>
-                              can be searched and displayed straight from the
-                              <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
-                           </li>
-                           <li>
-                              information was originally
-                              <a href="https://wikipedia.org/wiki/Hard_coding" target="_blank"><img class="emoji" src="/assets/logo/wikipedia.png" alt="wikipedia logo" title="wikipedia" draggable="false"/> hard-coded</a>
-                              into flooded area bot 🌊 however was hard to maintain, hence the introduction of this feature
-                           </li>
-                        </ul>
+                        </li>
+                        <li>
+                           viewing game information
+                           <ul>
+                              <li>
+                                 part ids contains categorised lists of each part in
+                                 <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
+                                 and their id, primarily used for: spawning parts in
+                                 <a href="https://www.roblox.com/games/14675161177/Flooded-Area-Sandbox" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area endless</a>,
+                                 <a href="https://www.roblox.com/game-pass/156810132/Private-Server-ADMIN-PANEL" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> (private server) mod/admin panel</a>,
+                                 or just out of plain curiosity
+                              </li>
+                              <li>
+                                 map ids contains categorised lists of each map in
+                                 <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
+                                 and their id, primarily used for queuing maps with the <a href="https://www.roblox.com/game-pass/156810132/Private-Server-ADMIN-PANEL" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> (private server) mod/admin panel</a>
+                              </li>
+                              <li>
+                                 the music list contains categorised lists of each music that plays in
+                                 <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
+                                 as well as their links in the
+                                 <a href="https://create.roblox.com/docs/sound/assets" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox audio assets</a>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           searching the flooded area wiki
+                           <ul>
+                              <li>
+                                 using the
+                                 <a href="https://www.mediawiki.org/wiki/API:Main_page" target="_blank">mediawiki api</a>
+                                 and some basic
+                                 <a href="https://wikipedia.org/wiki/Web_scraping" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/wikipedia.png" alt="wikipedia logo" title="wikipedia" draggable="false"/> web scraping</a>,
+                                 information from the
+                                 <a href="https://flooded-area-official.fandom.com/wiki/Flooded_Area_Official_Wiki" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/fandom.png" alt="fandom logo" title="fandom" draggable="false"/> flooded area wiki</a>
+                                 can be searched and displayed straight from the
+                                 <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
+                              </li>
+                              <li>
+                                 information was originally
+                                 <a href="https://wikipedia.org/wiki/Hard_coding" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/wikipedia.png" alt="wikipedia logo" title="wikipedia" draggable="false"/> hard-coded</a>
+                                 into flooded area bot 🌊 however was hard to maintain, hence the introduction of this feature
+                              </li>
+                           </ul>
+                        </li>
                      </ul>
 
                      <div class="grid">
                         <div class="corner-border" style="--border-colour: #fa005a;">
                            <a class="border large-button" href="https://flooded-area-official.fandom.com/wiki/Flooded_Area_Official_Wiki" target="_blank" style="--border-colour: #fa005a;" draggable="false">
-                              <img class="emoji" src="/assets/logo/fandom.png" alt="fandom logo" title="fandom" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/fandom.png" alt="fandom logo" title="fandom" draggable="false"/>
                               <div>
                                  <strong>fandom</strong>
                                  <br/>
@@ -483,6 +504,7 @@
                      <h3>
                         💻 flooded area bot 🌊 is source-available!
                      </h3>
+
                      <ul>
                         <li>the source code of flooded area bot 🌊 can be viewed on github: button below~</li>
                      </ul>
@@ -490,7 +512,7 @@
                      <div class="grid">
                         <div class="corner-border" style="--border-colour: #171515;">
                            <a class="border large-button" href="/dev/flooded-area-bot/github" target="_blank" style="--border-colour: #171515;" draggable="false">
-                              <img class="emoji" src="/assets/logo/github.png" alt="github logo" title="github" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/github.png" alt="github logo" title="github" draggable="false"/>
                               <div>
                                  <strong>github</strong>
                                  <br/>
@@ -505,6 +527,7 @@
                      <h2>
                         The Past
                      </h2>
+
                      <p>
                         the current version of flooded area bot 🌊 is
                         <code>v3</code>,
@@ -514,110 +537,116 @@
                      <h3 id="what-flooded-area-bot-started-off-as">
                         📜 what flooded area bot 🌊 started off as
                      </h3>
+
                      <ul>
-                        <li>flooded area bot 🌊 originally started as "flooded area suggestions 📋" </li>
-                        <ul>
-                           <li>
-                              this was due to a certain
-                              <a href="https://www.roblox.com/users/139763594/profile" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> @CrazyDoruk22</a>
-                              appearing in my dms one day and practically begging lol
-                           </li>
-                           <li>
-                              <em>(i'm joking ilynh doruk)</em>
-                           </li>
-                           <li>
-                              as the name suggests, flooded area suggestions 📋 was a simple thread-based suggestions system where people can submit suggestions for
-                              <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
-                           </li>
-                           <li>each suggestion can be upvoted or downvoted, also containing a thread for discussion of the suggestion</li>
-                           <li>
-                              this system was in place until discord introduced
-                              <a href="https://support.discord.com/hc/en-us/articles/6208479917079-Forum-Channels-FAQ" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> forum channels</a>
-                           </li>
-                        </ul>
+                        <li>
+                           flooded area bot 🌊 originally started as "flooded area suggestions 📋"
+                           <ul>
+                              <li>
+                                 this was due to a certain
+                                 <a href="https://www.roblox.com/users/139763594/profile" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> @CrazyDoruk22</a>
+                                 appearing in my dms one day and practically begging lol
+                              </li>
+                              <li>
+                                 <em>(i'm joking ilynh doruk)</em>
+                              </li>
+                              <li>
+                                 as the name suggests, flooded area suggestions 📋 was a simple thread-based suggestions system where people can submit suggestions for
+                                 <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
+                              </li>
+                              <li>each suggestion can be upvoted or downvoted, also containing a thread for discussion of the suggestion</li>
+                              <li>
+                                 this system was in place until discord introduced
+                                 <a href="https://support.discord.com/hc/en-us/articles/6208479917079-Forum-Channels-FAQ" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> forum channels</a>
+                              </li>
+                           </ul>
+                        </li>
                         <li>
                            at the time of when i started developing flooded area suggestions 📋 (now: flooded area bot 🌊), it was heavily inspired by
-                           <a href="/dev/berry-bot" target="_blank"><img class="emoji circle-border" src="/assets/avatar/berry_bot.webp" alt="berry bot's avatar" title="berry bot" draggable="false"/> berry bot 🫐</a>
+                           <a href="/dev/berry-bot" target="_blank"><img class="emoji circle-border" src="https://cdn.nuzzles.dev/socials/discord/apps/avatars/berry_bot.webp" alt="berry bot's avatar" title="berry bot" draggable="false"/> berry bot 🫐</a>
+                           <ul>
+                              <li>
+                                 for this reason, flooded area bot 🌊's
+                                 <a href="https://discord.com/developers/docs/resources/application" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> app</a>
+                                 on the
+                                 <a href="https://discord.com/developers/applications" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> discord developer portal</a>
+                                 was put under the same
+                                 <a href="https://discord.com/developers/docs/topics/teams" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> team</a>
+                                 as
+                                 <a href="/dev/berry-bot" target="_blank"><img class="emoji circle-border" src="https://cdn.nuzzles.dev/socials/discord/apps/avatars/berry_bot.webp" alt="berry bot's avatar" title="berry bot" draggable="false"/> berry bot 🫐</a>
+                              </li>
+                              <li>
+                                 ..of which was owned by
+                                 <a href="/dev/berry-bot" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/strawberry.webp" alt="strawberry" title=":strawberry:" draggable="false"/> gentleberry16 gerek</a>:
+                                 a now inactive account
+                              </li>
+                              <li>
+                                 regardless,
+                                 <a href="https://discord.com/developers/docs/topics/teams#transferring-an-app" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> apps cannot be transferred between teams</a>
+                                 so we are completely and utterly fucked chat
+                              </li>
+                           </ul>
                         </li>
-                        <ul>
-                           <li>
-                              for this reason, flooded area bot 🌊's
-                              <a href="https://discord.com/developers/docs/resources/application" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> app</a>
-                              on the
-                              <a href="https://discord.com/developers/applications" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> discord developer portal</a>
-                              was put under the same
-                              <a href="https://discord.com/developers/docs/topics/teams" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> team</a>
-                              as
-                              <a href="/dev/berry-bot" target="_blank"><img class="emoji circle-border" src="/assets/avatar/berry_bot.webp" alt="berry bot's avatar" title="berry bot" draggable="false"/> berry bot 🫐</a>
-                           </li>
-                           <li>
-                              ..of which was owned by
-                              <a href="/dev/berry-bot" target="_blank"><img class="emoji" src="/assets/emoji/mutant_standard/strawberry.webp" alt="strawberry" title=":strawberry:" draggable="false"/> gentleberry16 gerek</a>:
-                              a now inactive account
-                           </li>
-                           <li>
-                              regardless,
-                              <a href="https://discord.com/developers/docs/topics/teams#transferring-an-app" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> apps cannot be transferred between teams</a>
-                              so we are completely and utterly fucked chat
-                           </li>
-                        </ul>
                      </ul>
 
                      <h3 id="flooded-area-bot-and-universe-laboratories">
                         🌌 flooded area bot 🌊 and universe laboratories
                      </h3>
+
                      <ul>
                         <li>
                            flooded area bot 🌊 was formerly called "area communities bot 🌊🌌"
+                           <ul>
+                              <li>
+                                 after the introduction of
+                                 <a href="https://www.roblox.com/games/13672239919/Spaced-Out" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> spaced out</a>,
+                                 a roblox game developed by
+                                 <a href="https://www.roblox.com/groups/32508650/Universe-Laboratories#!/about" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> universe laboratories</a>
+                                 including
+                                 <a href="https://www.roblox.com/users/137767563/profile" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> @welololol</a>,
+                                 i tried to bridge the two games together under one app
+                              </li>
+                              <li>
+                                 unfortunately, i was too slow with my development and was unable to make anything meaningful with features for
+                                 <a href="https://www.roblox.com/users/137767563/profile" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> @welololol</a>
+                                 before the game slowly died down
+                              </li>
+                              <li>
+                                 the same ordeal happened with
+                                 <a href="https://www.roblox.com/games/16713821581/Darkness-Obby" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> darkness obby</a>,
+                                 yet another game developed by
+                                 <a href="https://www.roblox.com/groups/32508650/Universe-Laboratories#!/about" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> universe laboratories</a>,
+                                 except had one singular feature (automated map submissions) requested by
+                                 <a href="https://www.roblox.com/users/137767563/profile" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> @welololol</a>
+                              </li>
+                           </ul>
                         </li>
-                        <ul>
-                           <li>
-                              after the introduction of
-                              <a href="https://www.roblox.com/games/13672239919/Spaced-Out" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> spaced out</a>,
-                              a roblox game developed by
-                              <a href="https://www.roblox.com/groups/32508650/Universe-Laboratories#!/about" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> universe laboratories</a>
-                              including
-                              <a href="https://www.roblox.com/users/137767563/profile" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> @welololol</a>,
-                              i tried to bridge the two games together under one app
-                           </li>
-                           <li>
-                              unfortunately, i was too slow with my development and was unable to make anything meaningful with features for
-                              <a href="https://www.roblox.com/users/137767563/profile" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> @welololol</a>
-                              before the game slowly died down
-                           </li>
-                           <li>
-                              the same ordeal happened with
-                              <a href="https://www.roblox.com/games/16713821581/Darkness-Obby" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> darkness obby</a>,
-                              yet another game developed by
-                              <a href="https://www.roblox.com/groups/32508650/Universe-Laboratories#!/about" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> universe laboratories</a>,
-                              except had one singular feature (automated map submissions) requested by
-                              <a href="https://www.roblox.com/users/137767563/profile" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> @welololol</a>
-                           </li>
-                        </ul>
-                        <li>the creation of the universe bot 🌌</li>
-                        <ul>
-                           <li>
-                              following
-                              <a href="https://www.roblox.com/games/16813674681/Anarchy-Chess" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> anarchy chess</a>,
-                              a game developed by
-                              <a href="https://www.roblox.com/groups/32508650/Universe-Laboratories#!/about" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> universe laboratories</a>,
-                              its success was comparable to
-                              <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
-                              and such, i decided to split off area communities bot 🌊🌌 into "flooded area bot 🌊" and "the universe bot 🌌"
-                           </li>
-                           <li>
-                              on
-                              <time datetime="2018-11-12"><span class="popup">Monday, 31 March 2025</span>31/mar/2025</time>,
-                              i made the decision to quietly cancel my plans to develop the universe bot 🌌 for
-                              <a href="https://discord.com/invite/kEhWGX6gK6" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> universe laboratories</a>
-                           </li>
-                        </ul>
+                        <li>
+                           the creation of the universe bot 🌌
+                           <ul>
+                              <li>
+                                 following
+                                 <a href="https://www.roblox.com/games/16813674681/Anarchy-Chess" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> anarchy chess</a>,
+                                 a game developed by
+                                 <a href="https://www.roblox.com/groups/32508650/Universe-Laboratories#!/about" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> universe laboratories</a>,
+                                 its success was comparable to
+                                 <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
+                                 and such, i decided to split off area communities bot 🌊🌌 into "flooded area bot 🌊" and "the universe bot 🌌"
+                              </li>
+                              <li>
+                                 on
+                                 <time datetime="2018-11-12"><span class="popup">Monday, 31 March 2025</span>31/mar/2025</time>,
+                                 i made the decision to quietly cancel my plans to develop the universe bot 🌌 for
+                                 <a href="https://discord.com/invite/kEhWGX6gK6" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> universe laboratories</a>
+                              </li>
+                           </ul>
+                        </li>
                      </ul>
 
                      <div class="grid">
                         <div class="corner-border" style="--border-colour: #5865F2;">
                            <a class="border large-button" href="https://discord.com/invite/kEhWGX6gK6" target="_blank" style="--border-colour: #5865F2;" draggable="false">
-                              <img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/>
                               <div>
                                  <strong>discord</strong>
                                  <br/>
@@ -630,47 +659,49 @@
                      <hr/>
 
                      <div class="media-corner-border">
-                        <img class="border thumbnail" src="/assets/avatar/flooded_area_moderation.webp" alt="flooded area moderation's avatar" title="flooded area moderation" draggable="false"/>
+                        <img class="border thumbnail" src="https://cdn.nuzzles.dev/socials/discord/apps/avatars/flooded_area_moderation.webp" alt="flooded area moderation's avatar" title="flooded area moderation" draggable="false"/>
                      </div>
 
                      <h2 id="flooded-area-moderation">
                         flooded area moderation 🤖
                      </h2>
+
                      <p>
                         flooded area moderation 🤖 is an app which allows for
-                        <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
+                        <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
                         moderation to take place from the
-                        <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
+                        <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>
                         <br/>
                         <br/>
                         it is a feature-rich way for the
-                        <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
+                        <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
                         staff to (mass-)moderate players straight from the discord server without needing to join in-game, through the
-                        <a href="https://create.roblox.com/docs/cloud/reference" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox open cloud api</a>
+                        <a href="https://create.roblox.com/docs/cloud/reference" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox open cloud api</a>
                      </p>
 
                      <h3>
                         🛠️ how flooded area moderation 🤖 works
                      </h3>
+
                      <ul>
                         <li>
                            flooded area moderation 🤖 uses the
-                           <a href="https://create.roblox.com/docs/cloud/reference" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox open cloud api</a>'s
-                           <a href="https://create.roblox.com/docs/cloud/reference/UserRestriction" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> user restriction</a>
+                           <a href="https://create.roblox.com/docs/cloud/reference" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox open cloud api</a>'s
+                           <a href="https://create.roblox.com/docs/cloud/reference/UserRestriction" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> user restriction</a>
                            resource to remotely ban players
                         </li>
                         <li>
                            it also includes using its own ban history
                            (in addition to the
-                           <a href="https://create.roblox.com/docs/cloud/reference" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> open cloud</a>'s
-                           <a href="https://create.roblox.com/docs/cloud/reference/UserRestriction#List-User-Restriction-Logs" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> list user restriction logs</a>)
+                           <a href="https://create.roblox.com/docs/cloud/reference" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> open cloud</a>'s
+                           <a href="https://create.roblox.com/docs/cloud/reference/UserRestriction#List-User-Restriction-Logs" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> list user restriction logs</a>)
                            which mainly exists to support previous bans prior to the addition of user restrictions
                         </li>
                         <li>
                            using the
                            <a href="https://blox.link/dashboard/user/developer" target="_blank">bloxlink api</a>
                            (what the server already uses) it's also able to map its functions to the
-                           <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>:
+                           <a href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> flooded area community</a>:
                            like adding roles to banned players in the server or banning a members's bloxlink linked roblox account
                         </li>
                      </ul>
@@ -678,32 +709,34 @@
                      <h3>
                         🌫️ what flooded area moderation 🤖 was built off of
                      </h3>
+
                      <ul>
                         <li>
                            flooded area moderation 🤖 was a fork of
                            <a href="https://stratiz.net" target="_blank">stratiz</a>'s
-                           <a href="https://github.com/Stratiz/Discord-To-Roblox"><img class="emoji" src="/assets/logo/github.png" alt="github logo" title="github" draggable="false"/> discord-to-roblox code</a>,
+                           <a href="https://github.com/Stratiz/Discord-To-Roblox"><img class="emoji" src="https://cdn.nuzzles.dev/logos/github.png" alt="github logo" title="github" draggable="false"/> discord-to-roblox code</a>,
                            added to
-                           <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
+                           <a href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> flooded area</a>
                            by
                            <a href="https://actuallyarla.dev" target="_blank">actuallyarla</a>
                         </li>
                         <li>
                            it has since been re-written by me and re-developed to use the
-                           <a href="https://create.roblox.com/docs/cloud/reference" target="_blank"><img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox open cloud api</a>
+                           <a href="https://create.roblox.com/docs/cloud/reference" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/> roblox open cloud api</a>
                            (see above) for improved reliability: with the help of
-                           <a href="https://halodev.games" target="_blank"><img class="emoji" src="/assets/logo/halodev_games.png" alt="halodev games logo" title="halodev games" draggable="false"/> ActuallyHalowo</a>
+                           <a href="https://halodev.games" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/halodev_games.png" alt="halodev games logo" title="halodev games" draggable="false"/> ActuallyHalowo</a>
                         </li>
                      </ul>
 
                      <h3>
                         💻 flooded area moderation 🤖 is open-source
-                        (<a href="https://github.com/magicalbunny31/flooded-area-moderation/blob/main/license" target="_blank"><img class="emoji" src="/assets/logo/github.png" alt="github logo" title="github" draggable="false"/> MIT</a>)!
+                        (<a href="https://github.com/magicalbunny31/flooded-area-moderation/blob/main/license" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/github.png" alt="github logo" title="github" draggable="false"/> MIT</a>)!
                      </h3>
+
                      <ul>
                         <li>
                            flooded area moderation 🤖 is licensed under the
-                           <a href="https://github.com/magicalbunny31/flooded-area-moderation/blob/main/license" target="_blank"><img class="emoji" src="/assets/logo/github.png" alt="github logo" title="github" draggable="false"/> MIT license</a>
+                           <a href="https://github.com/magicalbunny31/flooded-area-moderation/blob/main/license" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/github.png" alt="github logo" title="github" draggable="false"/> MIT license</a>
                         </li>
                         <li>the source code of flooded area moderation 🤖 can be viewed on github: button below~</li>
                      </ul>
@@ -711,7 +744,7 @@
                      <div class="grid">
                         <div class="corner-border" style="--border-colour: #171515;">
                            <a class="border large-button" href="/dev/flooded-area-moderation/github" target="_blank" style="--border-colour: #171515;" draggable="false">
-                              <img class="emoji" src="/assets/logo/github.png" alt="github logo" title="github" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/github.png" alt="github logo" title="github" draggable="false"/>
                               <div>
                                  <strong>github</strong>
                                  <br/>
@@ -721,13 +754,13 @@
                         </div>
                      </div>
 
-                     <div class="media-corner-border" id="banner-border" style="margin-top: 1em;">
-                        <img class="border"  src="/assets/banner/flooded_area_moderation.webp" alt="a magma ocean background with blocky parts floating and in the air falling" title="flooded area moderation" draggable="false" loading="lazy"/>
+                     <div class="media-corner-border banner" id="banner-border">
+                        <img class="border"  src="https://cdn.nuzzles.dev/socials/discord/apps/banners/flooded_area_moderation.webp" alt="a magma ocean background with blocky parts floating and in the air falling" title="flooded area moderation" draggable="false" loading="lazy"/>
                      </div>
 
                      <p style="font-size: 0.75em; margin-top: 0.75em;">
                         bot avatar and banner by
-                        <a href="https://twitter.com/hi_itsBlizzard" target="_blank"><img class="emoji" src="/assets/logo/twitter.png" alt="twitter logo" title="twitter" draggable="false"/> @hi_itsBlizzard</a>
+                        <a href="https://twitter.com/hi_itsBlizzard" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/twitter.png" alt="twitter logo" title="twitter" draggable="false"/> @hi_itsBlizzard</a>
                      </p>
 
                   </div>
@@ -738,24 +771,24 @@
                   <div class="large-border box">
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/national_park.webp" alt="national park" title=":national_park:" draggable="false"/>
-                        images
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/national_park.webp" alt="national park" title=":national_park:" draggable="false"/>
+                        media
                      </h2>
 
                      <div class="tab-heading-container">
 
                         <div class="tab-heading">
                            <div class="corner-border tab-item" style="--border-colour: #4de94c;">
-                              <a class="border button" id="images-flooded-area-bot" href="#images-flooded-area-bot" style="--border-colour: #4de94c; --disabled-colour: #149f14;" draggable="false">
-                                 <img class="emoji circle-border" src="/assets/avatar/flooded_area_bot.webp" alt="flooded area bot's avatar" title="flooded area bot" loading="lazy" draggable="false"/>
+                              <a class="border button" id="media-flooded-area-bot" href="#media-flooded-area-bot" style="--border-colour: #4de94c; --disabled-colour: #149f14;" draggable="false">
+                                 <img class="emoji circle-border" src="https://cdn.nuzzles.dev/socials/discord/apps/avatars/flooded_area_bot.webp" alt="flooded area bot's avatar" title="flooded area bot" loading="lazy" draggable="false"/>
                                  <div>
                                     <strong>flooded area bot</strong>
                                  </div>
                               </a>
                            </div>
                            <div class="corner-border tab-item" style="--border-colour: #bc1922;">
-                              <a class="border button" id="images-flooded-area-moderation" href="#images-flooded-area-moderation" style="--border-colour: #bc1922; --disabled-colour: #2b393b;" draggable="false">
-                                 <img class="emoji circle-border" src="/assets/avatar/flooded_area_moderation.webp" alt="flooded area moderation's avatar" title="flooded area moderation" loading="lazy" draggable="false"/>
+                              <a class="border button" id="media-flooded-area-moderation" href="#media-flooded-area-moderation" style="--border-colour: #bc1922; --disabled-colour: #2b393b;" draggable="false">
+                                 <img class="emoji circle-border" src="https://cdn.nuzzles.dev/socials/discord/apps/avatars/flooded_area_moderation.webp" alt="flooded area moderation's avatar" title="flooded area moderation" loading="lazy" draggable="false"/>
                                  <div>
                                     <strong>flooded area moderation</strong>
                                  </div>
@@ -769,90 +802,90 @@
 
                      <div class="tab-content">
 
-                        <div class="content" id="images-flooded-area-bot-content">
+                        <div class="content" id="media-flooded-area-bot-content">
 
                            <div class="row">
                               <div class="column">
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/level.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/level.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/level.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/level.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/wiki.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/wiki.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/wiki.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/wiki.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/music-player_play_random.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/music-player_play_random.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/music-player_play_random.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/music-player_play_random.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/currency_shop.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/currency_shop.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/currency_shop.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/currency_shop.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/report-a-player_ticket.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/report-a-player_ticket.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/report-a-player_ticket.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/report-a-player_ticket.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/currency_balance.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/currency_balance.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/currency_balance.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/currency_balance.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/ban-appeals_form.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/ban-appeals_form.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/ban-appeals_form.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/ban-appeals_form.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/server-suggestions.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/server-suggestions.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/server-suggestions.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/server-suggestions.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/qotd.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/qotd.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/qotd.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/qotd.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/votekick.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/votekick.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/votekick.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/votekick.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/cmd.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/cmd.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/cmd.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/cmd.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/america.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/america.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/america.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/america.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/modmail.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/modmail.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/modmail.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/modmail.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/music-list.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/music-list.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/music-list.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/music-list.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/view-join-dates_for-member.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/view-join-dates_for-member.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/view-join-dates_for-member.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/view-join-dates_for-member.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-bot/ban-appeals_ticket.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-bot/ban-appeals_ticket.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/ban-appeals_ticket.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-bot/ban-appeals_ticket.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
@@ -860,35 +893,35 @@
 
                         </div>
 
-                        <div class="content" id="images-flooded-area-moderation-content">
+                        <div class="content" id="media-flooded-area-moderation-content">
 
                            <div class="row">
                               <div class="column">
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-moderation/commands.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-moderation/commands.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-moderation/commands.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-moderation/commands.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-moderation/modal.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-moderation/modal.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-moderation/modal.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-moderation/modal.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-moderation/moderation-statistics.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-moderation/moderation-statistics.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-moderation/moderation-statistics.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-moderation/moderation-statistics.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
                               <div class="column">
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-moderation/mass-temp-ban.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-moderation/mass-temp-ban.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-moderation/mass-temp-ban.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-moderation/mass-temp-ban.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                                  <div class="media-corner-border">
-                                    <a href="/assets/discord/app-images/flooded-area-moderation/moderation-history.png" target="_blank">
-                                       <img class="border" src="/assets/discord/app-images/flooded-area-moderation/moderation-history.png" alt="" title="" draggable="false" loading="lazy"/>
+                                    <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-moderation/moderation-history.webp" target="_blank">
+                                       <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/flooded-area-moderation/moderation-history.webp" alt="" title="" draggable="false" loading="lazy"/>
                                     </a>
                                  </div>
                               </div>
@@ -914,19 +947,19 @@
                      <div class="list">
                         <div class="corner-border">
                            <a class="border button" href="/" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/world_map.webp" alt="world map" title=":world_map:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/world_map.webp" alt="world map" title=":world_map:" draggable="false"/>
                               <strong>homepage</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/dev" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
                               <strong>dev and apps</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button disabled" draggable="false">
-                              <img class="emoji circle-border" src="/assets/avatar/flooded_area_bot.webp" alt="flooded area bot's avatar" title="flooded area bot" draggable="false"/>
+                              <img class="emoji circle-border" src="https://cdn.nuzzles.dev/socials/discord/apps/avatars/flooded_area_bot.webp" alt="flooded area bot's avatar" title="flooded area bot" draggable="false"/>
                               <em><strong>flooded area bot 🌊</strong></em> ✨
                            </a>
                         </div>
@@ -940,12 +973,13 @@
                   <div class="large-border box">
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/speech_bubble_left.webp" alt="speech bubble left" title=":speech_bubble_left:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/speech_bubble_left.webp" alt="speech bubble left" title=":speech_bubble_left:" draggable="false"/>
                         supported languages
                      </h2>
+
                      <ul>
                         <li>
-                           <img class="emoji" src="/assets/emoji/twemoji/flag_gb.webp" alt="flag of the United Kingdom" title=":flag_gb:" draggable="false"/>
+                           <img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/flag_gb.webp" alt="flag of the United Kingdom" title=":flag_gb:" draggable="false"/>
                            English, UK
                         </li>
                      </ul>
@@ -958,50 +992,50 @@
                   <div class="large-border box">
 
                      <h2>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/globe.webp" alt="globe" title=":globe:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/globe.webp" alt="globe" title=":globe:" draggable="false"/>
                         links
                      </h2>
 
                      <div class="list">
                         <div class="corner-border" style="--border-colour: #5865F2;">
                            <a class="border button" href="https://discord.com/servers/flooded-area-community-977254354589462618" target="_blank" style="--border-colour: #5865F2;" draggable="false">
-                              <img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/>
                               <strong>flooded area community</strong>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #272930;">
                            <a class="border button" href="https://www.roblox.com/games/3976767347/Flooded-Area" target="_blank" style="--border-colour: #272930;" draggable="false">
-                              <img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/>
                               <strong>flooded area</strong>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #fa005a;">
                            <a class="border button" href="https://flooded-area-official.fandom.com/wiki/Flooded_Area_Official_Wiki" target="_blank" style="--border-colour: #fa005a;" draggable="false">
-                              <img class="emoji" src="/assets/logo/fandom.png" alt="fandom logo" title="fandom" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/fandom.png" alt="fandom logo" title="fandom" draggable="false"/>
                               <strong>wiki</strong>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #171515;">
                            <a class="border button" href="/dev/flooded-area-bot/github" target="_blank" style="--border-colour: #171515;" draggable="false">
-                              <img class="emoji" src="/assets/logo/github.png" alt="github logo" title="github" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/github.png" alt="github logo" title="github" draggable="false"/>
                               <strong>code repository (flooded area bot)</strong>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #171515;">
                            <a class="border button" href="/dev/flooded-area-moderation/github" target="_blank" style="--border-colour: #171515;" draggable="false">
-                              <img class="emoji" src="/assets/logo/github.png" alt="github logo" title="github" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/github.png" alt="github logo" title="github" draggable="false"/>
                               <strong>code repository (flooded area moderation)</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/dev/terms" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/yellow_book.webp" alt="yellow book" title=":yellow_book:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/yellow_book.webp" alt="yellow book" title=":yellow_book:" draggable="false"/>
                               <strong>terms of service</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/dev/privacy#flooded-area-bot" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/curled_page.webp" alt="curled page" title=":curled_page:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/curled_page.webp" alt="curled page" title=":curled_page:" draggable="false"/>
                               <strong>privacy policy</strong>
                            </a>
                         </div>

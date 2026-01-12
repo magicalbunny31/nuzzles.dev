@@ -10,14 +10,14 @@
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-      <link rel="icon" href="/assets/emoji/mutant_standard/furry_pride.webp" type="image/webp"/>
+      <link rel="icon" href="https://cdn.nuzzles.dev/emojis/mutant_standard/furry_pride.webp" type="image/webp"/>
       <title>magicalbunny31 🐾</title>
 
       <meta name    ="theme-color"  content="#d6a4db"/>
       <meta property="og:site_name" content="nuzzles.dev"/>
       <meta name    ="title"        content="magicalbunny31 🐾"/>
       <meta name    ="description"  content="a furry folf bunny, addicted to cinnabuns.. 🐾"/>
-      <meta property="og:image"     content="https://nuzzles.dev/assets/avatar/side_folfo.webp"/>
+      <meta property="og:image"     content="https://cdn.nuzzles.dev/avatars/magicalbunny31/side_folfo.webp"/>
 
       <meta property="og:type"  content="website"/>
       <meta property="og:url"   content="https://nuzzles.dev"/>
@@ -126,7 +126,7 @@
          }
 
          .more-socials {
-            background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url("/assets/background/spoiler.gif");
+            background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url("https://cdn.nuzzles.dev/backgrounds/spoiler.gif");
             background-size: cover;
          }
 
@@ -162,7 +162,7 @@
             width: 25.5em;
          }
 
-         .blinkie-group {
+         .flair-group {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
@@ -171,12 +171,12 @@
             padding-bottom: 0.2em;
          }
 
-         .blinkie {
+         .flair {
             image-rendering: pixelated;
             width: max-content;
          }
 
-         a:has(.blinkie):hover {
+         a:has(.flair):hover {
             scale: 110%;
             filter: brightness(90%);
          }
@@ -199,48 +199,49 @@
       <script>
          const path = "index.html";
       </script>
-      <script src="/assets/script/cutie.js"></script>
-      <script src="/assets/script/footer.js"></script>
-      <script src="/assets/script/modal.js"></script>
-      <script src="/assets/script/turnstile-callback.js"></script>
+      <script src="/assets/scripts/cutie.js"></script>
+      <script src="/assets/scripts/footer.js"></script>
+      <script src="/assets/scripts/modal.js"></script>
+      <script src="/assets/scripts/turnstile-callback.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
       <script>
          window.addEventListener(`load`, () => {
             const magicalbunny31 = document.getElementById(`magicalbunny31`);
             magicalbunny31.onclick = () => {
-               const dreamSounds = [
-                  `dream/bunny.ogg`,
-                  `dream/bunny2.ogg`,
-                  `dream/gubby_jump.ogg`
+               const frozenSoulSounds = [
+                  `games/roblox/audio/frozen-soul/bunny/bunny.ogg`,
+                  `games/roblox/audio/frozen-soul/bunny/bunny_ambience.mp3`,
+                  `games/roblox/audio/frozen-soul/bunny/gubby_jump.ogg`,
+                  `games/roblox/audio/frozen-soul/bunny/regretevator_bunnies_soundbite.ogg`
                ];
                const furrySoundboardSounds = [
-                  `furry-soundboard/xeoooo.mp3`
+                  `audio/sfx/furry-soundboard/xeoooo.mp3`
                ];
                const minecraftSounds = [
-                  `minecraft/Fox_idle1.ogg`,
-                  `minecraft/Fox_idle2.ogg`,
-                  `minecraft/Fox_idle3.ogg`,
-                  `minecraft/Fox_idle4.ogg`,
-                  `minecraft/Fox_idle5.ogg`,
-                  `minecraft/Fox_idle6.ogg`,
-                  `minecraft/Fox_sleep1.ogg`,
-                  `minecraft/Fox_sleep2.ogg`,
-                  `minecraft/Fox_sleep3.ogg`,
-                  `minecraft/Fox_sleep4.ogg`,
-                  `minecraft/Fox_sleep5.ogg`,
-                  `minecraft/Fox_sniff1.ogg`,
-                  `minecraft/Fox_sniff2.ogg`,
-                  `minecraft/Fox_sniff3.ogg`,
-                  `minecraft/Fox_sniff4.ogg`
+                  `games/minecraft/mobs/fox/audio/idle1.ogg`,
+                  `games/minecraft/mobs/fox/audio/idle2.ogg`,
+                  `games/minecraft/mobs/fox/audio/idle3.ogg`,
+                  `games/minecraft/mobs/fox/audio/idle4.ogg`,
+                  `games/minecraft/mobs/fox/audio/idle5.ogg`,
+                  `games/minecraft/mobs/fox/audio/idle6.ogg`,
+                  `games/minecraft/mobs/fox/audio/sleep1.ogg`,
+                  `games/minecraft/mobs/fox/audio/sleep2.ogg`,
+                  `games/minecraft/mobs/fox/audio/sleep3.ogg`,
+                  `games/minecraft/mobs/fox/audio/sleep4.ogg`,
+                  `games/minecraft/mobs/fox/audio/sleep5.ogg`,
+                  `games/minecraft/mobs/fox/audio/sniff1.ogg`,
+                  `games/minecraft/mobs/fox/audio/sniff2.ogg`,
+                  `games/minecraft/mobs/fox/audio/sniff3.ogg`,
+                  `games/minecraft/mobs/fox/audio/sniff4.ogg`
                ];
                const sounds = [
-                  ...Array.from({ length: 5 }, () => dreamSounds).flat(), // uncommon
+                  ...Array.from({ length: 5 }, () => frozenSoulSounds).flat(), // uncommon
                   ...furrySoundboardSounds, // rare
                   ...Array.from({ length: 100 }, () => minecraftSounds).flat() // common
                ];
                const sound = sounds[Math.floor(Math.random() * sounds.length)];
                new Howl({
-                  src: [ `./assets/audio/${sound}` ],
+                  src: [ `https://cdn.nuzzles.dev/${sound}` ],
                   autoplay: false
                })
                   .play()
@@ -301,54 +302,56 @@
                   <div class="large-border box">
 
                      <div class="media-corner-border">
-                        <img class="border thumbnail" src="/assets/avatar/side_folfo.webp" alt="magicalbunny31's avatar" title="just a bit eepy 💤" draggable="false"/>
+                        <img class="border thumbnail" src="https://cdn.nuzzles.dev/avatars/magicalbunny31/side_folfo.webp" alt="magicalbunny31's avatar" title="side folfo ➡️" draggable="false"/>
+                     </div>
+
+                     <div class="desktop">
+                        <div class="media-corner-border secondary-thumbnail">
+                           <img class="border thumbnail banner" src="https://cdn.nuzzles.dev/banners/magicalbunny31/asleep.webp" alt="a sleeping fox-wolf" title="magicalbunny31" draggable="false" loading="lazy"/>
+                        </div>
                      </div>
 
                      <h1>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/bun_paw_wave.webp" alt="waving paw" title=":bun_paw_wave:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/bun_paw_wave.webp" alt="waving paw" title=":bun_paw_wave:" draggable="false"/>
                         <span id="magicalbunny31">
                            magicalbunny31 🐾
                         </span>
                      </h1>
+
                      <p>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/nonbinary_flag.webp" alt="non-binary pride flag" title=":nonbinary_flag:" draggable="false"/>
-                        <img class="emoji" src="/assets/emoji/mutant_standard/pansexual_flag.webp" alt="pansexual pride flag"  title=":pansexual_flag:"  draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/nonbinary_flag.webp" alt="non-binary pride flag" title=":nonbinary_flag:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/pansexual_flag.webp" alt="pansexual pride flag"  title=":pansexual_flag:" draggable="false"/>
                         :
                         <code>🐰🦊🐺🦌</code>
                         <code>🐾</code>
                         <br/>
-                        a furry folf bunny, addicted to cinnabuns..
+                        fluffy snuggly folf on the internets
                         <br/>
                         <br/>
-                        ✨ verified discord app developer
-                        <br/>
-                        ✨ pawful furry artist
-                        <br/>
-                        ✨ 🩷💛
-                        <time datetime="2022-09-03 21:24:09">
-                           <span class="popup">Saturday, 3 September 2022, 21:24</span>
-                           03/sep/2022
-                        </time>
-                        <br/>
+                        🩷
+                        <time datetime="2022-09-03 21:24:09"><span class="popup">Saturday, 3 September 2022, 21:24</span>03/sep/2022</time>
+                        💛
                         <br/>
                         🌐 <span style="color: #3783ff;">campaign for a free internet</span>
                         <br/>
                         ❤️ <a href="https://www.bhf.org.uk/" target="_blank" style="color: #ed002d;">beat heartbreak forever</a>
                         <br/>
                         <br/>
-                        <img class="emoji" style="height: 3em; width: 3em;" src="/assets/emoji/pulexart/happ.png" alt="smiling fox" title=":happ:" draggable="false"/>
-                        <img class="emoji" style="height: 3em; width: 3em;" src="/assets/emoji/pulexart/happ.png" alt="smiling fox" title=":happ:" draggable="false"/>
-                        <img class="emoji" style="height: 3em; width: 3em;" src="/assets/emoji/pulexart/happ.png" alt="smiling fox" title=":happ:" draggable="false"/>
+                        <img class="emoji" style="height: 3em; width: 3em;" src="https://cdn.nuzzles.dev/emojis/pulexart/happ.png" alt="smiling fox" title=":happ:" draggable="false"/>
+                        <img class="emoji" style="height: 3em; width: 3em;" src="https://cdn.nuzzles.dev/emojis/pulexart/happ.png" alt="smiling fox" title=":happ:" draggable="false"/>
+                        <img class="emoji" style="height: 3em; width: 3em;" src="https://cdn.nuzzles.dev/emojis/pulexart/happ.png" alt="smiling fox" title=":happ:" draggable="false"/>
                         <br/>
                         <br/>
                         they/them
-                        <img class="emoji" src="/assets/emoji/twemoji/flag_gb.webp" alt="flag of the United Kingdom" title=":flag_gb:" draggable="false"/>
-                        <img class="emoji" src="/assets/emoji/twemoji/flag_ph.webp" alt="flag of the Philippines" title=":flag_ph:" draggable="false"/>
-                        <img class="emoji" src="/assets/emoji/twemoji/rainbow_flag.webp" alt="rainbow pride flag" title=":rainbow_flag:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/flag_gb.webp" alt="flag of the United Kingdom" title=":flag_gb:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/flag_ph.webp" alt="flag of the Philippines" title=":flag_ph:" draggable="false"/>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/twemoji/rainbow_flag.webp" alt="rainbow pride flag" title=":rainbow_flag:" draggable="false"/>
                      </p>
 
-                     <div class="media-corner-border" style="margin-top: 1em;">
-                        <img class="border" src="/assets/banner/magicalbunny31.gif" alt="a sleeping fox-wolf" title="magicalbunny31" draggable="false" loading="lazy"/>
+                     <div class="mobile">
+                        <div class="media-corner-border banner">
+                           <img class="border" src="https://cdn.nuzzles.dev/banners/magicalbunny31/asleep.webp" alt="a sleeping fox-wolf" title="magicalbunny31" draggable="false" loading="lazy"/>
+                        </div>
                      </div>
 
                   </div>
@@ -361,100 +364,100 @@
                      <div class="grid" id="socials">
                         <div class="corner-border" style="--border-colour: #5865F2;">
                            <a class="border large-button" href="/discord" target="_blank" style="--border-colour: #5865F2;" draggable="false">
-                              <img class="emoji" src="/assets/logo/discord.png" alt="discord logo" title="discord" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/>
                               <div>
                                  <strong>discord</strong>
-                                 <br>
+                                 <br/>
                                  @magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #0088CC;">
                            <a class="border large-button" href="/telegram" target="_blank" style="--border-colour: #0088CC;" draggable="false">
-                              <img class="emoji" src="/assets/logo/telegram.png" alt="telegram logo" title="telegram" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/telegram.png" alt="telegram logo" title="telegram" draggable="false"/>
                               <div>
                                  <strong>telegram</strong>
-                                 <br>
+                                 <br/>
                                  @magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #FF0000;">
                            <a class="border large-button" href="/youtube" target="_blank" style="--border-colour: #FF0000;" draggable="false">
-                              <img class="emoji" src="/assets/logo/youtube.png" alt="youtube logo" title="youtube" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/youtube.png" alt="youtube logo" title="youtube" draggable="false"/>
                               <div>
                                  <strong>youtube</strong>
-                                 <br>
+                                 <br/>
                                  @magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #0A7AFF;">
                            <a class="border large-button" href="/bluesky" target="_blank" style="--border-colour: #0A7AFF;" draggable="false">
-                              <img class="emoji" src="/assets/logo/bluesky.png" alt="bluesky logo" title="bluesky" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/bluesky.png" alt="bluesky logo" title="bluesky" draggable="false"/>
                               <div>
                                  <strong>bluesky</strong>
-                                 <br>
+                                 <br/>
                                  @magicalbunny31.nuzzles.dev
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #171515;">
                            <a class="border large-button" href="/github" target="_blank" style="--border-colour: #171515;" draggable="false">
-                              <img class="emoji" src="/assets/logo/github.png" alt="github logo" title="github" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/github.png" alt="github logo" title="github" draggable="false"/>
                               <div>
                                  <strong>github</strong>
-                                 <br>
+                                 <br/>
                                  magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #272930;">
                            <a class="border large-button" href="/roblox" target="_blank" style="--border-colour: #272930;" draggable="false">
-                              <img class="emoji" src="/assets/logo/roblox.png" alt="roblox logo" title="roblox" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/roblox.png" alt="roblox logo" title="roblox" draggable="false"/>
                               <div>
                                  <strong>roblox</strong>
-                                 <br>
+                                 <br/>
                                  @magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #231f20;">
                            <a class="border large-button" href="/steam" target="_blank" style="--border-colour: #231f20;" draggable="false">
-                              <img class="emoji" src="/assets/logo/steam.png" alt="steam community logo" title="steam community" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/steam.png" alt="steam community logo" title="steam community" draggable="false"/>
                               <div>
                                  <strong>steam community</strong>
-                                 <br>
+                                 <br/>
                                  magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #6b74bb;">
                            <a class="border large-button" href="/royale.pet" target="_blank" style="--border-colour: #6b74bb;" draggable="false">
-                              <img class="emoji" src="/assets/logo/royale.pet.png" alt="royale.pet logo" title="royale.pet" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/royale.pet.png" alt="royale.pet logo" title="royale.pet" draggable="false"/>
                               <div>
                                  <strong>royale.pet</strong>
-                                 <br>
+                                 <br/>
                                  magicalbuwunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #72A5F2;">
                            <a class="border large-button" href="/ko-fi" target="_blank" style="--border-colour: #72A5F2;" draggable="false">
-                              <img class="emoji" src="/assets/logo/ko-fi.png" alt="ko-fi logo" title="ko-fi" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/ko-fi.png" alt="ko-fi logo" title="ko-fi" draggable="false"/>
                               <div>
                                  <strong>ko-fi</strong>
-                                 <br>
+                                 <br/>
                                  magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border large-button" href="/" target="_blank" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/furry_pride.webp" alt="rainbow paw" title=":furry_pride:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/furry_pride.webp" alt="rainbow paw" title=":furry_pride:" draggable="false"/>
                               <div>
                                  <strong>nuzzles.dev</strong>
-                                 <br>
+                                 <br/>
                                  magicalbunny31 🐰🦊🐺🦌
                               </div>
                            </a>
@@ -475,120 +478,120 @@
                                  if (button.offsetWidth < 375)
                                     turnstileContainer.setAttribute(`data-size`, `compact`);
                               </script>
-                              <img class="emoji hidden-for-email-turnstile" src="/assets/emoji/mutant_standard/envelope.webp" alt="envelope" title=":envelope:" draggable="false"/>
+                              <img class="emoji hidden-for-email-turnstile" src="https://cdn.nuzzles.dev/emojis/mutant_standard/envelope.webp" alt="envelope" title=":envelope:" draggable="false"/>
                               <div class="hidden-for-email-turnstile">
                                  <strong>email</strong>
-                                 <br>
+                                 <br/>
                                  <span id="email-text"></span>
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #fab137;">
                            <a class="border large-button more-socials" href="https://www.furaffinity.net/user/magicalbunny31" target="_blank" style="--border-colour: #fab137;" draggable="false">
-                              <img class="emoji" src="/assets/logo/fur_affinity.png" alt="fur affinity logo" title="fur affinity" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/fur_affinity.png" alt="fur affinity logo" title="fur affinity" draggable="false"/>
                               <div>
                                  <strong>fur affinity</strong>
-                                 <br>
+                                 <br/>
                                  ~magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #ff0069;">
                            <a class="border large-button more-socials" href="https://www.instagram.com/fluffycinnabunfolf" target="_blank" style="--border-colour: #ff0069;" draggable="false">
-                              <img class="emoji" src="/assets/logo/instagram.png" alt="instagram logo" title="instagram" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/instagram.png" alt="instagram logo" title="instagram" draggable="false"/>
                               <div>
                                  <strong>instagram</strong>
-                                 <br>
+                                 <br/>
                                  @fluffycinnabunfolf
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #9147ff;">
                            <a class="border large-button more-socials" href="https://www.twitch.tv/magicalbunny31" target="_blank" style="--border-colour: #9147ff;" draggable="false">
-                              <img class="emoji" src="/assets/logo/twitch.png" alt="twitch logo" title="twitch" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/twitch.png" alt="twitch logo" title="twitch" draggable="false"/>
                               <div>
                                  <strong>twitch</strong>
-                                 <br>
+                                 <br/>
                                  magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #1DA1F2;">
                            <a class="border large-button more-socials" href="https://twitter.com/magicalbunny31" target="_blank" style="--border-colour: #1DA1F2;" draggable="false">
-                              <img class="emoji" src="/assets/logo/twitter.png" alt="twitter logo" title="twitter" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/twitter.png" alt="twitter logo" title="twitter" draggable="false"/>
                               <div>
                                  <strong>twitter</strong>
-                                 <br>
+                                 <br/>
                                  @magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #000000;">
                            <a class="border large-button more-socials" href="https://namemc.com/profile/magicalbunny31.1" target="_blank" style="--border-colour: #000000;" draggable="false">
-                              <img class="emoji" src="/assets/logo/namemc.png" alt="namemc logo" title="namemc" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/namemc.png" alt="namemc logo" title="namemc" draggable="false"/>
                               <div>
                                  <strong>namemc</strong>
-                                 <br>
+                                 <br/>
                                  magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #06070d;">
                            <a class="border large-button more-socials" href="https://www.deviantart.com/magicalbunny31" target="_blank" style="--border-colour: #06070d;" draggable="false">
-                              <img class="emoji" src="/assets/logo/deviantart.png" alt="deviantart logo" title="deviantart" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/deviantart.png" alt="deviantart logo" title="deviantart" draggable="false"/>
                               <div>
                                  <strong>deviantart</strong>
-                                 <br>
+                                 <br/>
                                  magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #c12127;">
                            <a class="border large-button more-socials" href="https://www.npmjs.com/~magicalbunny31" target="_blank" style="--border-colour: #c12127;" draggable="false">
-                              <img class="emoji" src="/assets/logo/npm.png" alt="npm logo" title="npm" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/npm.png" alt="npm logo" title="npm" draggable="false"/>
                               <div>
                                  <strong>npm</strong>
-                                 <br>
+                                 <br/>
                                  magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #1DA0C3;">
                            <a class="border large-button more-socials" href="https://bandcamp.com/magicalbunny31" target="_blank" style="--border-colour: #1DA0C3;" draggable="false">
-                              <img class="emoji" src="/assets/logo/bandcamp.png" alt="bandcamp logo" title="bandcamp" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/bandcamp.png" alt="bandcamp logo" title="bandcamp" draggable="false"/>
                               <div>
                                  <strong>bandcamp</strong>
-                                 <br>
+                                 <br/>
                                  magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #ff5500;">
                            <a class="border large-button more-socials" href="https://soundcloud.com/magicalbunny31" target="_blank" style="--border-colour: #ff5500;" draggable="false">
-                              <img class="emoji" src="/assets/logo/soundcloud.png" alt="soundcloud logo" title="soundcloud" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/soundcloud.png" alt="soundcloud logo" title="soundcloud" draggable="false"/>
                               <div>
                                  <strong>soundcloud</strong>
-                                 <br>
+                                 <br/>
                                  magicalbunny31
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #33aaee;">
                            <a class="border large-button more-socials" href="http://tycoon.airlines-manager.com/company/profile/airline/309178" target="_blank" style="--border-colour: #33aaee;" draggable="false">
-                              <img class="emoji" src="/assets/logo/airlines_manager.png" alt="airlines manager logo" title="airlines manager" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/airlines_manager.png" alt="airlines manager logo" title="airlines manager" draggable="false"/>
                               <div>
                                  <strong>airlines manager (tycoon)</strong>
-                                 <br>
+                                 <br/>
                                  bunny airlines corp
                               </div>
                            </a>
                         </div>
                         <div class="corner-border" style="--border-colour: #ce4231;">
                            <a class="border large-button more-socials" href="https://my.flightradar24.com/magicalbunny31" target="_blank" style="--border-colour: #ce4231;" draggable="false">
-                              <img class="emoji" src="/assets/logo/myflightradar24.png" alt="myflightradar24 logo" title="myflightradar24" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/logos/myflightradar24.png" alt="myflightradar24 logo" title="myflightradar24" draggable="false"/>
                               <div>
                                  <strong>myflightradar24</strong>
-                                 <br>
+                                 <br/>
                                  magicalbunny31
                               </div>
                            </a>
@@ -622,49 +625,43 @@
                      <div class="list">
                         <div class="corner-border">
                            <a class="border button disabled" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/world_map.webp" alt="world map" title=":world_map:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/world_map.webp" alt="world map" title=":world_map:" draggable="false"/>
                               <em><strong>homepage</strong></em> ✨
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/about" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/sparkles.webp" alt="sparkles" title=":sparkles:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/sparkles.webp" alt="sparkles" title=":sparkles:" draggable="false"/>
                               <strong>what's a bunny?</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/dev" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
                               <strong>dev and apps</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/art" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
                               <strong>art and commissions</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/games" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/gamepad.webp" alt="gamepad" title=":gamepad:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/gamepad.webp" alt="gamepad" title=":gamepad:" draggable="false"/>
                               <strong>games</strong>
                            </a>
                         </div>
                         <div class="corner-border">
                            <a class="border button" href="/bun-daily-fox" target="_blank" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/fox.webp" alt="fox" title=":fox:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/fox.webp" alt="fox" title=":fox:" draggable="false"/>
                               <strong>bun's daily fox 🦊🐾</strong>
                            </a>
                         </div>
                         <div class="corner-border">
-                           <a class="border button" href="/about/deerie" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/deer_with_antlers.webp" alt="deer with antlers" title=":deer_with_antlers:" draggable="false"/>
-                              <strong>become deer</strong>
-                           </a>
-                        </div>
-                        <div class="corner-border">
                            <a class="border button" id="cutie" draggable="false">
-                              <img class="emoji" src="/assets/emoji/mutant_standard/no.webp" alt="no entry" title=":no:" draggable="false"/>
+                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/no.webp" alt="no entry" title=":no:" draggable="false"/>
                               <strong>don't click this ,,</strong>
                            </a>
                         </div>
@@ -687,69 +684,66 @@
                <div class="large-border box">
 
                   <a href="/fwends">
-                     <img style="bottom: 0; margin: 0 1em 1em 0; position: absolute; right: 0; width: 2em;" src="/assets/emoji/mutant_standard/revolving_hearts.webp" alt="revolving hearts" title=":revolving_hearts:" draggable="false"/>
+                     <img style="bottom: 0; margin: 0 1em 1em 0; position: absolute; right: 0; width: 2em;" src="https://cdn.nuzzles.dev/emojis/mutant_standard/revolving_hearts.webp" alt="revolving hearts" title=":revolving_hearts:" draggable="false"/>
                   </a>
 
-                  <div class="blinkie-group" id="magicalbunny31-button">
+                  <div class="flair-group" id="magicalbunny31-button">
                      <a href="/" title="mb31">
-                        <img class="blinkie" src="/assets/blinkie/mb31.gif" alt="mb31" title="mb31" draggable="false"/>
+                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/buttons/mb31.gif" alt="mb31" title="mb31" draggable="false"/>
                      </a>
                      <span>
                         <span class="popup" id="magicalbunny31-button-popup">copied to your clipboard :3</span>
-                        <textarea readonly id="magicalbunny31-button-textarea">&lt;a href="https://nuzzles.dev/"&gt;&lt;img src="https://nuzzles.dev/assets/blinkie/mb31.gif"&gt;&lt;/a&gt;</textarea>
+                        <textarea readonly id="magicalbunny31-button-textarea">&lt;a href="https://nuzzles.dev/"&gt;&lt;img src="https://nuzzles.dev/assets/buttons/mb31.gif"&gt;&lt;/a&gt;</textarea>
                      </span>
                   </div>
 
-                  <div class="blinkie-group">
+                  <div class="flair-group">
                      <a href="https://www.tumblr.com/blinky-wings/694703477477212160/rainbow-pronoun-blinkies" title="they/they" target="_blank">
-                        <img class="blinkie" src="/assets/blinkie/they_them.gif" alt="they/they" title="they/they" draggable="false"/>
+                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/they_them.gif" alt="they/they" title="they/they" draggable="false"/>
                      </a>
                      <a href="https://www.tumblr.com/patches-1105/688767326415405057/blinky-collection-part-16" title="non-binary pride" target="_blank">
-                        <img class="blinkie" src="/assets/blinkie/non-binary_pride.gif" alt="non-binary pride" title="non-binary pride" draggable="false"/>
-                     </a>
-                     <a href="https://www.tumblr.com/star-flowerr/700826158318665728/funny-little-transgender-blinkies-credit-if-used" title="half angel" target="_blank">
-                        <img class="blinkie" src="/assets/blinkie/half_angel.gif" alt="half angel" title="half angel" draggable="false"/>
+                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/non-binary_pride.gif" alt="non-binary pride" title="non-binary pride" draggable="false"/>
                      </a>
                      <a href="https://www.deviantart.com/webmewmew/art/I-am-a-furry-Blinkie-Rainbow-Ver-1-949824886" title="I am a furry" target="_blank">
-                        <img class="blinkie" src="/assets/blinkie/i_am_a_furry.gif" alt="I am a furry" title="I am a furry" draggable="false"/>
+                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/i_am_a_furry.gif" alt="I am a furry" title="I am a furry" draggable="false"/>
                      </a>
                      <a href="https://www.deviantart.com/smoothborescattergun/art/I-Am-F-Furry-BLINKIE-1013028238" title="I A FUCKIN FURRY :3" target="_blank">
-                        <img class="blinkie" src="/assets/blinkie/i_am_fuckin_furry_3.gif" alt="I A FUCKIN FURRY :3" title="I A FUCKIN FURRY :3" draggable="false"/>
+                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/i_am_fuckin_furry_3.gif" alt="I A FUCKIN FURRY :3" title="I A FUCKIN FURRY :3" draggable="false"/>
                      </a>
-                     <img class="blinkie" src="/assets/blinkie/trans_rights.gif" alt="TRANS RIGHTS" title="TRANS RIGHTS" draggable="false"/>
+                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/trans_rights.gif" alt="TRANS RIGHTS" title="TRANS RIGHTS" draggable="false"/>
                      <a href="https://www.tumblr.com/dragoncalabro/739853416563605504" title="ARTIST" target="_blank">
-                        <img class="blinkie" src="/assets/blinkie/artist.gif" alt="ARTIST" title="ARTIST" draggable="false"/>
+                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/artist.gif" alt="ARTIST" title="ARTIST" draggable="false"/>
                      </a>
                      <a href="https://www.deviantart.com/webmewmew/art/Nyan-Cat-Blinkie-Ver-1-1024391733" title="Nyan Cat" target="_blank">
-                        <img class="blinkie" src="/assets/blinkie/nyan_cat.gif" alt="Nyan Cat" title="Nyan Cat" draggable="false"/>
+                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/nyan_cat.gif" alt="Nyan Cat" title="Nyan Cat" draggable="false"/>
                      </a>
                      <a href="https://www.tumblr.com/star-flowerr/701374087108427777/blinkies-yeah" title="gender isn't even real" target="_blank">
-                        <img class="blinkie" src="/assets/blinkie/gender_isnt_even_real.gif" alt="gender isn't even real" title="gender isn't even real" draggable="false"/>
+                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/gender_isnt_even_real.gif" alt="gender isn't even real" title="gender isn't even real" draggable="false"/>
                      </a>
                      <a href="https://tenor.com/en-GB/view/rainbow-dash-mlp-blinkie-gif-15528055070481731584" title="AWESOME" target="_blank">
-                        <img class="blinkie" src="/assets/blinkie/awesome.gif" alt="AWESOME" title="AWESOME" draggable="false"/>
+                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/awesome.gif" alt="AWESOME" title="AWESOME" draggable="false"/>
                      </a>
-                     <img class="blinkie" src="/assets/blinkie/minecraft_vegetarian.gif" alt="MINECRAFT VEGETARIAN" title="MINECRAFT VEGETARIAN" draggable="false"/>
-                     <img class="blinkie" src="/assets/blinkie/i_like_fish.gif" alt="i like fish" title="i like fish" draggable="false"/>
-                     <img class="blinkie" src="/assets/blinkie/armed_with_estrogen.gif" alt="Armed With Estrogen" title="Armed With Estrogen" draggable="false"/>
+                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/minecraft_vegetarian.gif" alt="MINECRAFT VEGETARIAN" title="MINECRAFT VEGETARIAN" draggable="false"/>
+                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/i_like_fish.gif" alt="i like fish" title="i like fish" draggable="false"/>
+                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/armed_with_estrogen.gif" alt="Armed With Estrogen" title="Armed With Estrogen" draggable="false"/>
                   </div>
 
-                  <div class="blinkie-group">
-                     <img class="blinkie" src="/assets/blinkie/lapfox.png" alt="LAPFOX" title="LAPFOX" draggable="false"/>
+                  <div class="flair-group">
+                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/lapfox.png" alt="LAPFOX" title="LAPFOX" draggable="false"/>
                      <a href="https://www.deviantart.com/saturnzquark/art/Lapfox-stamp-TQBF-950810906" title="THE QUICK BROWN FOX" target="_blank">
-                        <img class="blinkie" src="/assets/blinkie/the_quick_brown_fox.png" alt="THE QUICK BROWN FOX" title="THE QUICK BROWN FOX" draggable="false"/>
+                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/the_quick_brown_fox.png" alt="THE QUICK BROWN FOX" title="THE QUICK BROWN FOX" draggable="false"/>
                      </a>
-                     <img class="blinkie" src="/assets/blinkie/renard.png" alt="RENARD" title="RENARD" draggable="false"/>
-                     <img class="blinkie" src="/assets/blinkie/negaren.png"  alt="NEGAREN" title="NEGAREN" draggable="false"/>
-                     <img class="blinkie" src="/assets/blinkie/squeedge.png" alt="squeedgemonster" title="squeedgemonster" draggable="false"/>
-                     <img class="blinkie" src="/assets/blinkie/emoticon.png" alt="EMOTICON" title="EMOTICON" draggable="false"/>
-                     <img class="blinkie" src="/assets/blinkie/tqbf.png" alt="TQBF" title="TQBF" draggable="false"/>
+                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/renard.png" alt="RENARD" title="RENARD" draggable="false"/>
+                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/negaren.png"  alt="NEGAREN" title="NEGAREN" draggable="false"/>
+                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/squeedge.png" alt="squeedgemonster" title="squeedgemonster" draggable="false"/>
+                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/emoticon.png" alt="EMOTICON" title="EMOTICON" draggable="false"/>
+                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/tqbf.png" alt="TQBF" title="TQBF" draggable="false"/>
                   </div>
 
                   <div class="info" style="margin-top: 0.75em;">
                      <p>
                         <a class="footer-item" id="splash"></a>
-                        <br>
+                        <br/>
                         <a class="footer-item modal-button" id="info">info</a>
                         |
                         <a class="footer-item modal-button" id="attribution">attribution</a>
