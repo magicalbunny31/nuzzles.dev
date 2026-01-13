@@ -351,6 +351,18 @@ nav {
    row-gap: 0.2em;
 }
 
+.row {
+   display: flex;
+   gap: 0.2em;
+}
+
+.column {
+   display: flex;
+   flex-direction: column;
+   flex: 25%;
+   gap: 0.2em;
+}
+
 
 
 /* buttons */
