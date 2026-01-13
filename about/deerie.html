@@ -131,7 +131,6 @@
       <script>
          const path = "about/deerie.html";
       </script>
-      <script src="/assets/scripts/boykisser.js"></script>
       <script src="/assets/scripts/cutie.js"></script>
       <script src="/assets/scripts/footer.js"></script>
       <script src="/assets/scripts/modal.js"></script>
@@ -150,6 +149,23 @@
                unmuteBoykisserMusic.style.display = `none`;
                boykisserMusic.play();
             };
+         });
+
+         window.addEventListener(`load`, () => {
+            const getBoykisserSpawnRate = () => Math.ceil(window.innerWidth / 150);
+            const spawnBoykisser = () => {
+               const boykisser = document.createElement(`img`);
+               boykisser.className = `boykisser`;
+               boykisser.src = `https://cdn.nuzzles.dev/boykisser/boykisser.png`;
+               boykisser.style.left = `${Math.floor(Math.random() * 100 + 1)}%`;
+               boykisser.draggable = false;
+               document.body.insertBefore(boykisser, document.body.childNodes[0]);
+               setTimeout(() => {
+                  boykisser.remove()
+               }, 10000);
+               setTimeout(spawnBoykisser, 10000 / getBoykisserSpawnRate());
+            };
+            setTimeout(spawnBoykisser, 10000 / getBoykisserSpawnRate());
          });
 
          window.addEventListener(`load`, () => {
@@ -366,7 +382,7 @@
 
                      <div class="list">
                         <div class="corner-border">
-                           <a class="border button" href="/assets/scripts/boykisser.js" target="_blank" draggable="false">
+                           <a class="border button" href="https://cdn.nuzzles.dev/boykisser/nsfw/the-boykisser-file.txt" target="_blank" draggable="false">
                               <img class="emoji" src="https://cdn.nuzzles.dev/boykisser/boykisser.png" alt="boy kisser" title="boykisser" draggable="false"/>
                               <strong>the boykisser file >;3c</strong>
                            </a>
