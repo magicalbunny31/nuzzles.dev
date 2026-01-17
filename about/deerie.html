@@ -154,9 +154,9 @@
                muteBoykisserMusic.style.display = `inline`;
                unmuteBoykisserMusic.style.display = `none`;
 
-               if (hasStartedPlayback) {
+               if (hasStartedPlayback)
                   music.play(id);
-               } else {
+               else {
                   id = music.play();
                   hasStartedPlayback = true;
                };
@@ -166,9 +166,8 @@
                muteBoykisserMusic.style.display = `none`;
                unmuteBoykisserMusic.style.display = `inline`;
 
-               if (music.playing(id) || music.state() === `loading`) {
+               if (id !== undefined) 
                   music.pause(id);
-               };
             };
          });
 

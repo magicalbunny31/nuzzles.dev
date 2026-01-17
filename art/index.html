@@ -329,10 +329,11 @@
             music.once(`load`, () => {
                metalZoneNuclearReactor.onmouseenter = _event => {
                   metalZoneNuclearReactor.src = `https://cdn.nuzzles.dev/friends/metal-zone/nuclear_reactor_on.webp`;
-                  if (hasStartedPlayback) {
+                  metalZoneFire.style.display = `block`;
+
+                  if (hasStartedPlayback)
                      music.play(id);
-                     metalZoneFire.style.display = `block`;
-                  } else {
+                  else {
                      id = music.play();
                      hasStartedPlayback = true;
                   };
@@ -340,11 +341,11 @@
             });
 
             metalZoneNuclearReactor.onmouseleave = _event => {
-               if (music.playing(id) || music.state() === `loading`) {
-                  metalZoneNuclearReactor.src = `https://cdn.nuzzles.dev/friends/metal-zone/nuclear_reactor_off.webp`;
+               metalZoneNuclearReactor.src = `https://cdn.nuzzles.dev/friends/metal-zone/nuclear_reactor_off.webp`;
+               metalZoneFire.style.display = `none`;
+
+               if (id !== undefined)
                   music.pause(id);
-                  metalZoneFire.style.display = `none`;
-               };
             };
          });
       </script>
