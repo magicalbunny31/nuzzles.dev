@@ -331,11 +331,13 @@
                   metalZoneNuclearReactor.src = `https://cdn.nuzzles.dev/friends/metal-zone/nuclear_reactor_on.webp`;
                   metalZoneFire.style.display = `block`;
 
-                  if (hasStartedPlayback)
-                     music.play(id);
-                  else {
-                     id = music.play();
-                     hasStartedPlayback = true;
+                  if (Howler.ctx && Howler.ctx.state === `running`) { // wait for audio to be unlocked first
+                     if (hasStartedPlayback)
+                        music.play(id);
+                     else {
+                        id = music.play();
+                        hasStartedPlayback = true;
+                     };
                   };
                };
             });
@@ -344,7 +346,7 @@
                metalZoneNuclearReactor.src = `https://cdn.nuzzles.dev/friends/metal-zone/nuclear_reactor_off.webp`;
                metalZoneFire.style.display = `none`;
 
-               if (id !== undefined)
+               if (id)
                   music.pause(id);
             };
          });

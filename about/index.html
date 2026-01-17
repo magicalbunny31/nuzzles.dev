@@ -81,18 +81,20 @@
 
             music.once(`load`, () => {
                tutel.onmouseenter = _event => {
-                  if (hasStartedPlayback)
-                     music.play(id);
-                  else {
-                     id = music.play();
-                     music.once(`play`, () => music.seek(20.625, id), id);
-                     hasStartedPlayback = true;
+                  if (Howler.ctx && Howler.ctx.state === `running`) { // wait for audio to be unlocked first
+                     if (hasStartedPlayback)
+                        music.play(id);
+                     else {
+                        id = music.play();
+                        music.once(`play`, () => music.seek(20.625, id), id);
+                        hasStartedPlayback = true;
+                     };
                   };
                };
             });
 
             tutel.onmouseleave = _event => {
-               if (id !== undefined)
+               if (id)
                   music.pause(id);
             };
          });
@@ -114,11 +116,13 @@
                sarFen.onmouseenter = _event => {
                   sarFen.src = `https://cdn.nuzzles.dev/games/super-animal-royale/emotes/animations/monkey_dance.webp`;
 
-                  if (hasStartedPlayback)
-                     music.play(id);
-                  else {
-                     id = music.play();
-                     hasStartedPlayback = true;
+                  if (Howler.ctx && Howler.ctx.state === `running`) { // wait for audio to be unlocked first
+                     if (hasStartedPlayback)
+                        music.play(id);
+                     else {
+                        id = music.play();
+                        hasStartedPlayback = true;
+                     };
                   };
                };
             });
@@ -126,7 +130,7 @@
             sarFen.onmouseleave = _event => {
                sarFen.src = `https://cdn.nuzzles.dev/games/super-animal-royale/emotes/animations/idle.webp`;
 
-               if (id !== undefined)
+               if (id)
                   music.pause(id);
             };
          });

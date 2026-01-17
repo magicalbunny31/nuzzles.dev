@@ -154,11 +154,13 @@
                muteBoykisserMusic.style.display = `inline`;
                unmuteBoykisserMusic.style.display = `none`;
 
-               if (hasStartedPlayback)
-                  music.play(id);
-               else {
-                  id = music.play();
-                  hasStartedPlayback = true;
+               if (Howler.ctx && Howler.ctx.state === `running`) { // wait for audio to be unlocked first
+                  if (hasStartedPlayback)
+                     music.play(id);
+                  else {
+                     id = music.play();
+                     hasStartedPlayback = true;
+                  };
                };
             };
 
@@ -166,7 +168,7 @@
                muteBoykisserMusic.style.display = `none`;
                unmuteBoykisserMusic.style.display = `inline`;
 
-               if (id !== undefined) 
+               if (id) 
                   music.pause(id);
             };
          });
