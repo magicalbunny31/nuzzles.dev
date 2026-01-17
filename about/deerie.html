@@ -154,13 +154,11 @@
                muteBoykisserMusic.style.display = `inline`;
                unmuteBoykisserMusic.style.display = `none`;
 
-               if (Howler.ctx && Howler.ctx.state === `running`) { // wait for audio to be unlocked first
-                  if (hasStartedPlayback)
-                     music.play(id);
-                  else {
-                     id = music.play();
-                     hasStartedPlayback = true;
-                  };
+               if (hasStartedPlayback)
+                  music.play(id);
+               else {
+                  id = music.play();
+                  hasStartedPlayback = true;
                };
             };
 
