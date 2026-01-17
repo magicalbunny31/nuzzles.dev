@@ -134,20 +134,41 @@
       <script src="/assets/scripts/cutie.js"></script>
       <script src="/assets/scripts/footer.js"></script>
       <script src="/assets/scripts/modal.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
       <script>
-         window.addEventListener(`load`, () => {
+         window.addEventListener(`load`, async () => {
+            const music = new Howl({
+               src: [ `https://cdn.nuzzles.dev/audio/music/dubidubidu.mp3` ],
+               autoplay: false,
+               loop: true,
+               preload: true
+            });
+
+            let hasStartedPlayback = false;
+            let id;
+
             const muteBoykisserMusic = document.getElementById(`mute-boykisser-music`);
             const unmuteBoykisserMusic = document.getElementById(`unmute-boykisser-music`);
-            const boykisserMusic = document.getElementById(`boykisser-music`);
-            muteBoykisserMusic.onclick = () => {
-               muteBoykisserMusic.style.display = `none`;
-               unmuteBoykisserMusic.style.display = ``;
-               boykisserMusic.pause();
-            };
-            unmuteBoykisserMusic.onclick = () => {
-               muteBoykisserMusic.style.display = ``;
+
+            unmuteBoykisserMusic.onclick = _event => {
+               muteBoykisserMusic.style.display = `inline`;
                unmuteBoykisserMusic.style.display = `none`;
-               boykisserMusic.play();
+
+               if (hasStartedPlayback) {
+                  music.play(id);
+               } else {
+                  id = music.play();
+                  hasStartedPlayback = true;
+               };
+            };
+
+            muteBoykisserMusic.onclick = _event => {
+               muteBoykisserMusic.style.display = `none`;
+               unmuteBoykisserMusic.style.display = `inline`;
+
+               if (music.playing(id) || music.state() === `loading`) {
+                  music.pause(id);
+               };
             };
          });
 
@@ -189,16 +210,13 @@
       <video id="boykisser-background" src="https://cdn.nuzzles.dev/boykisser/boykisser.mp4" autoplay muted loop></video>
 
 
-      <audio id="boykisser-music" src="https://cdn.nuzzles.dev/audio/music/dubidubidu.mp3" hidden loop></audio>
-
-
       <div class="corner-border" id="mute-boykisser-music" style="display: none;">
          <a class="border button" draggable="false">
             <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/dont_awoo.webp" alt="don't awoo" title=":dont_awoo:" draggable="false"/>
             <strong>muzzle it</strong>
          </a>
       </div>
-      <div class="corner-border" id="unmute-boykisser-music" style="display: fixed;">
+      <div class="corner-border" id="unmute-boykisser-music" style="display: inline;">
          <a class="border button" draggable="false">
             <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/awoo.webp" alt="awoo" title=":awoo:" draggable="false"/>
             <strong>let them awoo</strong>

@@ -70,7 +70,8 @@
             const music = new Howl({
                src: [ `https://cdn.nuzzles.dev/audio/music/2-33-am.ogg` ],
                autoplay: false,
-               loop: true
+               loop: true,
+               preload: true
             });
 
             let hasStartedPlayback = false;
@@ -78,18 +79,21 @@
 
             const tutel = document.getElementById(`tutel`);
 
-            tutel.onmouseenter = async () => {
-               if (hasStartedPlayback) {
-                  music.play(id);
-               } else {
-                  id = music.play();
-                  music.once("play", () => music.seek(20.625, id), id);
-                  hasStartedPlayback = true;
+            music.once(`load`, () => {
+               tutel.onmouseenter = _event => {
+                  if (hasStartedPlayback) {
+                     music.play(id);
+                  } else {
+                     id = music.play();
+                     music.once(`play`, () => music.seek(20.625, id), id);
+                     hasStartedPlayback = true;
+                  };
                };
-            };
+            });
 
-            tutel.onmouseleave = () => {
-               music.pause(id);
+            tutel.onmouseleave = _event => {
+               if (music.playing(id) || music.state() === `loading`)
+                  music.pause(id);
             };
          });
 
@@ -97,7 +101,8 @@
             const music = new Howl({
                src: [ `https://cdn.nuzzles.dev/games/super-animal-royale/emotes/audio/monkey-dance.wav` ],
                autoplay: false,
-               loop: true
+               loop: true,
+               preload: true
             });
 
             let hasStartedPlayback = false;
@@ -105,20 +110,24 @@
 
             const sarFen = document.getElementById(`sar-fen`);
 
-            sarFen.onmouseenter = async () => {
-               sarFen.src = `https://cdn.nuzzles.dev/games/super-animal-royale/emotes/animations/monkey_dance.webp`;
-               if (hasStartedPlayback) {
-                  music.play(id);
-               } else {
-                  id = music.play();
-                  hasStartedPlayback = true;
+            music.once(`load`, () => {
+               sarFen.onmouseenter = _event => {
+                  sarFen.src = `https://cdn.nuzzles.dev/games/super-animal-royale/emotes/animations/monkey_dance.webp`;
+                  if (hasStartedPlayback) {
+                     music.play(id);
+                  } else {
+                     id = music.play();
+                     hasStartedPlayback = true;
+                  };
+               };
+            });
+
+            sarFen.onmouseleave = _event => {
+               if (music.playing(id) || music.state() === `loading`) {
+                  sarFen.src = `https://cdn.nuzzles.dev/games/super-animal-royale/emotes/animations/idle.webp`;
+                  music.pause(id);
                };
             };
-
-            sarFen.onmouseleave = () => {
-               sarFen.src = `https://cdn.nuzzles.dev/games/super-animal-royale/emotes/animations/idle.webp`;
-               music.pause(id);
-            };            
          });
       </script>
 
