@@ -46,61 +46,6 @@
             100% { opacity: 75%; }
          }
 
-         @-webkit-keyframes spin {
-            0%   { transform: rotate(  0deg); }
-            100% { transform: rotate(360deg); }
-         }
-         
-         @-moz-keyframes spin {
-            0%   { transform: rotate(  0deg); }
-            100% { transform: rotate(360deg); }
-         }
-
-         @-ms-keyframes spin {
-            0%   { transform: rotate(  0deg); }
-            100% { transform: rotate(360deg); }
-         }
-
-         @-o-keyframes spin {
-            0%   { transform: rotate(  0deg); }
-            100% { transform: rotate(360deg); }
-         }
-
-         @keyframes spin {
-            0%   { transform: rotate(  0deg); }
-            100% { transform: rotate(360deg); }
-         }
-
-         @-webkit-keyframes scale {
-            0%   { scale: 1; }
-            50%  { scale: 1.5; }
-            100% { scale: 1; }
-         }
-
-         @-moz-keyframes scale {
-            0%   { scale: 1; }
-            50%  { scale: 1.5; }
-            100% { scale: 1; }
-         }
-
-         @-o-keyframes scale {
-            0%   { scale: 1; }
-            50%  { scale: 1.5; }
-            100% { scale: 1; }
-         }
-
-         @-ms-keyframes scale {
-            0%   { scale: 1; }
-            50%  { scale: 1.5; }
-            100% { scale: 1; }
-         }
-
-         @keyframes scale {
-            0%   { scale: 1; }
-            50%  { scale: 1.5; }
-            100% { scale: 1; }
-         }
-
          .media-corner-border:has(.slideshow), .media-corner-border a:has(.slideshow), .media-corner-border:has(.time-lapse), .media-corner-border a:has(.time-lapse) {
             display: grid;
             grid-template-areas: "stack";
@@ -152,20 +97,12 @@
             filter: brightness(75%);
          }
 
-         #bleach {
+         #metal-zone-nuclear-reactor {
             position: sticky;
             z-index: 2;
          }
 
-         #bleach:hover {
-            -webkit-animation: spin 0.125s linear infinite, scale 1s infinite;
-            -moz-animation: spin 0.125s linear infinite, scale 1s infinite;
-            -ms-animation: spin 0.125s linear infinite, scale 1s infinite;
-            -o-animation: spin 0.125s linear infinite, scale 1s infinite;
-            animation: spin 0.125s linear infinite, scale 1s infinite;
-         }
-
-         #bleach-background {
+         #metal-zone-fire {
             -webkit-animation: fade 30s linear;
             -moz-animation: fade 30s linear;
             -o-animation: fade 30s linear;
@@ -190,6 +127,7 @@
       <script src="/assets/scripts/cutie.js"></script>
       <script src="/assets/scripts/footer.js"></script>
       <script src="/assets/scripts/modal.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
       <script>
          window.addEventListener(`load`, () => {
             const hash = window.location.hash.slice(1);
@@ -374,18 +312,39 @@
             };
          });
 
-         window.addEventListener(`load`, () => {
-            const bleachMusic = document.getElementById(`bleach-music`);
-            bleachMusic.volume = 0.5;
-            const bleachBackground = document.getElementById(`bleach-background`);
-            const bleach = document.getElementById(`bleach`);
-            bleach.onmouseenter = _event => {
-               bleachMusic.play();
-               bleachBackground.style.display = `block`;
-            };
-            bleach.onmouseleave = _event => {
-               bleachMusic.pause();
-               bleachBackground.style.display = `none`;
+         window.addEventListener(`load`, async () => {
+            const music = new Howl({
+               src: [ `https://cdn.nuzzles.dev/audio/music/organic.mp3` ],
+               autoplay: false,
+               loop: true,
+               preload: true
+            });
+
+            let hasStartedPlayback = false;
+            let id;
+
+            const metalZoneNuclearReactor = document.getElementById(`metal-zone-nuclear-reactor`);
+            const metalZoneFire = document.getElementById(`metal-zone-fire`);
+
+            music.once(`load`, () => {
+               metalZoneNuclearReactor.onmouseenter = _event => {
+                  metalZoneNuclearReactor.src = `https://cdn.nuzzles.dev/friends/metal-zone/nuclear_reactor_on.webp`;
+                  if (hasStartedPlayback) {
+                     music.play(id);
+                     metalZoneFire.style.display = `block`;
+                  } else {
+                     id = music.play();
+                     hasStartedPlayback = true;
+                  };
+               };
+            });
+
+            metalZoneNuclearReactor.onmouseleave = _event => {
+               if (music.playing(id) || music.state() === `loading`) {
+                  metalZoneNuclearReactor.src = `https://cdn.nuzzles.dev/friends/metal-zone/nuclear_reactor_off.webp`;
+                  music.pause(id);
+                  metalZoneFire.style.display = `none`;
+               };
             };
          });
       </script>
@@ -397,10 +356,7 @@
    <body>
 
 
-      <img id="bleach-background" src="https://cdn.nuzzles.dev/miscellaneous/fire.webp"></img>
-
-
-      <audio id="bleach-music" src="https://cdn.nuzzles.dev/audio/music/organic.mp3" hidden loop preload="auto"></audio>
+      <img id="metal-zone-fire" src="https://cdn.nuzzles.dev/friends/metal-zone/fire.webp"></img>
 
 
       <div class="centre">
@@ -1417,7 +1373,7 @@
 
 
                   <a href="https://metalzone.straw.page" target="_blank">
-                     <img id="bleach" style="float: right; width: 3em" src="https://cdn.nuzzles.dev/friends/bleach.webp" draggable="false"/>
+                     <img id="metal-zone-nuclear-reactor" style="float: right; width: 3em" src="https://cdn.nuzzles.dev/friends/metal-zone/nuclear_reactor_off.webp" draggable="false"/>
                   </a>
 
 
