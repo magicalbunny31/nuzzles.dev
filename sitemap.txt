@@ -3,8 +3,6 @@ https://nuzzles.dev/about/
 https://nuzzles.dev/about/characters
 https://nuzzles.dev/about/deerie
 https://nuzzles.dev/art/
-https://nuzzles.dev/bluesky/
-https://nuzzles.dev/bluesky/deerie
 https://nuzzles.dev/dev/
 https://nuzzles.dev/dev/aviflight558/
 https://nuzzles.dev/dev/aviflight558/github
@@ -43,7 +41,6 @@ https://nuzzles.dev/discord
 https://nuzzles.dev/fwends
 https://nuzzles.dev/github
 https://nuzzles.dev/ko-fi
-https://nuzzles.dev/roblox
 https://nuzzles.dev/royale.pet
 https://nuzzles.dev/steam
 https://nuzzles.dev/telegram
