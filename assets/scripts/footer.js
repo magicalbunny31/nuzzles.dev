@@ -1927,7 +1927,15 @@ window.addEventListener(`load`, () => {
       `MATING PRESS, NOW`,
       `i want this twink *obliterated* ! MATING PRESS`,
       `there are federal agents outside my house`,
-      `machines don't care how much you cum`
+      `machines don't care how much you cum`,
+      `goonscrolling`,
+      `paws off, bud`,
+      `there's no time to explain, get on the swan`,
+      `bro this looks NOTHING like disneyland`,
+      `WHAT KIND OF "wrong turn" LANDS US ON A FUCKING ISLAND`,
+      `one year of beating heartbreak furever`,
+      `deer is the animal of faggots`,
+      `WE GOT AUDITED`
    ];
 
    const text = texts[Math.floor(Math.random() * texts.length)];
