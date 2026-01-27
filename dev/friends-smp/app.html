@@ -16,7 +16,7 @@
       <meta name    ="theme-color"  content="#3498db"/>
       <meta property="og:site_name" content="nuzzles.dev/dev/friends-smp/app"/>
       <meta name    ="title"        content="friends' smp"/>
-      <meta name    ="description"  content="an app representing the smp"/>
+      <meta name    ="description"  content="an app representing the friends' smp"/>
       <meta property="og:image"     content="https://cdn.nuzzles.dev/socials/discord/apps/avatars/friends_smp_app.webp"/>
 
       <meta property="og:type"  content="website"/>
@@ -68,7 +68,7 @@
                         friends' smp
                      </h1>
 
-                     <p>an app representing the smp</p>
+                     <p>an app representing the friends' smp</p>
 
                      <div class="media-corner-border" id="banner-border" style="margin-top: 6em;">
                         <video class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/banners/friends_smp_app.mp4" title="friends' smp" draggable="false" autoplay loop muted></video>
@@ -88,38 +88,91 @@
                      <p>
                         friends' smp (code name
                         "<code>friends-smp-app</code>")
-                        is an app for my survival minecraft server open to my, well, friends!
+                        is an app for my invite-only
+                        <u>s</u>urvival <u>m</u>ulti<u>p</u>layer
+                        minecraft server: open to my friend group!
                      </p>
 
                      <h3>
-                        ❓ what does friends' smp do?
+                        ❓ what does friends' smp app do?
                      </h3>
 
                      <ul>
+                        <li>the ability to view general information about the minecraft server from the minecraft server's related discord community</li>
+                        <li>have commands for quick links to each command's respective resources</li>
                         <li>
-                           to view info about the server info, including:
-                           <ul>
-                              <li>server ip(s)</li>
-                              <li>
-                                 server
-                                 <a href="https://wikipedia.org/wiki/Message_of_the_day" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/wikipedia.png" alt="wikipedia logo" title="wikipedia" draggable="false"/> message of the day</a>
-                              </li>
-                              <li>
-                                 connected players
-                              </li>
-                           </ul>
+                           trivial and fun commands to build community rapport
+                           <span class="info">seriously? that's incredibly mawkish..</span>
                         </li>
-                        <li>it also looks kewl</li>
                         <li>
-                           there were meant to be other plans with the app back when the minecraft server has plugins and/or mods
-                           <ul>
-                              <li>
-                                 an example of this was uploading images from discord to the minecraft server for an
-                                 <a href="https://dev.bukkit.org/projects/imagemaps" target="_blank">ImageMaps</a>
-                                 plugin
-                              </li>
-                           </ul>
+                           providing private (pre-signed) download links (to those within the minecraft server's related discord community) to the backups of the server (of which the backup files are published via
+                           <code>friends-smp-backups</code>)
                         </li>
+                     </ul>
+
+                     <h3>
+                        🗃️ the friends' smp universe is quite large
+                     </h3>
+
+                     <ul>
+                        there's a lot of tools that make up friends' smp!
+                        <ul>
+                           <li>
+                              <code>friends-smp</code>:
+                              the minecraft server itself, running on
+                              <a href="https://papermc.io/"><img class="emoji" src="https://cdn.nuzzles.dev/logos/paper.png" alt="paper logo" title="paper" draggable="false"/> papermc</a>
+                           </li>
+                           <li>
+                              <code>friends-smp-map</code>:
+                              a web-based map of the server running
+                              <a href="https://bluemap.bluecolored.de/"><img class="emoji" src="https://cdn.nuzzles.dev/logos/bluemap.png" alt="bluemap logo" title="bluemap" draggable="false"/> bluemap</a>,
+                              running on
+                              <a href="https://www.cloudflare.com" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/cloudflare.png" alt="cloudflare logo" title="cloudflare" draggable="false"/> cloudflare</a>
+                              <a href="https://developers.cloudflare.com/workers" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/compute_and_ai.png" alt="cloudflare compute & ai logo" title="cloudflare compute & ai" draggable="false"/> workers</a>
+                              with
+                              <a href="https://www.cloudflare.com" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/cloudflare.png" alt="cloudflare logo" title="cloudflare" draggable="false"/> cloudflare</a>
+                              <a href="https://developers.cloudflare.com/r2" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/storage_and_databases.png" alt="cloudflare storage & databases logo" title="cloudflare storage & databases" draggable="false"/> r2</a>
+                              bindings
+                           </li>
+                           <li>
+                              <code>friends-smp-status</code>:
+                              a monitoring tool for the server's resources using
+                              <a href="https://uptimekuma.org/"><img class="emoji" src="https://cdn.nuzzles.dev/logos/uptime_kuma.png" alt="uptime kuma logo" title="uptime kuma" draggable="false"/> uptime kuma</a>
+                           </li>
+                           <li>
+                              <code>friends-smp-backups</code>:
+                              a simple cron-scheduled
+                              <a href="https://www.python.org" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/python.png" alt="python logo" title="python" draggable="false"/> python</a>
+                              backup script for the minecraft server and
+                              <code>friends-smp-map</code>
+                           </li>
+                           <li>
+                              <code>friends-smp-worlds</code>:
+                              wiki pages, hosted using
+                              <a href="https://otterwiki.com/" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/an_otter_wiki.png" alt="an otter wiki logo" title="an otter wiki" draggable="false"/> an otter wiki</a>,
+                              providing information about the backup files published via
+                              <code>friends-smp-backups</code>
+                              and hosting lore and screenshots of the past worlds of friends' smp
+                           </li>
+                           <li>
+                              <code>friends-smp-app</code>:
+                              a
+                              <a href="https://discord.com/" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> discord</a>
+                              app based on
+                              <a href="https://discord.com/developers/docs/interactions/receiving-and-responding" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> interactions via http-based outgoing webhooks</a>
+                              running on
+                              <a href="https://www.cloudflare.com" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/cloudflare.png" alt="cloudflare logo" title="cloudflare" draggable="false"/> cloudflare</a>
+                              <a href="https://developers.cloudflare.com/workers" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/compute_and_ai.png" alt="cloudflare compute & ai logo" title="cloudflare compute & ai" draggable="false"/> workers</a>
+                              <ul>
+                                 <li>
+                                    this app is (and always
+                                    <em>has</em>
+                                    been) my first app using
+                                    <a href="https://discord.com/developers/docs/interactions/receiving-and-responding" target="_blank"><img class="emoji" src="https://cdn.nuzzles.dev/logos/discord.png" alt="discord logo" title="discord" draggable="false"/> interactions via http-based outgoing webhooks</a>!
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
                      </ul>
 
                      <h3>
@@ -127,8 +180,62 @@
                      </h3>
 
                      <ul>
-                        <li>no, it's only for my irl (and close) friends</li>
+                        <li>no</li>
                      </ul>
+
+                  </div>
+               </div>
+
+
+               <div class="large-corner-border">
+                  <div class="large-border box">
+
+                     <h2>
+                        <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/national_park.webp" alt="national park" title=":national_park:" draggable="false"/>
+                        media
+                     </h2>
+
+                     <div class="row">
+                        <div class="column">
+                           <div class="media-corner-border">
+                              <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/server.webp" target="_blank">
+                                 <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/server.webp" alt="" title="" draggable="false" loading="lazy"/>
+                              </a>
+                           </div>
+                           <div class="media-corner-border">
+                              <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/mob-fox.mp4" target="_blank">
+                                 <video class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/mob-fox.mp4" title="" draggable="false" autoplay loop muted></video>
+                              </a>
+                           </div>
+                           <div class="media-corner-border">
+                              <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/status.webp" target="_blank">
+                                 <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/status.webp" alt="" title="" draggable="false" loading="lazy"/>
+                              </a>
+                           </div>
+                           <div class="media-corner-border">
+                              <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/friends-smp-worlds-past-worlds.webp" target="_blank">
+                                 <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/friends-smp-worlds-past-worlds.webp" alt="" title="" draggable="false" loading="lazy"/>
+                              </a>
+                           </div>
+                        </div>
+                        <div class="column">
+                           <div class="media-corner-border">
+                              <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/skin.webp" target="_blank">
+                                 <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/skin.webp" alt="" title="" draggable="false" loading="lazy"/>
+                              </a>
+                           </div>
+                           <div class="media-corner-border">
+                              <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/roll.webp" target="_blank">
+                                 <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/roll.webp" alt="" title="" draggable="false" loading="lazy"/>
+                              </a>
+                           </div>
+                           <div class="media-corner-border">
+                              <a href="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/friends-smp-worlds-weekly-backups.webp" target="_blank">
+                                 <img class="border" src="https://cdn.nuzzles.dev/socials/discord/apps/media/friends-smp-app/friends-smp-worlds-weekly-backups.webp" alt="" title="" draggable="false" loading="lazy"/>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
 
                   </div>
                </div>
