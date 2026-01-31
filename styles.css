@@ -177,6 +177,27 @@ a:hover:not(.button, .large-button, .footer-item) {
 
 
 
+/* anchors */
+
+.anchor {
+   background-color: currentColor;
+   display: inline-block;
+   height: 1em;
+   margin-left: 0.25em;
+   -webkit-mask-image: url("https://cdn.nuzzles.dev/emojis/font-awesome/link.svg");
+   mask-image: url("https://cdn.nuzzles.dev/emojis/font-awesome/link.svg");
+   -webkit-mask-repeat: no-repeat;
+   mask-repeat: no-repeat;
+   -webkit-mask-size: contain;
+   mask-size: contain;
+   -webkit-user-drag: none;
+   user-select: none;
+   vertical-align: middle;
+   width: 1em;
+}
+
+
+
 /* images */
 
 .circle-border {
