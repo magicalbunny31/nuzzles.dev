@@ -1935,7 +1935,8 @@ window.addEventListener(`load`, () => {
       `WHAT KIND OF "wrong turn" LANDS US ON A FUCKING ISLAND`,
       `one year of beating heartbreak furever`,
       `deer is the animal of faggots`,
-      `WE GOT AUDITED`
+      `WE GOT AUDITED`,
+      `when i'm not sure where you are i look up at the stars`
    ];
 
    const text = texts[Math.floor(Math.random() * texts.length)];
