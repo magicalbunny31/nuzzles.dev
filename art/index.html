@@ -131,9 +131,9 @@
       <script>
          window.addEventListener(`load`, () => {
             const hash = window.location.hash.slice(1);
-            const buttonId = [ `2024-furry-art`, `2023-furry-art`, `2022-furry-art`, `2021-furry-art`, `2020-furry-art`, `2019-furry-art` ].includes(hash)
+            const buttonId = [ `2025-furry-art`, `2024-furry-art`, `2023-furry-art`, `2022-furry-art`, `2021-furry-art`, `2020-furry-art`, `2019-furry-art` ].includes(hash)
                ? hash
-               : `2025-furry-art`;
+               : `2026-furry-art`;
 
             const button = document.getElementById(buttonId);
             button.classList.add(`disabled`);
@@ -151,9 +151,9 @@
 
          window.addEventListener(`hashchange`, hashChangeEvent => {
             const oldHash = hashChangeEvent.oldURL.split(`#`).at(-1);
-            const oldButtonId = [ `2024-furry-art`, `2023-furry-art`, `2022-furry-art`, `2021-furry-art`, `2020-furry-art`, `2019-furry-art` ].includes(oldHash)
+            const oldButtonId = [ `2025-furry-art`, `2024-furry-art`, `2023-furry-art`, `2022-furry-art`, `2021-furry-art`, `2020-furry-art`, `2019-furry-art` ].includes(oldHash)
                ? oldHash
-               : `2025-furry-art`;
+               : `2026-furry-art`;
 
             const oldButton = document.getElementById(oldButtonId);
             oldButton.classList.remove(`disabled`);
@@ -162,9 +162,9 @@
             oldButtonText.innerHTML = `<strong>${oldButtonText.innerText}</strong>`;
 
             const newHash = hashChangeEvent.newURL.split(`#`).at(-1);
-            const newButtonId = [ `2024-furry-art`, `2023-furry-art`, `2022-furry-art`, `2021-furry-art`, `2020-furry-art`, `2019-furry-art` ].includes(newHash)
+            const newButtonId = [ `2025-furry-art`, `2024-furry-art`, `2023-furry-art`, `2022-furry-art`, `2021-furry-art`, `2020-furry-art`, `2019-furry-art` ].includes(newHash)
                ? newHash
-               : `2025-furry-art`;
+               : `2026-furry-art`;
 
             const newButton = document.getElementById(newButtonId);
             newButton.classList.add(`disabled`);
@@ -428,6 +428,14 @@
 
                         <div class="tab-heading">
                            <div class="corner-border tab-item">
+                              <a class="border button" id="2026-furry-art" href="#2026-furry-art" style="--disabled-colour: #808080;" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
+                                 <div>
+                                    <strong>2026</strong>
+                                 </div>
+                              </a>
+                           </div>
+                           <div class="corner-border tab-item">
                               <a class="border button" id="2025-furry-art" href="#2025-furry-art" style="--disabled-colour: #808080;" draggable="false">
                                  <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/calendar_spiral.webp" alt="calendar spiral" title=":calendar_spiral:" draggable="false"/>
                                  <div>
@@ -490,6 +498,20 @@
                      <hr/>
 
                      <div class="tab-content-0">
+
+                        <div class="content" id="2026-furry-art-content-0">
+
+                           <div class="row">
+                              <div class="column">
+                                 <div class="media-corner-border">
+                                    <video class="border" src="https://cdn.nuzzles.dev/artworks/digital/2026/furry/sfw/sleeping_fox.mp4" title="sleeping fox 💤" draggable="false" autoplay loop muted></video>
+                                 </div>
+                              </div>
+                              <div class="column">
+                              </div>
+                           </div>
+
+                        </div>
 
                         <div class="content" id="2025-furry-art-content-0">
 
