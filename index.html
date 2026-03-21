@@ -71,6 +71,24 @@
             }
          }
 
+         nav {
+            z-index: 1;
+         }
+
+         .navigator {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+         }
+
+         #rip-my-heart {
+            height: calc(100% + 2vw);
+            margin: -1vw -1vw -7.5vw -1vw;
+            position: relative;
+            top: -0.5vw;
+            width: calc(100% + 2vw);
+         }
+
          #magicalbunny31 {
             cursor: pointer;
             display: inline-block;
@@ -190,6 +208,10 @@
          }
 
          @media only screen and (max-width: 750px) {
+            #rip-my-heart {
+               margin: -1vw;
+            }
+
             #magicalbunny31 {
                font-size: calc(2vw + 0.5rem);
             }
@@ -619,55 +641,61 @@
             <nav>
 
 
-               <div class="large-corner-border navigator">
-                  <div class="large-border box">
+               <div class="navigator">
 
-                     <div class="list">
-                        <div class="corner-border">
-                           <a class="border button disabled" draggable="false">
-                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/world_map.webp" alt="world map" title=":world_map:" draggable="false"/>
-                              <em><strong>homepage</strong></em> ✨
-                           </a>
+                  <div class="large-corner-border">
+                     <div class="large-border box">
+
+                        <div class="list">
+                           <div class="corner-border">
+                              <a class="border button disabled" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/world_map.webp" alt="world map" title=":world_map:" draggable="false"/>
+                                 <em><strong>homepage</strong></em> ✨
+                              </a>
+                           </div>
+                           <div class="corner-border">
+                              <a class="border button" href="/about" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/sparkles.webp" alt="sparkles" title=":sparkles:" draggable="false"/>
+                                 <strong>what's a bunny?</strong>
+                              </a>
+                           </div>
+                           <div class="corner-border">
+                              <a class="border button" href="/dev" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
+                                 <strong>dev and apps</strong>
+                              </a>
+                           </div>
+                           <div class="corner-border">
+                              <a class="border button" href="/art" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
+                                 <strong>art and commissions</strong>
+                              </a>
+                           </div>
+                           <div class="corner-border">
+                              <a class="border button" href="/games" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/gamepad.webp" alt="gamepad" title=":gamepad:" draggable="false"/>
+                                 <strong>games</strong>
+                              </a>
+                           </div>
+                           <div class="corner-border">
+                              <a class="border button" href="/bun-daily-fox" target="_blank" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/fox.webp" alt="fox" title=":fox:" draggable="false"/>
+                                 <strong>bun's daily fox 🦊🐾</strong>
+                              </a>
+                           </div>
+                           <div class="corner-border">
+                              <a class="border button" id="cutie" draggable="false">
+                                 <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/no.webp" alt="no entry" title=":no:" draggable="false"/>
+                                 <strong>don't click this ,,</strong>
+                              </a>
+                           </div>
                         </div>
-                        <div class="corner-border">
-                           <a class="border button" href="/about" draggable="false">
-                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/sparkles.webp" alt="sparkles" title=":sparkles:" draggable="false"/>
-                              <strong>what's a bunny?</strong>
-                           </a>
-                        </div>
-                        <div class="corner-border">
-                           <a class="border button" href="/dev" draggable="false">
-                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/robot.webp" alt="robot" title=":robot:" draggable="false"/>
-                              <strong>dev and apps</strong>
-                           </a>
-                        </div>
-                        <div class="corner-border">
-                           <a class="border button" href="/art" draggable="false">
-                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/artist_palette.webp" alt="artist palette" title=":artist_palette:" draggable="false"/>
-                              <strong>art and commissions</strong>
-                           </a>
-                        </div>
-                        <div class="corner-border">
-                           <a class="border button" href="/games" draggable="false">
-                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/gamepad.webp" alt="gamepad" title=":gamepad:" draggable="false"/>
-                              <strong>games</strong>
-                           </a>
-                        </div>
-                        <div class="corner-border">
-                           <a class="border button" href="/bun-daily-fox" target="_blank" draggable="false">
-                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/fox.webp" alt="fox" title=":fox:" draggable="false"/>
-                              <strong>bun's daily fox 🦊🐾</strong>
-                           </a>
-                        </div>
-                        <div class="corner-border">
-                           <a class="border button" id="cutie" draggable="false">
-                              <img class="emoji" src="https://cdn.nuzzles.dev/emojis/mutant_standard/no.webp" alt="no entry" title=":no:" draggable="false"/>
-                              <strong>don't click this ,,</strong>
-                           </a>
-                        </div>
+
                      </div>
-
                   </div>
+
+                  <img id="rip-my-heart" src="https://cdn.nuzzles.dev/artworks/digital/2026/furry/sfw/rip_my_heart_transparent_with_frame.webp" alt="a grey fox-wolf laying down on the bottom edge of a frame, with their tail hanging out of the bottom and their footpaws and ears overlapping the frame at the top." title="rip my heart (transparent, with frame) 💔" draggable="false" loading="lazy"/>
+
                </div>
 
 
