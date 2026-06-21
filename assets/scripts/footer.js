@@ -596,7 +596,7 @@ window.addEventListener(`load`, () => {
       `why was 2012 ten years ago`,
       `the serial edger`,
       `i have no idea what i'm coding`,
-      `the ruben sim lawsuit bullshit should be fucking dropped immediately`,
+      // `the ruben sim lawsuit bullshit should be fucking dropped immediately`, // nah dog
       `dinuguan ay awesome`,
       `long live the rebellion!`,
       `you're just like pop music~ 🎶`,
