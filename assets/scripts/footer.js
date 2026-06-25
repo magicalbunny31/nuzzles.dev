@@ -2041,7 +2041,10 @@ window.addEventListener(`load`, () => {
       `🎶 i got close and i dread what is down down down....`,
       `don't smile for a pawjob`,
       `good boys don't cum`,
-      `i'm so pumped for autumn i'm gunna fill my ass with leaves`
+      `i'm so pumped for autumn i'm gunna fill my ass with leaves`,
+      `i'm a fucking pillow`,
+      `wtf is normal about furries`,
+      `let's not give up just yet`
    ];
 
    const text = texts[Math.floor(Math.random() * texts.length)];
