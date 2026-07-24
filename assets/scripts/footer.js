@@ -930,7 +930,7 @@ window.addEventListener(`load`, () => {
       `"th-that's not FOOD i-i need SUSTENANCE i need something FILLING!!" i mean i can fill you up~ úwù`,
       `awh you're so submissive, good job~`,
       `if you ever feel safe just remember that i am out there`,
-      `i am NOT cute, i am MEAN, i am VISCOUS and I'LL RIP YOUR FUCKING HEAD OFF`,
+      `i am NOT cute, i am MEAN, i am VICIOUS and I'LL RIP YOUR FUCKING HEAD OFF`,
       `thank you for the memories, chat~ 2018-2022 🕯️🫐`,
       `h-hewwo everybunny? the foomd hewe is vewwy good and the chimken salad sandwiches make my tummy go UwU`,
       `..and you can sit on it!`,
@@ -2044,7 +2044,25 @@ window.addEventListener(`load`, () => {
       `i'm so pumped for autumn i'm gunna fill my ass with leaves`,
       `i'm a fucking pillow`,
       `wtf is normal about furries`,
-      `let's not give up just yet`
+      `let's not give up just yet`,
+      `he may be morally bankrupt but....that bank account speaks for itself`,
+      `he seems to be enjoying your cute whimpering~`,
+      `🐾 on me ?`,
+      `stupid dog bro`,
+      `i wasn't too hungry but i ate the entire pizza anyway`,
+      `enjoy my musky paws, you freak~`,
+      `see that's a joke because he's the top`,
+      `anyway, that's how i ALMOST got pregnant`,
+      `BOYS WHAT ARE WE DOING OUT THERE WE LOOK LIKE A BUNCH OF PIGEONS`,
+      `shower with me next time, or stop whining :3c`,
+      `i'm in love with a fox`,
+      `paw.. what? i didn't know my paws were employed..`,
+      `🎶 would i be a good boywife at all?`,
+      `i am NOT looking respectfully, i am drooling`,
+      `my fangs look good in your neck :3`,
+      `look at my maw. do it. do it now.`,
+      `doggy style means i get the treat after, right?`,
+      `IT'S MEEEEEEEE I'M THE GOOD BOYYY`
    ];
 
    const text = texts[Math.floor(Math.random() * texts.length)];
