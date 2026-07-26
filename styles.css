@@ -654,3 +654,10 @@ a img {
       width: 100% !important;
    }
 }
+
+
+@media (prefers-reduced-motion: reduce) {
+   body {
+      animation: none;
+   }
+}
