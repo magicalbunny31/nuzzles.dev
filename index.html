@@ -180,23 +180,84 @@
             width: 25.5em;
          }
 
-         .flair-group {
+         .flair-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            column-gap: 0.2em;
-            row-gap: 0.2em;
-            padding-bottom: 0.2em;
+            flex-direction: column;
+            gap: 8px;
+            opacity: 0;
+            overflow: hidden;
+            user-select: none;
+            width: 100%;
          }
 
-         .flair {
-            image-rendering: pixelated;
+         .flair-container.is-loaded {
+            opacity: 1;
+         }
+
+         .flair-row {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+         }
+
+         .flair-track {
+            display: flex;
+            gap: 6px;
             width: max-content;
          }
 
-         a:has(.flair):hover {
+         .flair-track img {
+            display: block;
+            image-rendering: pixelated;
+            width: unset;
+         }
+
+         .flair-row#buttons img, #magicalbunny31-button img {
+            height: 31px;
+            width: 88px;
+         }
+
+         .flair-row#blinkies img {
+            height: 20px;
+            width: 150px;
+         }
+
+         .flair-row#stamps img {
+            height: 56px;
+            width: 99px;
+         }
+
+         .flair-row:hover .flair-track {
+            animation-play-state: paused;
+         }
+
+         .flair-track a:hover, #magicalbunny31-button a:hover img {
             scale: 110%;
             filter: brightness(90%);
+         }
+
+         @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+         }
+
+         @keyframes scrollRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+         }
+
+         .scroll-left .flair-track {
+            animation: scrollLeft var(--scroll-duration, 20s) linear infinite;
+         }
+
+         .scroll-right .flair-track {
+            animation: scrollRight var(--scroll-duration, 20s) linear infinite;
+         }
+
+         @media (prefers-reduced-motion: reduce) {
+            .flair-track {
+               animation: none !important;
+            }
          }
 
          #email {
@@ -304,6 +365,7 @@
       </script>
       <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <script src="/assets/scripts/flair.js"></script>
 
 
    </head>
@@ -716,9 +778,9 @@
                      <img style="bottom: 0; margin: 0 1em 1em 0; position: absolute; right: 0; width: 2em;" src="https://cdn.nuzzles.dev/emojis/mutant_standard/revolving_hearts.webp" alt="revolving hearts" title=":revolving_hearts:" draggable="false"/>
                   </a>
 
-                  <div class="flair-group" id="magicalbunny31-button">
+                  <div id="magicalbunny31-button">
                      <a href="/" title="mb31">
-                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/buttons/mb31.gif" alt="mb31" title="mb31" draggable="false"/>
+                        <img src="https://cdn.nuzzles.dev/flairs/buttons/mb31.gif" alt="mb31" title="mb31" draggable="false"/>
                      </a>
                      <span>
                         <span class="popup" id="magicalbunny31-button-popup">copied to your clipboard :3</span>
@@ -726,47 +788,9 @@
                      </span>
                   </div>
 
-                  <div class="flair-group">
-                     <a href="https://www.tumblr.com/blinky-wings/694703477477212160/rainbow-pronoun-blinkies" title="they/they" target="_blank">
-                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/they_them.gif" alt="they/they" title="they/they" draggable="false"/>
-                     </a>
-                     <a href="https://www.tumblr.com/patches-1105/688767326415405057/blinky-collection-part-16" title="non-binary pride" target="_blank">
-                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/non-binary_pride.gif" alt="non-binary pride" title="non-binary pride" draggable="false"/>
-                     </a>
-                     <a href="https://www.deviantart.com/webmewmew/art/I-am-a-furry-Blinkie-Rainbow-Ver-1-949824886" title="I am a furry" target="_blank">
-                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/i_am_a_furry.gif" alt="I am a furry" title="I am a furry" draggable="false"/>
-                     </a>
-                     <a href="https://www.deviantart.com/smoothborescattergun/art/I-Am-F-Furry-BLINKIE-1013028238" title="I A FUCKIN FURRY :3" target="_blank">
-                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/i_am_fuckin_furry_3.gif" alt="I A FUCKIN FURRY :3" title="I A FUCKIN FURRY :3" draggable="false"/>
-                     </a>
-                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/trans_rights.gif" alt="TRANS RIGHTS" title="TRANS RIGHTS" draggable="false"/>
-                     <a href="https://www.tumblr.com/dragoncalabro/739853416563605504" title="ARTIST" target="_blank">
-                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/artist.gif" alt="ARTIST" title="ARTIST" draggable="false"/>
-                     </a>
-                     <a href="https://www.deviantart.com/webmewmew/art/Nyan-Cat-Blinkie-Ver-1-1024391733" title="Nyan Cat" target="_blank">
-                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/nyan_cat.gif" alt="Nyan Cat" title="Nyan Cat" draggable="false"/>
-                     </a>
-                     <a href="https://www.tumblr.com/star-flowerr/701374087108427777/blinkies-yeah" title="gender isn't even real" target="_blank">
-                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/gender_isnt_even_real.gif" alt="gender isn't even real" title="gender isn't even real" draggable="false"/>
-                     </a>
-                     <a href="https://tenor.com/en-GB/view/rainbow-dash-mlp-blinkie-gif-15528055070481731584" title="AWESOME" target="_blank">
-                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/awesome.gif" alt="AWESOME" title="AWESOME" draggable="false"/>
-                     </a>
-                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/minecraft_vegetarian.gif" alt="MINECRAFT VEGETARIAN" title="MINECRAFT VEGETARIAN" draggable="false"/>
-                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/i_like_fish.gif" alt="i like fish" title="i like fish" draggable="false"/>
-                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/blinkies/armed_with_estrogen.gif" alt="Armed With Estrogen" title="Armed With Estrogen" draggable="false"/>
-                  </div>
-
-                  <div class="flair-group">
-                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/lapfox.png" alt="LAPFOX" title="LAPFOX" draggable="false"/>
-                     <a href="https://www.deviantart.com/saturnzquark/art/Lapfox-stamp-TQBF-950810906" title="THE QUICK BROWN FOX" target="_blank">
-                        <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/the_quick_brown_fox.png" alt="THE QUICK BROWN FOX" title="THE QUICK BROWN FOX" draggable="false"/>
-                     </a>
-                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/renard.png" alt="RENARD" title="RENARD" draggable="false"/>
-                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/negaren.png"  alt="NEGAREN" title="NEGAREN" draggable="false"/>
-                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/squeedge.png" alt="squeedgemonster" title="squeedgemonster" draggable="false"/>
-                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/emoticon.png" alt="EMOTICON" title="EMOTICON" draggable="false"/>
-                     <img class="flair" src="https://cdn.nuzzles.dev/flairs/stamps/tqbf.png" alt="TQBF" title="TQBF" draggable="false"/>
+                  <div class="flair-container">
+                     <div class="flair-row" id="blinkies"></div>
+                     <div class="flair-row" id="stamps"></div>
                   </div>
 
                   <div class="info" style="margin-top: 0.75em;">
