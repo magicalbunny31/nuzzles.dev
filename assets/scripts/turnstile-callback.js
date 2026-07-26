@@ -1,4 +1,4 @@
-function turnstileCallback(token) {
+const turnstileCallback = token => {
    const user = `hewwo`;
    const domain = `nuzzles.dev`;
 
