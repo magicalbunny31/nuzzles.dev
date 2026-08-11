@@ -2062,7 +2062,20 @@ window.addEventListener(`load`, () => {
       `my fangs look good in your neck :3`,
       `look at my maw. do it. do it now.`,
       `doggy style means i get the treat after, right?`,
-      `IT'S MEEEEEEEE I'M THE GOOD BOYYY`
+      `IT'S MEEEEEEEE I'M THE GOOD BOYYY`,
+      `being reminded of what i lost when that lock clicked shut`,
+      `the protogens were here first `,
+      `since they came in without clothes, i guess they were expecting it?`,
+      `what a good boy you are~`,
+      `you already know this is his favourite position`,
+      `bro does NOT put the mid in humid`,
+      `FREE HUGS / fluffy pillow / pre-heated and ready`,
+      `awww i know bottom denial when i see it`,
+      `attention span of a piece of cardboard`,
+      `fun fact: clickers also work for foxes! that's why i instantly glanced at you.... `,
+      `i wanna know your bottom diet cus i wanna eat what you eat so i can bottom better`,
+      `you're doing great....but do you *have* to give me the 'tism stare?`,
+      `i'm not gay" i thought to myself but that's when i was handed 20 dollars by the creature`,
    ];
 
    const text = texts[Math.floor(Math.random() * texts.length)];
@@ -2073,7 +2086,7 @@ window.addEventListener(`load`, () => {
 
    // changes the text on the footer of pages using splash text on click
    splash.onclick = (() => {
-      const [ text ] = texts.sort(() => .5 - Math.random());
+      const [text] = texts.sort(() => .5 - Math.random());
       splash.innerText = text;
    });
 
