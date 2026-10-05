@@ -2102,7 +2102,20 @@ window.addEventListener(`load`, () => {
       `not only do we have paws, we're good at using them~`,
       `EAT GRASS....and uh, SHOW ASS`,
       `i'm cuter than the cats`,
-      `too short for the ceiling ropes 3:`
+      `too short for the ceiling ropes 3:`,
+      `accepting this cute new identity just like that isn't so bad either, isn't it? :3`,
+      `i am the key to the lock in your house`,
+      `<<<<<<< EVIL TWINK`,
+      `WHAT DO YOU MEAN YOU LOST THE KEY`,
+      `IDIOT vampire thinks there's blood in my visor`,
+      `SNAP OUT OF IT !! IT WAS JUST A KISS !!`,
+      `GO FIND YOUR SPARK // GO FIND YOUR FLAME`,
+      `nuzzling bro's bulge until i feel a wet spot form`,
+      `quit starin at me bro >~<`,
+      `THE MOON MAKES ME FEEL STRONGER`,
+      `all of you, horny freaks,,, and that's okay ;3`,
+      `fuckkk i'd love to be on a leash and forced to do whatever i'm tolddd.., >~<`,
+      `cage my worthless dick and force me to watch you jerk off.. @/////@`
    ];
 
    const text = texts[Math.floor(Math.random() * texts.length)];
