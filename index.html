@@ -286,7 +286,6 @@
       <script src="/assets/scripts/cutie.js"></script>
       <script src="/assets/scripts/footer.js"></script>
       <script src="/assets/scripts/modal.js"></script>
-      <script src="/assets/scripts/turnstile-callback.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
       <script>
          window.addEventListener(`load`, () => {
@@ -361,7 +360,29 @@
                   popup.style.opacity = `0`;
                }, 1500);
             });
-         })
+         });
+
+         window.turnstileCallback = token => {
+            const user = `hewwo`; // bruh, why am i hiding this with cloudflare turnstile if it's here "-w-
+            const domain = `nuzzles.dev`;
+
+            const email = document.getElementById(`email`);
+            email.href = `mailto:${user}@${domain}`;
+
+            const emailText = document.getElementById(`email-text`);
+            emailText.innerText = `${user}@${domain}`;
+
+            const turnstileContainer = document.getElementById(`turnstile-container`);
+            $(turnstileContainer).fadeOut(2_000, `swing`, () => {
+
+               email.style.display = ``;
+               email.removeAttribute(`id`);
+
+               const hiddenElements = document.getElementsByClassName(`hidden-for-email-turnstile`);
+               for (const hiddenElement of hiddenElements)
+                  $(hiddenElement).fadeIn(1_000);
+            });
+         };
       </script>
       <script id="discord:component-embed" type="application/json">
          {
