@@ -2115,7 +2115,10 @@ window.addEventListener(`load`, () => {
       `THE MOON MAKES ME FEEL STRONGER`,
       `all of you, horny freaks,,, and that's okay ;3`,
       `fuckkk i'd love to be on a leash and forced to do whatever i'm tolddd.., >~<`,
-      `cage my worthless dick and force me to watch you jerk off.. @/////@`
+      `cage my worthless dick and force me to watch you jerk off.. @/////@`,
+      `fish fursuiters with their FAT tails flopping around zomg`,
+      `i have pawtism`,
+      `my opponent cannot know my strategy if i do not know my strategy`
    ];
 
    const text = texts[Math.floor(Math.random() * texts.length)];
