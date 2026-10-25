@@ -2126,7 +2126,7 @@ window.addEventListener(`load`, () => {
 
    // changes the text on the footer of pages using splash text on click
    splash.onclick = (() => {
-      const [text] = texts.sort(() => .5 - Math.random());
+      const text = texts[Math.floor(Math.random() * texts.length)];
       splash.innerText = text;
    });
 
