@@ -2118,7 +2118,8 @@ window.addEventListener(`load`, () => {
       `cage my worthless dick and force me to watch you jerk off.. @/////@`,
       `fish fursuiters with their FAT tails flopping around zomg`,
       `i have pawtism`,
-      `my opponent cannot know my strategy if i do not know my strategy`
+      `my opponent cannot know my strategy if i do not know my strategy`,
+      `life is better in thigh highs`
    ];
 
    const text = texts[Math.floor(Math.random() * texts.length)];
