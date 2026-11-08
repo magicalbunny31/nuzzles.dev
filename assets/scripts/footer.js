@@ -2119,7 +2119,22 @@ window.addEventListener(`load`, () => {
       `fish fursuiters with their FAT tails flopping around zomg`,
       `i have pawtism`,
       `my opponent cannot know my strategy if i do not know my strategy`,
-      `life is better in thigh highs`
+      `life is better in thigh highs`,
+      `uwaah..`,
+      `don't be shy....i know you like it,, perv~`,
+      `you're too weak, stupid shark. gunna lie here and take it?`,
+      `s-shut up,, ghh~`,
+      `are you sure you're not the faggot?~`,
+      `ohh? what's that?~ can't hear youuu~`,
+      `seems like you've just given up fighting back.. guess i'll just claim what's mine~`,
+      `ffuckk put ur knot in my tight littl maw >/////<`,
+      `🎶 runnin' circles 'round my mind....and still i staaaaay....`,
+      `being vored is the key to all my problems?`,
+      `moan my name when you cum`,
+      `if i had a tail it would wag every time i see u`,
+      `you'll have to catch me first ! run run run as fast as you can can't catch me i'm the gingerbread man`,
+      `trick or twink 🎃`,
+      `BELLY`
    ];
 
    const text = texts[Math.floor(Math.random() * texts.length)];
